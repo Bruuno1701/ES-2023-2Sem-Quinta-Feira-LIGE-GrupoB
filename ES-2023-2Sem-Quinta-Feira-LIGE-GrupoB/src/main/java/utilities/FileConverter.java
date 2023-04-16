@@ -11,6 +11,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -18,68 +19,63 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
-public class FileConverter {
+public class FileConverter
+{
 
     public static File csvTojson(File csvFile, String path) throws IOException
     {
-//		String fileName = csvFile.getName();
-//		if (fileName.substring(fileName.lastIndexOf(".") + 1).equals("json"))
-//			return csvFile;
-//		Path csvPath = Paths.get(csvFile.getAbsolutePath());
-
 	File jsonFile = new File(path);
-	PrintWriter writer = new PrintWriter(jsonFile,Charset.forName("UTF-8"));
-	System.out.println("ficheiro criado");
+	PrintWriter writer = new PrintWriter(jsonFile, Charset.forName("UTF-8"));
 
 	CSVParser csvParser = CSVParser.parse(csvFile, Charset.forName("UTF-8"),
 		CSVFormat.DEFAULT.withFirstRecordAsHeader().withDelimiter(';'));
+	List<CSVRecord> records = csvParser.getRecords();
 	List<String> headers = csvParser.getHeaderNames();
 	writer.println("[");
-	for (CSVRecord record : csvParser)
+	for (int i = 0; i < records.size(); i++)
 	{
-	    writer.println("\t{");
+	    CSVRecord record = records.get(i);
+	    writer.println(" {");
 	    List<String> list = record.toList();
-	    for (int i = 0; i < list.size(); i++)
+	    list.removeAll(Arrays.asList("", null));
+	    for (int j = 0; j < list.size(); j++)
 	    {
-		if (i != list.size() - 1)
+		String value = list.get(j);
+		String header = headers.get(j);
+		if (j != list.size() - 1)
 		{
-		    writer.println("\t\t\"" + headers.get(i) + "\": \"" + list.get(i) + "\",");
+		    writer.println("   \"" + header + "\": \"" + value + "\",");
 		}
 		else
 		{
-		    writer.println("\t\t\"" + headers.get(i) + "\": \"" + list.get(i) + "\"");
+		    writer.println("   \"" + header + "\": \"" + value + "\"");
 		}
 	    }
-	    if (csvParser.getRecordNumber() != csvParser.getRecordNumber())
+	    if (i != records.size() - 1)
 	    {
-		writer.println("\t},");
+		writer.println(" },");
 	    }
 	    else
 	    {
-		writer.println("\t}");
+		writer.println(" }");
 	    }
 	}
 
-	writer.println("]");
+	writer.print("]");
 	try
 	{
 	    return jsonFile;
 	}
 	finally
 	{
-	    csvParser.close();
 	    writer.close();
+	    csvParser.close();
 	}
     }
 
     public static File JSONtoCSV(File jsonFile, String path)
     {
 	return null;
-    }
-
-    public static void main(String[] args) throws Exception
-    {
-	csvTojson(new File("src/test/resources/horario_exemplo.csv"), "lalal.json");
     }
 
 }
