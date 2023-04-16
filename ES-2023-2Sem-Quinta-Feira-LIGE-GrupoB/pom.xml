@@ -3,4 +3,8 @@
   <groupId>pt.iscte-iul.ista</groupId>
   <artifactId>ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+  <sonar.organization>bruuno1701</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
 </project>
