@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 
 import utilities.FileConverter;
 
@@ -15,7 +16,14 @@ public class TimeTable {
 	}
 	
 	public void saveAsJSON(String path) {
-		FileConverter.CSVtoJSON(file, path);
+		try
+		{
+		    FileConverter.csvTojson(file, path);
+		} catch (IOException e)
+		{
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+		}
 	}
 	
 	public void saveAsCSV(String path) {
