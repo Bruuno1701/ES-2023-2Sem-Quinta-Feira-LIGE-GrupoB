@@ -27,6 +27,6 @@ public class TimeTable {
 	}
 	
 	public void saveAsCSV(String path) {
-		FileConverter.JSONtoCSV(file, path);
+		FileConverter.JSONtoCSV(path, pathFinal);
 	}
 }
