@@ -12,6 +12,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -19,13 +20,28 @@ import org.json.JSONTokener;
 public class FileConverter
 {
 
-    public static File csvTojson(File csvFile, String path) throws IOException
+    /**
+     * @author filipa
+     * Devolve um ficheiro json resultante da conversão de um ficheiro csv.
+     *
+     * @param csvPath  caminho para o ficheiro csv a ser convertido
+     * @param jsonPath caminho onde o ficheiro json resultante da conversão deve ser
+     *                 guardado
+     * @return o ficheiro json resultante da conversão
+     * @throws IOException
+     */
+    public static File csvTojson(String csvPath, String jsonPath) throws IOException
     {
-	File jsonFile = new File(path);
+	File csvFile = new File(csvPath);
+	System.out.println(FilenameUtils.getExtension(csvPath));
+	if (!FilenameUtils.getExtension(csvPath).equals("csv"))
+	    return csvFile;
+
+	File jsonFile = new File(jsonPath);
 	PrintWriter writer = new PrintWriter(jsonFile, Charset.forName("UTF-8"));
 
 	CSVParser csvParser = CSVParser.parse(csvFile, Charset.forName("UTF-8"),
-		CSVFormat.DEFAULT.withFirstRecordAsHeader().withDelimiter(';'));
+		CSVFormat.DEFAULT.withFirstRecordAsHeader().builder().setDelimiter(';').build());
 	List<CSVRecord> records = csvParser.getRecords();
 	List<String> headers = csvParser.getHeaderNames();
 	writer.println("[");
@@ -70,7 +86,7 @@ public class FileConverter
 	}
     }
 
-    public static File JSONtoCSV(String path, String pathFinal)
+    public static File jsonTocsv(String path, String pathFinal)
     {
 	File f = new File(path);
 	String jsonString;
@@ -81,10 +97,10 @@ public class FileConverter
 	try
 	{
 	    jsonString = FileUtils.readFileToString(f, "UTF-8");
-	    JSONTokener token = new JSONTokener(jsonString); 
+	    JSONTokener token = new JSONTokener(jsonString);
 	    horario = new JSONObject(token);
 
-	    JSONArray documento = new JSONArray().put(horario); 
+	    JSONArray documento = new JSONArray().put(horario);
 
 	    List<String> estrutura = new ArrayList<String>();
 
@@ -109,7 +125,7 @@ public class FileConverter
 
 		String csvString = String.format("%s, %s, %s, %s, %d, %s, %s, %s, %s, %s, %d", curso, unidadeCurricular,
 			turno, turma, inscritosNoTurno, diaDaSemana, horaInicioAula, horaFimAula, dataAula,
-			salaAtribuida, lotacaoDaSala); 
+			salaAtribuida, lotacaoDaSala);
 		estrutura.add(csvString);
 	    }
 

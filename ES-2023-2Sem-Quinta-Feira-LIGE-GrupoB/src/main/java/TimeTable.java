@@ -18,7 +18,7 @@ public class TimeTable {
 	public void saveAsJSON(String path) {
 		try
 		{
-		    FileConverter.csvTojson(file, path);
+		    FileConverter.csvTojson(file.getAbsolutePath(), path);
 		} catch (IOException e)
 		{
 		    // TODO Auto-generated catch block
@@ -27,6 +27,6 @@ public class TimeTable {
 	}
 	
 	public void saveAsCSV(String path) {
-		FileConverter.JSONtoCSV(path, pathFinal);
+		FileConverter.jsonTocsv(file.getAbsolutePath(), path);
 	}
 }
