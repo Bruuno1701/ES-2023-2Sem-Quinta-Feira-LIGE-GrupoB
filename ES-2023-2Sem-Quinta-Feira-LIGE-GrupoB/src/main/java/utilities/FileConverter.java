@@ -70,7 +70,7 @@ public class FileConverter
 	}
     }
 
-    public static File JSONtoCSV(String path)
+    public static File JSONtoCSV(String path, String pathFinal)
     {
 	File f = new File(path);
 	String jsonString;
@@ -113,7 +113,7 @@ public class FileConverter
 		estrutura.add(csvString);
 	    }
 
-	    file = new File("output.csv");
+	    file = new File(pathFinal, "output.csv");
 	    FileUtils.writeLines(file, estrutura);
 	} catch (Exception e)
 	{
