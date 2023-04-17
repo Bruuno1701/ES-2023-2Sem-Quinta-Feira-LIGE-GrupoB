@@ -81,10 +81,10 @@ public class FileConverter
 	try
 	{
 	    jsonString = FileUtils.readFileToString(f, "UTF-8");
-	    JSONTokener token = new JSONTokener(jsonString); // vai buscar ao objeto JSON o array a converter
+	    JSONTokener token = new JSONTokener(jsonString); 
 	    horario = new JSONObject(token);
 
-	    JSONArray documento = new JSONArray().put(horario); // coloca o objeto num array
+	    JSONArray documento = new JSONArray().put(horario); 
 
 	    List<String> estrutura = new ArrayList<String>();
 
@@ -109,7 +109,7 @@ public class FileConverter
 
 		String csvString = String.format("%s, %s, %s, %s, %d, %s, %s, %s, %s, %s, %d", curso, unidadeCurricular,
 			turno, turma, inscritosNoTurno, diaDaSemana, horaInicioAula, horaFimAula, dataAula,
-			salaAtribuida, lotacaoDaSala); // converte o array JSON numa string CSV
+			salaAtribuida, lotacaoDaSala); 
 		estrutura.add(csvString);
 	    }
 
@@ -122,10 +122,4 @@ public class FileConverter
 	return file;
 
     }
-
-    public static File JSONtoCSV(File jsonFile, String path)
-    {
-	return null;
-    }
-
 }
