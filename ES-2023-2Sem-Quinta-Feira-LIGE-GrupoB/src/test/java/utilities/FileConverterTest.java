@@ -30,13 +30,11 @@ public class FileConverterTest
     @Test
     public void testjsonTocsv() throws IOException
     {
-	Path convertedCsvPath = Paths.get(FileConverter.jsonTocsv("scr/test/resources/horario.exemplo.json",
-		"src/test/resources/horario_exemplo_convertido.csv").getAbsolutePath());
-	Path csvPath = Paths.get("src/test/resources/horario_exemplo.csv");
-	System.out.println(Files.mismatch(convertedCsvPath, csvPath));
-	assert (Files.mismatch(convertedCsvPath, csvPath) == -1);
-	convertedCsvPath = Paths.get(FileConverter.jsonTocsv("scr/test/resources/horario.exemplo.json",
-		"src/test/resources/horario_exemplo_convertido.csv").getAbsolutePath());
-	assert (Files.mismatch(convertedCsvPath, csvPath) == -1);
+	Path convertedCsvPath = Paths.get(FileConverter.jsonTocsv("scr/test/resources/horario.exemplo.json", "src/test/resources/horario_exemplo_convertido.csv").getAbsolutePath());
+		Path csvPath = Paths.get("src/test/resources/horario_exemplo.csv");
+		System.out.println(Files.mismatch(convertedCsvPath, csvPath));
+		assert(Files.mismatch(convertedCsvPath, csvPath)==-1);
+		convertedCsvPath = Paths.get(FileConverter.jsonTocsv("scr/test/resources/horario.exemplo.json", "src/test/resources/horario_exemplo_convertido.csv").getAbsolutePath());
+		assert(Files.mismatch(convertedCsvPath, csvPath)==-1);
     }
 }
