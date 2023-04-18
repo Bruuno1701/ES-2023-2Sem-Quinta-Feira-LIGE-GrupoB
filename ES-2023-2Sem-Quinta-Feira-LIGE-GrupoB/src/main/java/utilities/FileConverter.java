@@ -133,7 +133,7 @@ public class FileConverter
 		estrutura.add(csvString);
 	    }
 
-	    file = new File(pathFinal, "output.csv");
+	    file = new File(pathFinal, "horario_exemplo_convertido.csv");
 	    FileUtils.writeLines(file, estrutura);
 	} catch (Exception e)
 	{
