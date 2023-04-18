@@ -22,12 +22,12 @@ public class FileConverter
 
     /**
      * @author filipa
-     * Devolve um ficheiro json resultante da convers„o de um ficheiro csv.
+     * Devolve um ficheiro json resultante da convers√£o de um ficheiro csv.
      *
      * @param csvPath  caminho para o ficheiro csv a ser convertido
-     * @param jsonPath caminho onde o ficheiro json resultante da convers„o deve ser
+     * @param jsonPath caminho onde o ficheiro json resultante da convers√£o deve ser
      *                 guardado
-     * @return o ficheiro json resultante da convers„o
+     * @return o ficheiro json resultante da convers√£o
      * @throws IOException
      */
     public static File csvTojson(String csvPath, String jsonPath) throws IOException
@@ -89,6 +89,10 @@ public class FileConverter
     public static File jsonTocsv(String path, String pathFinal)
     {
 	File f = new File(path);
+	    
+	if (!FilenameUtils.getExtension(jsonPath).equals("json"))
+		    return f;
+	    
 	String jsonString;
 
 	JSONObject horario;
