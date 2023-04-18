@@ -20,10 +20,10 @@ import utilities.FileConverter;
 public class TimeTableTest
 {
 
-    private static final String HORARIO_CSV = "src/test/resources/horario_exemplo.csv";
-    private static final String HORARIO_JSON = "src/test/resources/horario_exemplo.json";
-    private static final String HORARIO_CSV_CONVERTIDO_JSON = "src/test/resources/horario_exemplo_convertido.json";
-    private static final String HORARIO_JSON_CONVERTIDO_CSV = "src/test/resources/horario_exemplo_convertido.csv";
+    private static final String HORARIO_CSV = "src/test/resources/horario_exemplo1.csv";
+    private static final String HORARIO_JSON = "src/test/resources/horario_exemplo2.json";
+    private static final String HORARIO_CSV_CONVERTIDO_JSON = "src/test/resources/";		///horario_exemplo_convertido.json
+    private static final String HORARIO_JSON_CONVERTIDO_CSV = "src/test/resources/";		///horario_exemplo_convertido.csv
 
     /**
      * Test method for {@link TimeTable#TimeTable(java.lang.String)}.
@@ -35,10 +35,10 @@ public class TimeTableTest
 	{
 	    new TimeTable(HORARIO_JSON);
 	    new TimeTable(HORARIO_CSV);
-	    new TimeTable("src/test/resources/horario_exemplo_dowload.json",
-		    "https://github.com/filipafranco/projeto/blob/main/horario_exemplo.json");
-	    new TimeTable("src/test/resources/horario_exemplo_dowload.csv",
-		    "https://github.com/filipafranco/projeto/blob/main/horario_exemplo.csv");
+	    new TimeTable("https://github.com/filipafranco/projeto/blob/main/horario_exemplo.json",
+	    		HORARIO_CSV_CONVERTIDO_JSON);
+	    new TimeTable("https://github.com/filipafranco/projeto/blob/main/horario_exemplo.csv",
+	    		HORARIO_JSON_CONVERTIDO_CSV);
 	} catch (Exception e)
 	{
 	    fail(e.getMessage());
@@ -56,14 +56,16 @@ public class TimeTableTest
 	TimeTable timetable = new TimeTable(HORARIO_CSV);
 	timetable.saveAsJSON(HORARIO_CSV_CONVERTIDO_JSON);
 	Path jsonpath = Paths.get(HORARIO_JSON);
-	Path convertedJsonPath = Paths.get(HORARIO_CSV_CONVERTIDO_JSON);
+	Path convertedJsonPath = timetable.getFile().toPath();
+	//Path convertedJsonPath = Paths.get(HORARIO_CSV_CONVERTIDO_JSON);
 	assert (Files.mismatch(convertedJsonPath, jsonpath) == -1);
-	
-	timetable = new TimeTable("src/test/resources/horario_exemplo_dowload.csv",
-		    "https://github.com/filipafranco/projeto/blob/main/horario_exemplo.csv");
+
+	timetable = new TimeTable("https://github.com/filipafranco/projeto/blob/main/horario_exemplo.csv",
+			HORARIO_CSV_CONVERTIDO_JSON);
 	timetable.saveAsJSON(HORARIO_CSV_CONVERTIDO_JSON);
 	jsonpath = Paths.get(HORARIO_JSON);
-	convertedJsonPath = Paths.get(HORARIO_CSV_CONVERTIDO_JSON);
+	convertedJsonPath = timetable.getFile().toPath();
+	//convertedJsonPath = Paths.get(HORARIO_CSV_CONVERTIDO_JSON);
 	assert (Files.mismatch(convertedJsonPath, jsonpath) == -1);
     }
 
@@ -76,9 +78,10 @@ public class TimeTableTest
     public void testSaveAsCSV() throws IOException
     {
 	TimeTable timetable = new TimeTable(HORARIO_JSON);
-	timetable.saveAsJSON(HORARIO_JSON_CONVERTIDO_CSV);
+	timetable.saveAsCSV(HORARIO_JSON_CONVERTIDO_CSV);
 	Path csvpath = Paths.get(HORARIO_CSV);
-	Path convertedJsonPath = Paths.get(HORARIO_JSON_CONVERTIDO_CSV);
+	//Path convertedJsonPath = Paths.get(HORARIO_JSON_CONVERTIDO_CSV);
+	Path convertedJsonPath = timetable.getFile().toPath();
 	
 	assert (Files.mismatch(convertedJsonPath, csvpath) == -1);
     }

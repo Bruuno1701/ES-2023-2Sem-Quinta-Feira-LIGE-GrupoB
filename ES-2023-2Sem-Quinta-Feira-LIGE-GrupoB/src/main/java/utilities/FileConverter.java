@@ -37,7 +37,10 @@ public class FileConverter
 	if (!FilenameUtils.getExtension(csvPath).equals("csv"))
 	    return csvFile;
 
-	File jsonFile = new File(jsonPath);
+	//pedro - acrescentei esta linha e o campo nome só para testar, nesta função é melhor receber um nome para atribuir ao ficheiro
+	//a primeira + a segunda linha criam um file na diretoria "directory" com o nome "nome"
+	File directory = new File(jsonPath);
+	File jsonFile = new File(directory,"nome");
 	PrintWriter writer = new PrintWriter(jsonFile, Charset.forName("UTF-8"));
 
 	CSVParser csvParser = CSVParser.parse(csvFile, Charset.forName("UTF-8"),
