@@ -20,6 +20,10 @@ public class FileConverterTest {
 		assert(Files.mismatch(convertedJsonPath, jsonPath)==-1);
 		convertedJsonPath = Paths.get(FileConverter.csvTojson("src/test/resources/horario_exemplo.json", "src/test/resources/horario_exemplo_convertido.json").getAbsolutePath());
 		assert(Files.mismatch(convertedJsonPath, jsonPath)==-1);
-	}
-
+		
+		Path convertedCsvPath = Paths.get(FileConverter.jsonTocsv("scr/test/resources/horario.exemplo.json", "src/test/resources/horario_exemplo_convertido.csv").getAbsolutePath());
+		Path csvPath = Paths.get("src/test/resources/horario_exemplo.csv");
+		System.out.println(Files.mismatch(convertedCsvPath, csvPath));
+		assert(Files.mismatch(convertedCsvPath, csvParg)==-1);
+	
 }
