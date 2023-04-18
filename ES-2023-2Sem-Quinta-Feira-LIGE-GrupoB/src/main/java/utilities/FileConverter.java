@@ -86,9 +86,9 @@ public class FileConverter
 	}
     }
 
-    public static File jsonTocsv(String path, String pathFinal)
+    public static File jsonTocsv(String jsonPath, String csvPath)
     {
-	File f = new File(path);
+	File f = new File(jsonPath);
 	    
 	if (!FilenameUtils.getExtension(jsonPath).equals("json"))
 		    return f;
@@ -133,7 +133,7 @@ public class FileConverter
 		estrutura.add(csvString);
 	    }
 
-	    file = new File(pathFinal, "horario_exemplo_convertido.csv");
+	    file = new File(csvPath, "horario_exemplo_convertido.csv");
 	    FileUtils.writeLines(file, estrutura);
 	} catch (Exception e)
 	{
