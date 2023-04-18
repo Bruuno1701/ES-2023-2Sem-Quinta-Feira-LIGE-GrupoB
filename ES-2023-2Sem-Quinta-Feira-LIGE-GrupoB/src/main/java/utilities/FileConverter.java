@@ -119,15 +119,15 @@ public class FileConverter
 		String unidadeCurricular = object.getString("unidadeCurricular");
 		String turno = object.getString("turno");
 		String turma = object.getString("turma");
-		int inscritosNoTurno = object.getInt("inscritosNoTurno");
+		String inscritosNoTurno = object.getString("inscritosNoTurno");
 		String diaDaSemana = object.getString("diaDaSemana");
 		String horaInicioAula = object.getString("horaInicioAula");
 		String horaFimAula = object.getString("horaFimAula");
 		String dataAula = object.getString("dataAula");
 		String salaAtribuida = object.getString("salaAtribuida");
-		int lotacaoDaSala = object.getInt("lotacaoDaSala");
+		String lotacaoDaSala = object.getString("lotacaoDaSala");
 
-		String csvString = String.format("%s, %s, %s, %s, %d, %s, %s, %s, %s, %s, %d", curso, unidadeCurricular,
+		String csvString = String.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s", curso, unidadeCurricular,
 			turno, turma, inscritosNoTurno, diaDaSemana, horaInicioAula, horaFimAula, dataAula,
 			salaAtribuida, lotacaoDaSala);
 		estrutura.add(csvString);
