@@ -22,12 +22,12 @@ public class FileConverter
 
     /**
      * @author filipa
-     * Devolve um ficheiro json resultante da convers�o de um ficheiro csv.
+     * Devolve um ficheiro json resultante da conversão de um ficheiro csv.
      *
      * @param csvPath  caminho para o ficheiro csv a ser convertido
-     * @param jsonPath caminho onde o ficheiro json resultante da convers�o deve ser
+     * @param jsonPath caminho onde o ficheiro json resultante da conversão deve ser
      *                 guardado
-     * @return o ficheiro json resultante da convers�o
+     * @return o ficheiro json resultante da conversão
      * @throws IOException
      */
     public static File csvTojson(String csvPath, String jsonPath) throws IOException
@@ -89,9 +89,13 @@ public class FileConverter
 	}
     }
 
-    public static File jsonTocsv(String path, String pathFinal)
+    public static File jsonTocsv(String jsonPath, String csvPath)
     {
-	File f = new File(path);
+	File f = new File(jsonPath);
+	    
+	if (!FilenameUtils.getExtension(jsonPath).equals("json"))
+		    return f;
+	    
 	String jsonString;
 
 	JSONObject horario;
@@ -114,25 +118,25 @@ public class FileConverter
 	    {
 		JSONObject object = documento.getJSONObject(i);
 
-		String curso = object.getString("curso");
-		String unidadeCurricular = object.getString("unidadeCurricular");
-		String turno = object.getString("turno");
-		String turma = object.getString("turma");
-		int inscritosNoTurno = object.getInt("inscritosNoTurno");
-		String diaDaSemana = object.getString("diaDaSemana");
-		String horaInicioAula = object.getString("horaInicioAula");
-		String horaFimAula = object.getString("horaFimAula");
-		String dataAula = object.getString("dataAula");
-		String salaAtribuida = object.getString("salaAtribuida");
-		int lotacaoDaSala = object.getInt("lotacaoDaSala");
+		String curso = object.getString("Curso");
+		String unidadeCurricular = object.getString("Unidade Curricular");
+		String turno = object.getString("Turno");
+		String turma = object.getString("Turma");
+		String inscritosNoTurno = object.getString("Inscritos no turno");
+		String diaDaSemana = object.getString("Dia da semana");
+		String horaInicioAula = object.getString("Hora início da aula");
+		String horaFimAula = object.getString("Hora fim da aula");
+		String dataAula = object.getString("Data da aula");
+		String salaAtribuida = object.getString("Sala atribuída à aula");
+		String lotacaoDaSala = object.getString("Lotação da sala");
 
-		String csvString = String.format("%s, %s, %s, %s, %d, %s, %s, %s, %s, %s, %d", curso, unidadeCurricular,
+		String csvString = String.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s", curso, unidadeCurricular,
 			turno, turma, inscritosNoTurno, diaDaSemana, horaInicioAula, horaFimAula, dataAula,
 			salaAtribuida, lotacaoDaSala);
 		estrutura.add(csvString);
 	    }
 
-	    file = new File(pathFinal, "output.csv");
+	    file = new File(csvPath, "horario_exemplo_convertido.csv");
 	    FileUtils.writeLines(file, estrutura);
 	} catch (Exception e)
 	{
