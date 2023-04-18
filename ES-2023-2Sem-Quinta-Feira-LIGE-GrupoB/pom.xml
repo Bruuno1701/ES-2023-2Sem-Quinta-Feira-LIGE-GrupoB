@@ -3,13 +3,13 @@
   <groupId>pt.iscte-iul.ista</groupId>
   <artifactId>ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
   <dependencies>
-  	<dependency>
-    <groupId>org.apache.commons</groupId>
-    <artifactId>commons-csv</artifactId>
-    <version>1.10.0</version>
-	</dependency>
-
+	  	<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-csv</artifactId>
+		    <version>1.10.0</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
 			<groupId>org.json</groupId>
