@@ -1,20 +1,27 @@
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.io.FileUtils;
 import java.io.FileInputStream;
 import java.io.DataOutputStream;
 
+
 import utilities.FileConverter;
 
-public class TimeTable
-{
+public class TimeTable{
+	
     private File file;
 
+    /**
+     * @author pedro
+     * Construtor da class recebe uma string path para carregar o ficheiro 
+     * 
+     * @param path caminho (path) para o ficheiro pretendido
+     */
     public TimeTable(String path)
     {
 	try
@@ -26,90 +33,108 @@ public class TimeTable
 	    System.out.println("Erro ao criar a TimeTable");
 	}
     }
-
-    public TimeTable(String path, String URL)
+    
+    /**
+     * @author pedro
+     * Construtor da class recebe uma string path para carregar o ficheiro e 
+     * uma string para guardar o ficheiro
+     * 
+     * @param path caminho para o ficheiro pretendido, pode ser um diretório ou URL
+     * @param localDirectory caminho onde vai ser guardado o ficheiro 
+     */
+    public TimeTable(String path, String localDirectory)
     {
 	try
 	{
-	    this.file = findFile(path, URL);
+	    this.file = findFile(path, localDirectory);
 	} catch (IOException e)
 	{
 	    e.printStackTrace();
 	    System.out.println("Erro ao criar a TimeTable");
 	}
     }
-
+    
+    /**
+     * @author pedro
+     * Se o parâmetro path for um path vai carregar esse ficheiro para a variável local file, caso o path
+     * seja um URL vai carregar o ficheiro do URL e salva-o no path localDirectory
+     *
+     * @param path caminho para o ficheiro pretendido, pode ser diretório ou URL
+     * @param localDirectory caminho onde vai ser guardado o ficheiro 
+     *
+     * @return o file que se carregou
+     */
     private File findFile(String path, String localDirectory) throws IOException
     {
 	File file = null;
-	if (isURL(path) && localDirectory != null)
+	if (isURL(path))
 	{
-	    URL url = new URL(path);
-	    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-	    connection.setRequestMethod("GET");
-	    int responseCode = connection.getResponseCode();
-	    if (responseCode == HttpURLConnection.HTTP_OK)
-	    {
-		String fileName = "";
-		String disposition = connection.getHeaderField("Content-Disposition");
-		if (disposition != null)
+		if(localDirectory == null) 
 		{
-		    int index = disposition.indexOf("filename=");
-		    if (index > 0)
-		    {
-			fileName = disposition.substring(index + 10, disposition.length() - 1);
-		    }
+			System.out.println("erro path url e localdirectory null");
+			return file;
 		}
-		else
-		{
-		    fileName = path.substring(path.lastIndexOf("/") + 1);
-		}
-		File directory = new File(localDirectory);
-		file = new File(directory, fileName);
-		InputStream inputStream = connection.getInputStream();
-		FileUtils.copyInputStreamToFile(inputStream, file);
-		inputStream.close();
-		System.out.println("filename:"+fileName);
-
-	    }
-
+		return downloadFile(path,localDirectory);
 	}
 	else
 	{
+		System.out.println("não url");
 	    file = new File(path);
 	}
 	return file;
     }
-
+    
+    /**
+     * @author filipa
+     * Atualiza o ficheiro da class para a conversão do mesmo no formato JSON
+     *
+     * @param path diretório onde se pretende guardar o ficheiro que vai ser criado ao invocar o convertor
+     *
+     * @return void
+     */
     public void saveAsJSON(String path)
     {
 	try
 	{
-	    FileConverter.csvTojson(file.getAbsolutePath(), path);
-	} catch (IOException e)
+		this.file =FileConverter.csvTojson(file.getAbsolutePath(), path);
+	}catch (IOException e)
 	{
-	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
     }
 
+    /**
+     * @author bruna
+     * Atualiza o ficheiro da class para a conversão do mesmo no formato CSV
+     *
+     * @param path diretório onde se pretende guardar o ficheiro que vai ser criado ao invocar o convertor
+     *
+     * @return void
+     */
     public void saveAsCSV(String path)
     {
-	FileConverter.jsonTocsv(file.getAbsolutePath(), path);
+    	this.file = FileConverter.jsonTocsv(file.getAbsolutePath(), path);
     }
 
+    /**
+     * @author pedro
+     * Guarda o ficheiro local num local passado
+     *
+     * @param Path string que pode ser um URL ou um path onde se prentede guardar o ficheiro da class
+     *
+     * @return void
+     * @throws IOException
+     */
     public void saveFile(String Path) throws IOException
     {
 	if (!isURL(Path))
 	{
 	    File directory = new File(Path);
-	    // Create the directory if it doesn't exist
 	    if (!directory.exists())
 	    {
 		System.err.println("Diretoria não existe");
 		return;
 	    }
-	    // Save the file to the directory
 	    FileUtils.copyFileToDirectory(this.file, directory);
 	}
 	else
@@ -135,6 +160,14 @@ public class TimeTable
 	}
     }
 
+    /**
+     * @author pedro
+     * verifica se a string é um URL
+     *
+     * @param url URL do ficheiro pretendido
+     *
+     * @return true se o parametro for um URL e false caso contrário
+     */
     public boolean isURL(String url)
     {
 	String regex = "^(https?|ftp|file)://.+";
@@ -142,4 +175,38 @@ public class TimeTable
 	Matcher matcher = pattern.matcher(url);
 	return matcher.matches();
     }
+    
+    /**
+     * @author pedro
+     * Faz download de um ficheiro através de um url para uma diretoria
+     *
+     * @param url URL do ficheiro pretendido
+     * @param directory directoria onde o ficheiro vai ser guardado
+     *
+     * @return o ficheiro guardado
+     * @throws IOException
+     */
+    public File downloadFile(String url, String directory) throws IOException 
+    {
+        URL fileUrl = new URL(url);
+        String fileName = fileUrl.getFile().substring(fileUrl.getFile().lastIndexOf('/') + 1);
+        File destinationFile = new File(directory + "/" + fileName);
+        FileUtils.copyURLToFile(fileUrl, destinationFile);
+        String fileContent = FileUtils.readFileToString(destinationFile);
+        fileContent = fileContent.replaceFirst("^\\s+", "");
+        FileUtils.writeStringToFile(destinationFile, fileContent, StandardCharsets.UTF_8);
+        
+        return destinationFile;
+    }
+    
+    /**
+     * @author pedro
+     * Devolve o ficheiro guardado na variável local file.
+     *
+     * @return o ficheiro this.file
+     */
+    public File getFile() {
+    	return this.file;
+    }
+    
 }
