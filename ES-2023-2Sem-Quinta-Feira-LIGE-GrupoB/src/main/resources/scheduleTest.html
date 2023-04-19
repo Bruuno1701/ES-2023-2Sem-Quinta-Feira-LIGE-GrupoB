@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Schedule</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		th, td {
+			border: 1px solid black;
+			padding: 8px;
+			text-align: center;
+		}
+
+		th {
+			background-color: #ddd;
+		}
+
+		td {
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<input type="file" id="fileInput">
+	<button onclick="readFile()">Read File</button>
+	<table id="table">
+		<thead>
+			<tr>
+				<th>Time</th>
+				<th>Monday</th>
+				<th>Tuesday</th>
+				<th>Wednesday</th>
+				<th>Thursday</th>
+				<th>Friday</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>08:00 - 09:00</td>
+				<td id="time0800-0900-seg"></td>
+				<td id="time0800-0900-ter"></td>
+				<td id="time0800-0900-qua"></td>
+				<td id="time0800-0900-qui"></td>
+				<td id="time0800-0900-sex"></td>
+			</tr>
+			<tr>
+				<td>09:00 - 10:00</td>
+				<td id="time0900-1000-seg"></td>
+				<td id="time0900-1000-ter"></td>
+				<td id="time0900-1000-qua"></td>
+				<td id="time0900-1000-qui"></td>
+				<td id="time0900-1000-sex"></td>
+			</tr>
+			<tr>
+				<td>10:00 - 11:00</td>
+				<td id="time1000-1100-seg"></td>
+				<td id="time1000-1100-ter"></td>
+				<td id="time1000-1100-qua"></td>
+				<td id="time1000-1100-qui"></td>
+				<td id="time1000-1100-sex"></td>
+			</tr>
+			<tr>
+				<td>11:00 - 12:00</td>
+				<td id="time1100-1200-seg"></td>
+				<td id="time1100-1200-ter"></td>
+				<td id="time1100-1200-qua"></td>
+				<td id="time1100-1200-qui"></td>
+				<td id="time1100-1200-sex"></td>
+			</tr>
+			<tr>
+				<td>12:00 - 13:00</td>
+				<td id="time1200-1300-seg"></td>
+				<td id="time1200-1300-ter"></td>
+				<td id="time1200-1300-qua"></td>
+				<td id="time1200-1300-qui"></td>
+				<td id="time1200-1300-sex"></td>
+			</tr>
+            <tr>
+                <td>13:00 - 14:00</td>
+                <td id="time1300-1400-seg"></td>
+                <td id="time1300-1400-ter"></td>
+				<td id="time1300-1400-qua"></td>
+				<td id="time1300-1400-qui"></td>
+				<td id="time1300-1400-sex"></td>
+			</tr>
+            <tr>
+                <td>14:00 - 15:00</td>
+                <td id="time1400-1500-seg"></td>
+                <td id="time1400-1500-ter"></td>
+				<td id="time1400-1500-qua"></td>
+				<td id="time1400-1500-qui"></td>
+				<td id="time1400-1500-sex"></td>
+			</tr>
+            <tr>
+                <td>15:00 - 16:00</td>
+                <td id="time1500-1600-seg"></td>
+                <td id="time1500-1600-ter"></td>
+				<td id="time1500-1600-qua"></td>
+				<td id="time1500-1600-qui"></td>
+				<td id="time1500-1600-sex"></td>
+			</tr>
+			<tr>
+                <td>16:00 - 17:00</td>
+                <td id="time1600-1700-seg"></td>
+                <td id="time1600-1700-ter"></td>
+				<td id="time1600-1700-qua"></td>
+				<td id="time1600-1700-qui"></td>
+				<td id="time1600-1700-sex"></td>
+			</tr>
+			<tr>
+				<td>17:00 - 18:00</td>
+				<td id="time1700-1800-seg"></td>
+				<td id="time1700-1800-ter"></td>
+				<td id="time1700-1800-qua"></td>
+				<td id="time1700-1800-qui"></td>
+				<td id="time1700-1800-sex"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script>
+		function readFile() {
+			const fileInput = document.getElementById('fileInput');
+			const file = fileInput.files[0];
+			const reader = new FileReader();
+            document.write("1");
+			reader.onload = () => {
+                document.write("2!");
+				const contents = reader.result;
+				const data = contents.trim().split('\n').map(row => row.split(';'));
+
+				for (let row of data) {
+					const day = row[6];
+					const startTime = row[7];
+					const endTime = row[8];
+					const room = row[10];
+					const capacity = row[11];
+                    document.write(room);
+
+					const startHour = parseInt(startTime.split(':')[0]);
+					const startMinute = parseInt(startTime.split(':')[1]);
+					const endHour = parseInt(endTime.split(':')[0]);
+					const endMinute = parseInt(endTime.split(':')[1]);
+
+					const startSlot = Math.floor((startHour * 60 + startMinute - 480) / 60);
+					const endSlot = Math.floor((endHour * 60 + endMinute - 480) / 60);
+                    document.write(startHour);
+                    document.write(endSlot);
+
+                    document.write(startSlot);
+
+                    
+					for (let slot = startSlot; slot < endSlot; slot++) {
+                        document.write(slot);
+						const td = document.getElementById(`time${(slot + 8).toString().padStart(2, '0')}:00-${day.toLowerCase()}`);
+						td.textContent = `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
+                        document.write("Hello, World!");
+                    }
+					
+				}
+			};
+
+			reader.readAsText(file);
+		}
+	</script>
+</body>
+</html>
