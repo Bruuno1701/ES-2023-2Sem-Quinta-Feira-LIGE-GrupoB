@@ -94,17 +94,13 @@ public class FileConverter
 		    return f;
 	    
 	String jsonString;
-
-	JSONObject horario;
 	File file = null;
 
 	try
 	{
 	    jsonString = FileUtils.readFileToString(f, "UTF-8");
-	    JSONTokener token = new JSONTokener(jsonString);
-	    horario = new JSONObject(token);
 
-	    JSONArray documento = new JSONArray().put(horario);
+	    JSONArray documento = new JSONArray(jsonString);
 
 	    List<String> estrutura = new ArrayList<String>();
 
