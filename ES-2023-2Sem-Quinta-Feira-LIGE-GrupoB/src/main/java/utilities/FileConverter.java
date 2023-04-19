@@ -111,17 +111,17 @@ public class FileConverter
 	    {
 		JSONObject object = documento.getJSONObject(i);
 
-		String curso = object.getString("Curso");
-		String unidadeCurricular = object.getString("Unidade Curricular");
-		String turno = object.getString("Turno");
-		String turma = object.getString("Turma");
-		String inscritosNoTurno = object.getString("Inscritos no turno");
-		String diaDaSemana = object.getString("Dia da semana");
-		String horaInicioAula = object.getString("Hora início da aula");
-		String horaFimAula = object.getString("Hora fim da aula");
-		String dataAula = object.getString("Data da aula");
-		String salaAtribuida = object.getString("Sala atribuída à aula");
-		String lotacaoDaSala = object.getString("Lotação da sala");
+		String curso = object.optString("Curso", "");
+		String unidadeCurricular = object.optString("Unidade Curricular", "");
+		String turno = object.optString("Turno", "");
+		String turma = object.optString("Turma", "");
+		String inscritosNoTurno = object.optString("Inscritos no turno", "");
+		String diaDaSemana = object.optString("Dia da semana", "");
+		String horaInicioAula = object.optString("Hora início da aula", "");
+		String horaFimAula = object.optString("Hora fim da aula", "");
+		String dataAula = object.optString("Data da aula", "");
+		String salaAtribuida = object.optString("Sala atribuída à aula", "");
+		String lotacaoDaSala = object.optString("Lotação da sala", "");
 
 		String csvString = String.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s", curso, unidadeCurricular,
 			turno, turma, inscritosNoTurno, diaDaSemana, horaInicioAula, horaFimAula, dataAula,
