@@ -97,8 +97,11 @@
 	</div>
 	<form action="/timetableimport.java">
   		<input type="file" id="timetableInput" name="filename" accept=".json,.csv"/>
-  		<input type="submit" id="criarHorario" value="Criar horário" disabled>
   		<br><br>
+  		<label>URL do ficheiro:</label>
+  		<input type="url" name="fileurl" id="fileurl" placeholder="https://example.com" pattern="https://.*">
+  		<input type="submit" id="criarHorario" value="Criar horário" disabled>
+  		<br><br><br>
   		<p>Gravar horário:</p>
   		<button id="csvconv" onclick="downloadCSVFile()" disabled>CSV</button>
   		<button id="jsonconv" onclick="downloadJSONFile()" disabled>JSON</button>
@@ -107,16 +110,32 @@
  			const criarHorario = document.getElementById("criarHorario");
  			const csvConv = document.getElementById("csvconv");
  			const jsonConv = document.getElementById("jsonconv");
+ 			const urlInput = document.getElementById("fileurl");
   
   			timetableInput.addEventListener("change", function() {
-    		// Check if a file has been selected
-    		if (timetableInput.files.length > 0) {
-      			// Enable the input elements
-      			criarHorario.disabled = false;
-      			csvConv.disabled = false;
-      			jsonConv.disabled = false;
-    		}
-  		});
+  				const urlValue = urlInput.value;
+  				if (urlValue.endsWith(".csv") || urlValue.endsWith(".json")) {
+  					criarHorario.disabled = false;
+      				csvConv.disabled = false;
+      				jsonConv.disabled = false;
+  				}
+    			// Check if a file has been selected
+    			if (timetableInput.files.length > 0 && timetableInput.files[0].name.endsWith(".json")) {
+      				// Enable the input elements
+      				criarHorario.disabled = false;
+      				csvConv.disabled = false;
+      			}	
+      			if (timetableInput.files.length > 0 && timetableInput.files[0].name.endsWith(".csv")) {
+      				// Enable the input elements
+      				criarHorario.disabled = false;
+      				jsonConv.disabled = false;
+      			}	
+      			else {
+      			    criarHorario.disabled = true;
+      				jsonConv.disabled = true;
+      				csvConv.disabled = true;
+      			}
+  			});
 		</script>
 		<script>
 			function downloadFile() {
