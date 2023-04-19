@@ -28,6 +28,7 @@
 	<input type="file" id="fileInput">
 	<button onclick="readFile()">Read File</button>
 	<table id="table">
+        
 		<thead>
 			<tr>
 				<th>Time</th>
@@ -40,125 +41,282 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>08:00 - 09:00</td>
-				<td id="time0800-0900-seg"></td>
-				<td id="time0800-0900-ter"></td>
-				<td id="time0800-0900-qua"></td>
-				<td id="time0800-0900-qui"></td>
-				<td id="time0800-0900-sex"></td>
-			</tr>
-			<tr>
-				<td>09:00 - 10:00</td>
-				<td id="time0900-1000-seg"></td>
-				<td id="time0900-1000-ter"></td>
-				<td id="time0900-1000-qua"></td>
-				<td id="time0900-1000-qui"></td>
-				<td id="time0900-1000-sex"></td>
-			</tr>
-			<tr>
-				<td>10:00 - 11:00</td>
-				<td id="time1000-1100-seg"></td>
-				<td id="time1000-1100-ter"></td>
-				<td id="time1000-1100-qua"></td>
-				<td id="time1000-1100-qui"></td>
-				<td id="time1000-1100-sex"></td>
-			</tr>
-			<tr>
-				<td>11:00 - 12:00</td>
-				<td id="time1100-1200-seg"></td>
-				<td id="time1100-1200-ter"></td>
-				<td id="time1100-1200-qua"></td>
-				<td id="time1100-1200-qui"></td>
-				<td id="time1100-1200-sex"></td>
-			</tr>
-			<tr>
-				<td>12:00 - 13:00</td>
-				<td id="time1200-1300-seg"></td>
-				<td id="time1200-1300-ter"></td>
-				<td id="time1200-1300-qua"></td>
-				<td id="time1200-1300-qui"></td>
-				<td id="time1200-1300-sex"></td>
+				<td>08:00 - 08:30</td>
+				<td id="time0800-seg"></td>
+				<td id="time0800-ter"></td>
+				<td id="time0800-qua"></td>
+				<td id="time0800-qui"></td>
+				<td id="time0800-sex"></td>
 			</tr>
             <tr>
-                <td>13:00 - 14:00</td>
-                <td id="time1300-1400-seg"></td>
-                <td id="time1300-1400-ter"></td>
-				<td id="time1300-1400-qua"></td>
-				<td id="time1300-1400-qui"></td>
-				<td id="time1300-1400-sex"></td>
-			</tr>
-            <tr>
-                <td>14:00 - 15:00</td>
-                <td id="time1400-1500-seg"></td>
-                <td id="time1400-1500-ter"></td>
-				<td id="time1400-1500-qua"></td>
-				<td id="time1400-1500-qui"></td>
-				<td id="time1400-1500-sex"></td>
-			</tr>
-            <tr>
-                <td>15:00 - 16:00</td>
-                <td id="time1500-1600-seg"></td>
-                <td id="time1500-1600-ter"></td>
-				<td id="time1500-1600-qua"></td>
-				<td id="time1500-1600-qui"></td>
-				<td id="time1500-1600-sex"></td>
+				<td>08:30 - 09:00</td>
+				<td id="time0830-seg"></td>
+				<td id="time0830-ter"></td>
+				<td id="time0830-qua"></td>
+				<td id="time0830-qui"></td>
+				<td id="time0830-sex"></td>
 			</tr>
 			<tr>
-                <td>16:00 - 17:00</td>
-                <td id="time1600-1700-seg"></td>
-                <td id="time1600-1700-ter"></td>
-				<td id="time1600-1700-qua"></td>
-				<td id="time1600-1700-qui"></td>
-				<td id="time1600-1700-sex"></td>
+				<td>09:00 - 9:30</td>
+				<td id="time0900-seg"></td>
+				<td id="time0900-ter"></td>
+				<td id="time0900-qua"></td>
+				<td id="time0900-qui"></td>
+				<td id="time0900-sex"></td>
+			</tr>
+            <tr>
+				<td>09:30 - 10:00</td>
+				<td id="time0930-seg"></td>
+				<td id="time0930-ter"></td>
+				<td id="time0930-qua"></td>
+				<td id="time0930-qui"></td>
+				<td id="time0930-sex"></td>
 			</tr>
 			<tr>
-				<td>17:00 - 18:00</td>
-				<td id="time1700-1800-seg"></td>
-				<td id="time1700-1800-ter"></td>
-				<td id="time1700-1800-qua"></td>
-				<td id="time1700-1800-qui"></td>
-				<td id="time1700-1800-sex"></td>
+				<td>10:00 - 10:30</td>
+				<td id="time1000-seg"></td>
+				<td id="time1000-ter"></td>
+				<td id="time1000-qua"></td>
+				<td id="time1000-qui"></td>
+				<td id="time1000-sex"></td>
+			</tr>
+            <tr>
+				<td>10:30 - 11:00</td>
+				<td id="time1030-seg"></td>
+				<td id="time1030-ter"></td>
+				<td id="time1030-qua"></td>
+				<td id="time1030-qui"></td>
+				<td id="time1030-sex"></td>
+			</tr>
+			<tr>
+				<td>11:00 - 11:30</td>
+				<td id="time1100-seg"></td>
+				<td id="time1100-ter"></td>
+				<td id="time1100-qua"></td>
+				<td id="time1100-qui"></td>
+				<td id="time1100-sex"></td>
+			</tr>
+            <tr>
+				<td>11:30 - 12:00</td>
+				<td id="time1130-seg"></td>
+				<td id="time1130-ter"></td>
+				<td id="time1130-qua"></td>
+				<td id="time1130-qui"></td>
+				<td id="time1130-sex"></td>
+			</tr>
+			<tr>
+				<td>12:00 - 12:30</td>
+				<td id="time1200-seg"></td>
+				<td id="time1200-ter"></td>
+				<td id="time1200-qua"></td>
+				<td id="time1200-qui"></td>
+				<td id="time1200-sex"></td>
+			</tr>
+            <tr>
+				<td>12:30 - 13:00</td>
+				<td id="time1230-seg"></td>
+				<td id="time1230-ter"></td>
+				<td id="time1230-qua"></td>
+				<td id="time1230-qui"></td>
+				<td id="time1230-sex"></td>
+			</tr>
+            <tr>
+                <td>13:00 - 13:30</td>
+                <td id="time1300-seg"></td>
+                <td id="time1300-ter"></td>
+				<td id="time1300-qua"></td>
+				<td id="time1300-qui"></td>
+				<td id="time1300-sex"></td>
+			</tr>
+            <tr>
+                <td>13:30 - 14:00</td>
+                <td id="time1330-seg"></td>
+                <td id="time1330-ter"></td>
+				<td id="time1330-qua"></td>
+				<td id="time1330-qui"></td>
+				<td id="time1330-sex"></td>
+			</tr>
+            <tr>
+                <td>14:00 - 14:30</td>
+                <td id="time1400-seg"></td>
+                <td id="time1400-ter"></td>
+				<td id="time1400-qua"></td>
+				<td id="time1400-qui"></td>
+				<td id="time1400-sex"></td>
+			</tr>
+            <tr>
+                <td>14:30 - 15:00</td>
+                <td id="time1430-seg"></td>
+                <td id="time1430-ter"></td>
+				<td id="time1430-qua"></td>
+				<td id="time1430-qui"></td>
+				<td id="time1430-sex"></td>
+			</tr>
+            <tr>
+                <td>15:00 - 15:30</td>
+                <td id="time1500-seg"></td>
+                <td id="time1500-ter"></td>
+				<td id="time1500-qua"></td>
+				<td id="time1500-qui"></td>
+				<td id="time1500-sex"></td>
+			</tr>
+            <tr>
+                <td>15:30 - 16:00</td>
+                <td id="time1530-seg"></td>
+                <td id="time1530-ter"></td>
+				<td id="time1530-qua"></td>
+				<td id="time1530-qui"></td>
+				<td id="time1530-sex"></td>
+			</tr>
+			<tr>
+                <td>16:00 - 16:30</td>
+                <td id="time1600-seg"></td>
+                <td id="time1600-ter"></td>
+				<td id="time1600-qua"></td>
+				<td id="time1600-qui"></td>
+				<td id="time1600-sex"></td>
+			</tr>
+            <tr>
+                <td>16:30 - 17:00</td>
+                <td id="time1630-seg"></td>
+                <td id="time1630-ter"></td>
+				<td id="time1630-qua"></td>
+				<td id="time1630-qui"></td>
+				<td id="time1630-sex"></td>
+			</tr>
+			<tr>
+				<td>17:00 - 17:30</td>
+				<td id="time1700-seg"></td>
+				<td id="time1700-ter"></td>
+				<td id="time1700-qua"></td>
+				<td id="time1700-qui"></td>
+				<td id="time1700-sex"></td>
+			</tr>
+            <tr>
+				<td>17:30 - 18:00</td>
+				<td id="time1730-seg"></td>
+				<td id="time1730-ter"></td>
+				<td id="time1730-qua"></td>
+				<td id="time1730-qui"></td>
+				<td id="time1730-sex"></td>
+			</tr>
+            <tr>
+				<td>18:00 - 18:30</td>
+				<td id="time1800-seg"></td>
+				<td id="time1800-ter"></td>
+				<td id="time1800-qua"></td>
+				<td id="time1800-qui"></td>
+				<td id="time1800-sex"></td>
+			</tr>
+            <tr>
+				<td>18:30 - 19:00</td>
+				<td id="time1830-seg"></td>
+				<td id="time1830-ter"></td>
+				<td id="time1830-qua"></td>
+				<td id="time1830-qui"></td>
+				<td id="time1830-sex"></td>
+			</tr>
+            <tr>
+				<td>19:00 - 19:30</td>
+				<td id="time1900-seg"></td>
+				<td id="time1900-ter"></td>
+				<td id="time1900-qua"></td>
+				<td id="time1900-qui"></td>
+				<td id="time1900-sex"></td>
+			</tr>
+            <tr>
+				<td>19:30 - 20:00</td>
+				<td id="time1930-seg"></td>
+				<td id="time1930-ter"></td>
+				<td id="time1930-qua"></td>
+				<td id="time1930-qui"></td>
+				<td id="time1930-sex"></td>
+			</tr>
+            <tr>
+				<td>20:00 - 20:30</td>
+				<td id="time2000-seg"></td>
+				<td id="time2000-ter"></td>
+				<td id="time2000-qua"></td>
+				<td id="time2000-qui"></td>
+				<td id="time2000-sex"></td>
+			</tr>
+            <tr>
+				<td>20:30 - 21:00</td>
+				<td id="time2030-seg"></td>
+				<td id="time2030-ter"></td>
+				<td id="time2030-qua"></td>
+				<td id="time2030-qui"></td>
+				<td id="time2030-sex"></td>
+			</tr>
+            <tr>
+				<td>21:00 - 21:30</td>
+				<td id="time2100-seg"></td>
+				<td id="time2100-ter"></td>
+				<td id="time2100-qua"></td>
+				<td id="time2100-qui"></td>
+				<td id="time2100-sex"></td>
+			</tr>
+            <tr>
+				<td>21:30 - 22:00</td>
+				<td id="time2130-seg"></td>
+				<td id="time2130-ter"></td>
+				<td id="time2130-qua"></td>
+				<td id="time2130-qui"></td>
+				<td id="time2130-sex"></td>
 			</tr>
 		</tbody>
 	</table>
-
+    
 	<script>
 		function readFile() {
 			const fileInput = document.getElementById('fileInput');
 			const file = fileInput.files[0];
 			const reader = new FileReader();
-            document.write("1");
 			reader.onload = () => {
-                document.write("2!");
 				const contents = reader.result;
 				const data = contents.trim().split('\n').map(row => row.split(';'));
 
 				for (let row of data) {
-					const day = row[6];
-					const startTime = row[7];
-					const endTime = row[8];
-					const room = row[10];
-					const capacity = row[11];
-                    document.write(room);
+					const day = row[5];
+					const startTime = row[6];
+					const endTime = row[7];
+					const room = row[9];
+					const capacity = row[10];
 
 					const startHour = parseInt(startTime.split(':')[0]);
 					const startMinute = parseInt(startTime.split(':')[1]);
 					const endHour = parseInt(endTime.split(':')[0]);
 					const endMinute = parseInt(endTime.split(':')[1]);
 
-					const startSlot = Math.floor((startHour * 60 + startMinute - 480) / 60);
-					const endSlot = Math.floor((endHour * 60 + endMinute - 480) / 60);
-                    document.write(startHour);
-                    document.write(endSlot);
+					const startSlot = (startHour * 60 + startMinute - 480) / 60;
+					const endSlot = (endHour * 60 + endMinute - 480) / 60;
 
-                    document.write(startSlot);
+                    console.log("hora="+startHour);
+                    console.log("minuto="+startMinute);
+
+                    console.log(startSlot);
+                    console.log(endSlot);
 
                     
-					for (let slot = startSlot; slot < endSlot; slot++) {
-                        document.write(slot);
-						const td = document.getElementById(`time${(slot + 8).toString().padStart(2, '0')}:00-${day.toLowerCase()}`);
+					for (let slot = startSlot; slot < endSlot; slot+=0.5) {
+                        let realHour ;
+                        let realMinute;
+                        console.log(Number.isInteger(slot));
+                        if(Number.isInteger(slot)){
+                            realHour=slot+8;
+                            realMinute=00;
+                        }else{
+                            realHour=slot-0.5+8;
+                            realMinute=30; 
+                        }
+                        console.log(slot);
+                        var teste= "time" + (realHour).toString().padStart(2, '0')+realMinute.toString().padStart(2, '0')+"-"+day.toLowerCase() ;
+
+                        console.log(document.getElementById(teste));
+						const td = document.getElementById(teste);
+
 						td.textContent = `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
-                        document.write("Hello, World!");
+                        console.log("acabou primeira iteração");
                     }
 					
 				}
