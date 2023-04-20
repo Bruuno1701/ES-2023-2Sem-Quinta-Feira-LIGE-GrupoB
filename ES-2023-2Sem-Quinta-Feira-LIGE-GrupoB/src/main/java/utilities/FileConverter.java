@@ -1,6 +1,7 @@
 package utilities;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
@@ -13,6 +14,7 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -89,7 +91,8 @@ public class FileConverter
     public static File jsonTocsv(String jsonPath, String csvPath)
     {
 	File f = new File(jsonPath);
-	    
+//	System.out.println(f.exists());
+	   
 	if (!FilenameUtils.getExtension(jsonPath).equals("json"))
 		    return f;
 	    
@@ -103,8 +106,9 @@ public class FileConverter
 	    JSONArray documento = new JSONArray(jsonString);
 
 	    List<String> estrutura = new ArrayList<String>();
+	    estrutura.add(new String());
 
-	    String cabecalho = ("Curso, Unidade Curricular, Turno, Turma, Inscritos no Turno, Dia da Semana, Hora de Inicio da Aula, Hora Final da Aula, Data da Aula, Sala Atribuida, Lotacao da Sala");
+	    String cabecalho = ("Curso;Unidade Curricular;Turno;Turma;Inscritos no turno;Dia da semana;Hora início da aula;Hora fim da aula;Data da aula;Sala atribuída à aula;Lotação da sala");
 	    estrutura.add(cabecalho);
 
 	    for (int i = 0; i < documento.length(); i++)
@@ -123,14 +127,14 @@ public class FileConverter
 		String salaAtribuida = object.optString("Sala atribuída à aula", "");
 		String lotacaoDaSala = object.optString("Lotação da sala", "");
 
-		String csvString = String.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s", curso, unidadeCurricular,
+		String csvString = String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s", curso, unidadeCurricular,
 			turno, turma, inscritosNoTurno, diaDaSemana, horaInicioAula, horaFimAula, dataAula,
 			salaAtribuida, lotacaoDaSala);
 		estrutura.add(csvString);
 	    }
 
-	    file = new File(csvPath, "horario_exemplo_convertido.csv");
-	    FileUtils.writeLines(file, estrutura);
+	    file = new File(csvPath);
+	    FileUtils.writeStringToFile(file, StringUtils.join(estrutura, "\n"), "UTF-8");   
 	} catch (Exception e)
 	{
 	    e.printStackTrace();
