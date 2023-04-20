@@ -1,10 +1,13 @@
 import static org.junit.Assert.*;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
 import utilities.FileConverter;
@@ -34,19 +37,27 @@ public class TimeTableTest
     @Test
     public void testSaveAsJSON() throws IOException
     {
-    	//TimeTable timetable = new TimeTable(HORARIO_CSV);
-    	//timetable.saveAsJSON(HORARIO_CSV_CONVERTIDO_JSON);
-    	Path jsonpath = Paths.get(HORARIO_JSON);
+    	TimeTable timetable = new TimeTable(HORARIO_CSV);
+    	timetable.saveAsJSON(HORARIO_CSV_CONVERTIDO_JSON);
+    	Path jsonPath = Paths.get(HORARIO_JSON);
     	Path convertedJsonPath = Paths.get(HORARIO_CSV_CONVERTIDO_JSON);
-    	//assert (Files.mismatch(convertedJsonPath, jsonpath) == -1);
+    	BufferedReader bf1 = new BufferedReader(new FileReader(convertedJsonPath.toFile()));
+		BufferedReader bf2 = new BufferedReader(new FileReader(jsonPath.toFile()));
+		
+		assertTrue(IOUtils.contentEqualsIgnoreEOL(bf1, bf2));
 	
-	TimeTable timetable = new TimeTable(
+	timetable = new TimeTable(
 		    "https://raw.githubusercontent.com/Bruuno1701/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/FileConverter/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/src/test/resources/horario_exemplo.csv"
 		    ,DESTINO);
-	System.out.println(timetable.getFile().getAbsolutePath());
-	timetable.saveAsJSON(DESTINO);
-	timetable.saveFile(DESTINO);
-	assert (Files.mismatch(convertedJsonPath, jsonpath) == -1);
+	System.out.println(timetable.getFile().getPath());
+	
+	timetable.saveAsJSON(HORARIO_CSV_CONVERTIDO_JSON);
+	convertedJsonPath = Paths.get(HORARIO_CSV_CONVERTIDO_JSON);
+	System.out.println(convertedJsonPath);
+	System.out.println(jsonPath);
+	bf1 = new BufferedReader(new FileReader(convertedJsonPath.toFile()));
+	assertTrue(IOUtils.contentEqualsIgnoreEOL(bf1, bf2));
+	
     }
 
     /**
@@ -57,25 +68,31 @@ public class TimeTableTest
     @Test
     public void testSaveAsCSV() throws IOException
     {
-	TimeTable timetable = new TimeTable(HORARIO_JSON);
-	timetable.saveAsJSON(DESTINO);
-	Path csvpath = Paths.get(HORARIO_CSV);
-	Path convertedJsonPath = Paths.get(DESTINO);
-	
-	assert (Files.mismatch(convertedJsonPath, csvpath) == -1);
+    	TimeTable timetable = new TimeTable(HORARIO_JSON);
+    	timetable.saveAsCSV(HORARIO_JSON_CONVERTIDO_CSV);
+    	Path csvPath = Paths.get(HORARIO_CSV);
+    	Path convertedCsvPath = Paths.get(HORARIO_JSON_CONVERTIDO_CSV);
+    	BufferedReader bf1 = new BufferedReader(new FileReader(convertedCsvPath.toFile()));
+		BufferedReader bf2 = new BufferedReader(new FileReader(csvPath.toFile()));
+		
+		assertTrue(IOUtils.contentEqualsIgnoreEOL(bf1, bf2));
 	
 	timetable = new TimeTable(
-		    "https://raw.githubusercontent.com/Bruuno1701/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/FileConverter/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/src/test/resources/horario_exemplo.csv"
-			,"src/test/resources/");
-	timetable.saveAsJSON(HORARIO_CSV_CONVERTIDO_JSON);
-	assert (Files.mismatch(convertedJsonPath, csvpath) == -1);
+		    "https://raw.githubusercontent.com/Bruuno1701/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/FileConverter/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/src/test/resources/horario_exemplo.json"
+		    ,DESTINO);
+	System.out.println(timetable.getFile().getAbsolutePath());
+	
+	timetable.saveAsCSV(HORARIO_JSON_CONVERTIDO_CSV);
+	convertedCsvPath = Paths.get(HORARIO_JSON_CONVERTIDO_CSV);
+	bf1 = new BufferedReader(new FileReader(convertedCsvPath.toFile()));
+	assertTrue(IOUtils.contentEqualsIgnoreEOL(bf1, bf2));
     }
     
     
     
     private static final String CSV = "src/test/resources/horario_exemplo.csv";
     private static final String JSON = "src/test/resources/horario_exemplo.json";
-    private static final String DESTINO = "C:\\Users\\Pedro Ferraz\\OneDrive - ISCTE-IUL\\Ambiente de Trabalho\\Iscte\\3º Ano\\2º Semestre\\ES\\Projeto\\testes";
+    private static final String DESTINO = "src/test/resources/";
     private static final String GUARDAR1 = "C:\\Users\\Pedro Ferraz\\OneDrive - ISCTE-IUL\\Ambiente de Trabalho\\Iscte\\3º Ano\\2º Semestre\\ES\\Projeto\\outrosTestes";
     private static final String GUARDAR2 = "https://github.com/Bruuno1701/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/tree/FileConverter/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/src/test/resources";
     
