@@ -31,7 +31,6 @@ public class FileConverter {
 	 */
 	public static File csvTojson(String csvPath, String jsonPath) throws IOException {
 		File csvFile = new File(csvPath);
-		System.out.println(FilenameUtils.getExtension(csvPath));
 		if (!FilenameUtils.getExtension(csvPath).equals("csv"))
 			return csvFile;
 
