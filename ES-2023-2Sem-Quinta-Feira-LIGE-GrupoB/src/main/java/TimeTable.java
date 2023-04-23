@@ -13,6 +13,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.json.JSONArray;
 
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.DataOutputStream;
 
 import utilities.FileConverter;
@@ -39,7 +40,6 @@ public class TimeTable
 	    e.printStackTrace();
 	    System.out.println("Erro ao criar a TimeTable");
 	}
-//	createLessonsList();
     }
 
     /**
@@ -60,7 +60,35 @@ public class TimeTable
 	    e.printStackTrace();
 	    System.out.println("Erro ao criar a TimeTable");
 	}
-//	createLessonsList();
+    }
+
+    public TimeTable(List<Lesson> lessonsList, String path)
+    {
+	this.lessonsList = lessonsList;
+	createFile(path);
+    }
+
+    private void createFile(String path)
+    {
+	String jsonText = "[";
+	for (Lesson lesson : lessonsList)
+	{
+	    jsonText += lesson.toJSONDocument() + "\n";
+	}
+	jsonText +="]";
+	
+	File file = new File(path);
+	
+	try
+	{
+	    FileWriter fw = new FileWriter(file);
+	    fw.write(jsonText);
+	    fw.close();
+	} catch (IOException e)
+	{
+	    throw new IllegalArgumentException("O path passado e inváido");
+	}
+	this.file = file;
     }
 
     /**
@@ -88,7 +116,7 @@ public class TimeTable
 	}
 	else
 	{
-	    System.out.println("n�o url");
+//	    System.out.println("n�o url");
 	    file = new File(path);
 	}
 	return file;
@@ -144,7 +172,7 @@ public class TimeTable
 	    File directory = new File(Path);
 	    if (!directory.exists())
 	    {
-		System.err.println("Diretoria n�o existe "+directory);
+		System.err.println("Diretoria n�o existe " + directory);
 		return;
 	    }
 	    FileUtils.copyFileToDirectory(this.file, directory);
@@ -222,6 +250,8 @@ public class TimeTable
 
     public List<Lesson> getLessonsList()
     {
+	if (lessonsList.isEmpty())
+	    createLessonsList();
 	return new LinkedList<>(lessonsList);
     }
 
@@ -233,7 +263,7 @@ public class TimeTable
 	else if (isCSV())
 	{
 	    String path = file.getAbsolutePath().replace(".csv", ".json");
-	    saveAsJSON(path );
+	    saveAsJSON(path);
 	}
 
 	try
@@ -252,14 +282,25 @@ public class TimeTable
 
     }
 
-    private boolean isJSON()
+    public boolean isJSON()
     {
-	return FilenameUtils.getExtension(file.getName()).equals("json");
+	return "json".equals(FilenameUtils.getExtension(file.getName()));
     }
 
-    private boolean isCSV()
+    public boolean isCSV()
     {
-	return FilenameUtils.getExtension(file.getName()).equals("csv");
+	return "csv".equals(FilenameUtils.getExtension(file.getName()));
+    }
+
+    public TimeTable filterUCs(List<String> ucs, String newTimeTablePath)
+    {
+	List<Lesson> filteredList = new LinkedList<>(lessonsList);
+	for (String uc : ucs)
+	{
+	    filteredList.removeIf(l -> !l.getUnidadeCurricular().equals(uc));
+	}
+
+	return new TimeTable(filteredList,newTimeTablePath);
     }
 
 }

@@ -5,13 +5,20 @@ import org.junit.Test;
 
 public class LessonTest
 {
-    public static final JSONObject JSON_OBJECT = new JSONObject("{\r\n" + "   \"Curso\": \"ME\",\r\n"
-	    + "   \"Unidade Curricular\": \"Teoria dos Jogos e dos Contratos\",\r\n"
-	    + "   \"Turno\": \"01789TP01\",\r\n" + "   \"Turma\": \"MEA1\",\r\n"
-	    + "   \"Inscritos no turno\": \"30\",\r\n" + "   \"Dia da semana\": \"Sex\",\r\n"
-	    + "   \"Hora início da aula\": \"13:00:00\",\r\n" + "   \"Hora fim da aula\": \"14:30:00\",\r\n"
-	    + "   \"Data da aula\": \"02/12/2022\",\r\n" + "   \"Sala atribuída à aula\": \"AA2.25\",\r\n"
-	    + "   \"Lotação da sala\": \"34\"\r\n" + " }");
+    private static final String JSON_TEXT = " {\n"
+    	+ "   \"Curso\": \"ME\",\n"
+    	+ "   \"Unidade Curricular\": \"Teoria dos Jogos e dos Contratos\",\n"
+    	+ "   \"Turno\": \"01789TP01\",\n"
+    	+ "   \"Turma\": \"MEA1\",\n"
+    	+ "   \"Inscritos no turno\": \"30\",\n"
+    	+ "   \"Dia da semana\": \"Sex\",\n"
+    	+ "   \"Hora início da aula\": \"13:00:00\",\n"
+    	+ "   \"Hora fim da aula\": \"14:30:00\",\n"
+    	+ "   \"Data da aula\": \"02/12/2022\",\n"
+    	+ "   \"Sala atribuída à aula\": \"AA2.25\",\n"
+    	+ "   \"Lotação da sala\": \"34\"\n"
+    	+ " }";
+    public static final JSONObject JSON_OBJECT = new JSONObject(JSON_TEXT);
 
     @Test
     public void testLesson()
@@ -102,13 +109,22 @@ public class LessonTest
     public void testIsSobrelotada()
     {
 	assertFalse(new Lesson(JSON_OBJECT).isSobrelotada());
-	assertTrue(new Lesson(new JSONObject("{\r\n" + "   \"Curso\": \"ME\",\r\n"
-	    + "   \"Unidade Curricular\": \"Teoria dos Jogos e dos Contratos\",\r\n"
-	    + "   \"Turno\": \"01789TP01\",\r\n" + "   \"Turma\": \"MEA1\",\r\n"
-	    + "   \"Inscritos no turno\": \"36\",\r\n" + "   \"Dia da semana\": \"Sex\",\r\n"
-	    + "   \"Hora início da aula\": \"13:00:00\",\r\n" + "   \"Hora fim da aula\": \"14:30:00\",\r\n"
-	    + "   \"Data da aula\": \"02/12/2022\",\r\n" + "   \"Sala atribuída à aula\": \"AA2.25\",\r\n"
-	    + "   \"Lotação da sala\": \"34\"\r\n" + " }")).isSobrelotada());
+	assertTrue(new Lesson(new JSONObject(" {\n" + "   \"Curso\": \"ME\",\n"
+		+ "   \"Unidade Curricular\": \"Teoria dos Jogos e dos Contratos\",\n"
+		+ "   \"Turno\": \"01789TP01\",\n" + "   \"Turma\": \"MEA1\",\n"
+		+ "   \"Inscritos no turno\": \"36\",\n" + "   \"Dia da semana\": \"Sex\",\n"
+		+ "   \"Hora início da aula\": \"13:00:00\",\n" + "   \"Hora fim da aula\": \"14:30:00\",\n"
+		+ "   \"Data da aula\": \"02/12/2022\",\n" + "   \"Sala atribuída à aula\": \"AA2.25\",\n"
+		+ "   \"Lotação da sala\": \"34\"\n" + " }")).isSobrelotada());
+    }
+
+    @Test
+    public void testToJSONDocument()
+    {
+	System.out.println(JSON_TEXT.equals(new Lesson(JSON_OBJECT).toJSONDocument()));
+	System.out.println(JSON_TEXT.length());
+	System.out.println(new Lesson(JSON_OBJECT).toJSONDocument().length());
+	assertEquals(JSON_TEXT, new Lesson(JSON_OBJECT).toJSONDocument());
     }
 
 }
