@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -32,6 +34,7 @@ public class TimeTableTest
     private static final String HORARIO_JSON2 = "src/test/resources/horario_exemplo2.json";
     private static final String HORARIO_CSV_CONVERTIDO_JSON = "src/test/resources/horario_exemplo_convertido.json";
     private static final String HORARIO_JSON_CONVERTIDO_CSV = "src/test/resources/horario_exemplo_convertido.csv";
+    private static final String HORARIO_FILTRADO_CSV = "src/test/resources/horario_ucs_filtradas.csv";
 
     /**
      * Test method for {@link TimeTable#saveAsCSV(java.lang.String)}.
@@ -146,12 +149,12 @@ public class TimeTableTest
 	}
 	JSONArray jsonArray = new JSONArray(jsonText);
 	assertEquals(t.getLessonsList().size(), jsonArray.length());
-	
+
 	t = new TimeTable(HORARIO_CSV);
 	try
 	{
 	    CSVParser csvParser = CSVParser.parse(new File(HORARIO_CSV), Charset.forName("UTF-8"),
-	    	CSVFormat.DEFAULT.withFirstRecordAsHeader().builder().setDelimiter(';').build());
+		    CSVFormat.DEFAULT.withFirstRecordAsHeader().builder().setDelimiter(';').build());
 	    assertEquals(t.getLessonsList().size(), csvParser.getRecords().size());
 	} catch (IOException e)
 	{
@@ -159,11 +162,12 @@ public class TimeTableTest
 	    e.printStackTrace();
 	}
     }
-    
+
     @Test
-    public void testIsCSV() {
+    public void testIsCSV()
+    {
 	TimeTable t = new TimeTable(HORARIO_CSV);
-	
+
 	assertTrue(t.isCSV());
 	t.saveAsJSON(HORARIO_CSV_CONVERTIDO_JSON);
 	assertFalse(t.isCSV());
@@ -171,11 +175,12 @@ public class TimeTableTest
 	assertFalse(t.isCSV());
 	t.saveAsCSV(HORARIO_JSON_CONVERTIDO_CSV);
 	assertTrue(t.isCSV());
-	
+
     }
-    
+
     @Test
-    public void testIsjson() {
+    public void testIsjson()
+    {
 	TimeTable t = new TimeTable(HORARIO_JSON);
 	assertTrue(t.isJSON());
 	t.saveAsCSV(HORARIO_JSON_CONVERTIDO_CSV);
@@ -185,11 +190,27 @@ public class TimeTableTest
 	t.saveAsJSON(HORARIO_CSV_CONVERTIDO_JSON);
 	assertTrue(t.isJSON());
     }
-    
+
     @Test
-    public void testGetFile() {
-	assertEquals(new TimeTable(HORARIO_CSV).getFile(),new File(HORARIO_CSV));
-	assertEquals(new TimeTable(HORARIO_JSON).getFile(),new File(HORARIO_JSON));
+    public void testGetFile()
+    {
+	assertEquals(new TimeTable(HORARIO_CSV).getFile(), new File(HORARIO_CSV));
+	assertEquals(new TimeTable(HORARIO_JSON).getFile(), new File(HORARIO_JSON));
+    }
+
+    @Test
+    public void testFilterUCs()
+    {
+	List<String> ucs = new LinkedList<>();
+	ucs.add("Investimentos II");
+	ucs.add("Arquitetura de Redes");
+	ucs.add("Electromagnetismo");
+	TimeTable tt1 = new TimeTable(HORARIO_CSV);
+	TimeTable tt2 = new TimeTable(HORARIO_FILTRADO_CSV);
+	TimeTable tt3 = tt1.filterUCs(ucs, "src/test/resources/horario_filtrado.json");
+	System.out.println(tt2.getLessonsList()); 
+	System.out.println(tt3.getLessonsList().containsAll(tt2.getLessonsList()));
+	assertTrue(tt2.equals(tt3));
     }
 
 }

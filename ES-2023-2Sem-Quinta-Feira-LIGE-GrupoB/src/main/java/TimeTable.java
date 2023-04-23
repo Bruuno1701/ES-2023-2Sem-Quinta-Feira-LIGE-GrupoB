@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -70,15 +71,15 @@ public class TimeTable
 
     private void createFile(String path)
     {
-	String jsonText = "[";
+	String jsonText = "[\n";
 	for (Lesson lesson : lessonsList)
 	{
 	    jsonText += lesson.toJSONDocument() + "\n";
 	}
-	jsonText +="]";
-	
+	jsonText += "]";
+
 	File file = new File(path);
-	
+
 	try
 	{
 	    FileWriter fw = new FileWriter(file);
@@ -272,7 +273,8 @@ public class TimeTable
 	    JSONArray jsonArray = new JSONArray(jsonText);
 	    for (int i = 0; i < jsonArray.length(); i++)
 	    {
-		lessonsList.add(new Lesson(jsonArray.getJSONObject(i)));
+		Lesson l = new Lesson(jsonArray.getJSONObject(i));
+		lessonsList.add(l);
 	    }
 	} catch (IOException e)
 	{
@@ -294,13 +296,16 @@ public class TimeTable
 
     public TimeTable filterUCs(List<String> ucs, String newTimeTablePath)
     {
-	List<Lesson> filteredList = new LinkedList<>(lessonsList);
-	for (String uc : ucs)
-	{
-	    filteredList.removeIf(l -> !l.getUnidadeCurricular().equals(uc));
-	}
+	List<Lesson> filteredList = new LinkedList<>(getLessonsList());
+	filteredList.removeIf(l -> !ucs.contains(l.getUnidadeCurricular()));
+	System.out.println(filteredList);
+	return new TimeTable(filteredList, newTimeTablePath);
+    }
 
-	return new TimeTable(filteredList,newTimeTablePath);
+    @Override
+    public boolean equals(Object obj)
+    {
+	return obj instanceof TimeTable && this.getLessonsList().equals(((TimeTable) obj).getLessonsList());
     }
 
 }

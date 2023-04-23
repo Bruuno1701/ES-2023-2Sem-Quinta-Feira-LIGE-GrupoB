@@ -121,9 +121,6 @@ public class LessonTest
     @Test
     public void testToJSONDocument()
     {
-	System.out.println(JSON_TEXT.equals(new Lesson(JSON_OBJECT).toJSONDocument()));
-	System.out.println(JSON_TEXT.length());
-	System.out.println(new Lesson(JSON_OBJECT).toJSONDocument().length());
 	assertEquals(JSON_TEXT, new Lesson(JSON_OBJECT).toJSONDocument());
     }
 

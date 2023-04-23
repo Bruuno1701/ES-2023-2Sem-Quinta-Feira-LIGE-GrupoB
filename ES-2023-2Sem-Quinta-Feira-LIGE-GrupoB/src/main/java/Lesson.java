@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang3.StringUtils;
@@ -149,4 +150,24 @@ public class Lesson
 	return jsonDoc;
     }
 
+  
+
+    @Override
+    public boolean equals(Object obj)
+    {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	Lesson other = (Lesson) obj;
+	return Objects.equals(curso, other.curso) && Objects.equals(data, other.data)
+		&& Objects.equals(diaDaSemana, other.diaDaSemana) && Objects.equals(horaFim, other.horaFim)
+		&& Objects.equals(horaInicio, other.horaInicio) && inscritosNoTurno == other.inscritosNoTurno
+		&& lotacao == other.lotacao && Objects.equals(sala, other.sala) && Objects.equals(turma, other.turma)
+		&& Objects.equals(turno, other.turno) && Objects.equals(unidadeCurricular, other.unidadeCurricular);
+    }
+
+    
 }
