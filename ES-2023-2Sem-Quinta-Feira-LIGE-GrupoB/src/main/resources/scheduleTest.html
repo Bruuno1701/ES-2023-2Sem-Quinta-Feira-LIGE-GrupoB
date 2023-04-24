@@ -302,6 +302,7 @@
 					for (let slot = startSlot; slot < endSlot; slot+=0.5) {
                         let realHour ;
                         let realMinute;
+						let lastString;
                         console.log(Number.isInteger(slot));
                         if(Number.isInteger(slot)){
                             realHour=slot+8;
@@ -315,8 +316,15 @@
 
                         console.log(document.getElementById(teste));
 						const td = document.getElementById(teste);
+						console.log("depois disto");
 
+						if(lastString === `${row[0]}\n${row[1]}\n${row[2]}\n${room}` ){
 						td.textContent = `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
+						}else{
+						td.textContent += `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
+						lastString = `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
+						}
+						console.log(lastString);
                         console.log("acabou primeira iteração");
                     }
 					
