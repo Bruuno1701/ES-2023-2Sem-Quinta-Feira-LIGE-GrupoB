@@ -108,14 +108,14 @@ public class LessonTest
     @Test
     public void testIsSobrelotada()
     {
-	assertFalse(new Lesson(JSON_OBJECT).isSobrelotada());
+	assertFalse(new Lesson(JSON_OBJECT).isOverbooked());
 	assertTrue(new Lesson(new JSONObject(" {\n" + "   \"Curso\": \"ME\",\n"
 		+ "   \"Unidade Curricular\": \"Teoria dos Jogos e dos Contratos\",\n"
 		+ "   \"Turno\": \"01789TP01\",\n" + "   \"Turma\": \"MEA1\",\n"
 		+ "   \"Inscritos no turno\": \"36\",\n" + "   \"Dia da semana\": \"Sex\",\n"
 		+ "   \"Hora início da aula\": \"13:00:00\",\n" + "   \"Hora fim da aula\": \"14:30:00\",\n"
 		+ "   \"Data da aula\": \"02/12/2022\",\n" + "   \"Sala atribuída à aula\": \"AA2.25\",\n"
-		+ "   \"Lotação da sala\": \"34\"\n" + " }")).isSobrelotada());
+		+ "   \"Lotação da sala\": \"34\"\n" + " }")).isOverbooked());
     }
 
     @Test

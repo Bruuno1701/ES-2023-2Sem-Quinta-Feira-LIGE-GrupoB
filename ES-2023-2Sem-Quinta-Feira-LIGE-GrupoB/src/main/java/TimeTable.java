@@ -308,4 +308,31 @@ public class TimeTable
 	return obj instanceof TimeTable && this.getLessonsList().equals(((TimeTable) obj).getLessonsList());
     }
 
+    public List<Lesson> getOverbookedLessons()
+    {
+	List<Lesson> overbookedlessons = new LinkedList<>();
+
+	for (Lesson lesson : lessonsList)
+	    if (lesson.isOverbooked())
+		overbookedlessons.add(lesson);
+	{
+
+	}
+
+	return overbookedlessons;
+    }
+
+    public List<Lesson> getOverlaidLessons()
+    {
+	List<Lesson> overlaidLessons = new LinkedList<>();
+
+	for (Lesson lesson : lessonsList)
+	{
+	    if (lessonsList.stream().anyMatch(l -> l.isOverlaid(lesson)))
+		overlaidLessons.add(lesson);
+	}
+
+	return overlaidLessons;
+    }
+
 }

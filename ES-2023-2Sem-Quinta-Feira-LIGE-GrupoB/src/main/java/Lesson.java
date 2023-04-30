@@ -100,7 +100,7 @@ public class Lesson
 	return lotacao;
     }
 
-    public boolean isSobrelotada()
+    public boolean isOverbooked()
     {
 	return lotacao < inscritosNoTurno;
 
@@ -167,6 +167,10 @@ public class Lesson
 		&& Objects.equals(horaInicio, other.horaInicio) && inscritosNoTurno == other.inscritosNoTurno
 		&& lotacao == other.lotacao && Objects.equals(sala, other.sala) && Objects.equals(turma, other.turma)
 		&& Objects.equals(turno, other.turno) && Objects.equals(unidadeCurricular, other.unidadeCurricular);
+    }
+    
+    public boolean isOverlaid(Lesson l) {
+	return !this.equals(l) && this.getData().equals(l.getData()) && this.getHoraInicio().equals(l.getHoraInicio());
     }
 
     
