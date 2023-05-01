@@ -13,10 +13,7 @@ public class Lesson
     private String turno;
     private String turma;
     private int inscritosNoTurno;
-    private String diaDaSemana;
-    private String horaInicio;
-    private String horaFim;
-    private String data;
+    private LessonTime time;
     private String sala;
     private int lotacao;
 
@@ -31,10 +28,11 @@ public class Lesson
 	    turno = object.optString("Turno", "");
 	    turma = object.optString("Turma", "");
 	    String sinscritosNoTurno = object.optString("Inscritos no turno", "");
-	    diaDaSemana = object.optString("Dia da semana", "");
-	    horaInicio = object.optString("Hora início da aula", "");
-	    horaFim = object.optString("Hora fim da aula", "");
-	    data = object.optString("Data da aula", "");
+	    String diaDaSemana = object.optString("Dia da semana", "");
+	    String horaInicio = (object.optString("Hora início da aula", ""));
+	    String horaFim = (object.optString("Hora fim da aula", ""));
+	    String data = (object.optString("Data da aula", ""));
+	    time = new LessonTime(diaDaSemana, horaInicio, horaFim, data);
 	    sala = object.optString("Sala atribuída à aula", "");
 	    String slotacao = object.optString("Lotação da sala", "");
 	    inscritosNoTurno = (sinscritosNoTurno.equals("") ? -1 : Integer.parseInt(sinscritosNoTurno));
@@ -72,22 +70,22 @@ public class Lesson
 
     public String getDiaDaSemana()
     {
-	return diaDaSemana;
+	return time.getDiaDaSemana();
     }
 
     public String getHoraInicio()
     {
-	return horaInicio;
+	return time.getHoraInicio();
     }
 
     public String getHoraFim()
     {
-	return horaFim;
+	return time.getHoraFim();
     }
 
     public String getData()
     {
-	return data;
+	return time.getData();
     }
 
     public String getSala()
@@ -110,8 +108,8 @@ public class Lesson
     public String toString()
     {
 	return "Lesson [curso=" + curso + ", unidadeCurricular=" + unidadeCurricular + ", turno=" + turno + ", turma="
-		+ turma + ", inscritosNoTurno=" + inscritosNoTurno + ", diaDaSemana=" + diaDaSemana + ", horaInicio="
-		+ horaInicio + ", horaFim=" + horaFim + ", data=" + data + ", sala=" + sala + ", lotacao=" + lotacao
+		+ turma + ", inscritosNoTurno=" + inscritosNoTurno + ", diaDaSemana=" + time.getDiaDaSemana() + ", horaInicio="
+		+ time.getHoraInicio() + ", horaFim=" + time.getHoraFim() + ", data=" + time.getData() + ", sala=" + sala + ", lotacao=" + lotacao
 		+ "]";
     }
 
@@ -130,14 +128,14 @@ public class Lesson
 	    jsonDoc += "   \"Turma\": \"" + turma + "\",\n";
 	if (inscritosNoTurno!=-1)
 	    jsonDoc += "   \"Inscritos no turno\": \"" + inscritosNoTurno + "\",\n";
-	if (!"".equals(diaDaSemana))
-	    jsonDoc += "   \"Dia da semana\": \"" + diaDaSemana+ "\",\n";
-	if (!"".equals(horaInicio))
-	    jsonDoc += "   \"Hora início da aula\": \"" + horaInicio+ "\",\n";
-	if (!"".equals(horaFim))
-	    jsonDoc += "   \"Hora fim da aula\": \"" + horaFim+ "\",\n";
-	if (!"".equals(data))
-	    jsonDoc += "   \"Data da aula\": \"" + data+ "\",\n";
+	if (!"".equals(time.getDiaDaSemana()))
+	    jsonDoc += "   \"Dia da semana\": \"" + time.getDiaDaSemana()+ "\",\n";
+	if (!"".equals(time.getHoraInicio()))
+	    jsonDoc += "   \"Hora início da aula\": \"" + time.getHoraInicio()+ "\",\n";
+	if (!"".equals(time.getHoraFim()))
+	    jsonDoc += "   \"Hora fim da aula\": \"" + time.getHoraFim()+ "\",\n";
+	if (!"".equals(time.getData()))
+	    jsonDoc += "   \"Data da aula\": \"" + time.getData()+ "\",\n";
 	if (!"".equals(sala))
 	    jsonDoc += "   \"Sala atribuída à aula\": \"" + sala + "\",\n";
 	if (lotacao!=-1)
@@ -162,9 +160,9 @@ public class Lesson
 	if (getClass() != obj.getClass())
 	    return false;
 	Lesson other = (Lesson) obj;
-	return Objects.equals(curso, other.curso) && Objects.equals(data, other.data)
-		&& Objects.equals(diaDaSemana, other.diaDaSemana) && Objects.equals(horaFim, other.horaFim)
-		&& Objects.equals(horaInicio, other.horaInicio) && inscritosNoTurno == other.inscritosNoTurno
+	return Objects.equals(curso, other.curso) && Objects.equals(time.getData(), other.time.getData())
+		&& Objects.equals(time.getDiaDaSemana(), other.time.getDiaDaSemana()) && Objects.equals(time.getHoraFim(), other.time.getHoraFim())
+		&& Objects.equals(time.getHoraInicio(), other.time.getHoraInicio()) && inscritosNoTurno == other.inscritosNoTurno
 		&& lotacao == other.lotacao && Objects.equals(sala, other.sala) && Objects.equals(turma, other.turma)
 		&& Objects.equals(turno, other.turno) && Objects.equals(unidadeCurricular, other.unidadeCurricular);
     }
