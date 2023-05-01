@@ -4,30 +4,72 @@
 	<meta charset="UTF-8">
 	<title>Schedule</title>
 	<style>
-		table {
-			border-collapse: collapse;
-			width: 100%;
+				body {
+			font-family: Arial, sans-serif;
+			background-color: #f7f7f7;
 		}
 
-		th, td {
-			border: 1px solid black;
-			padding: 8px;
+		h1 {
 			text-align: center;
+			margin-top: 50px;
+			margin-bottom: 30px;
+		}
+
+		tableSemanal {
+			border-collapse: collapse;
+			width: 80%;
+			margin: 0 auto;
+			background-color: #fff;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+			
+		}
+
+		#tableSemanal {
+   			 display: none;
+  		}
+
+		th, td {
+			padding: 12px 15px;
+			border-bottom: 1px solid #ddd;
+			text-align:left;
+		}
+
+		tr:hover {
+			background-color: #f5f5f5;
 		}
 
 		th {
-			background-color: #ddd;
+			background-color: #4CAF50;
+			color: white;
 		}
 
-		td {
-			background-color: #fff;
+		h2 {
+			margin-top: 50px;
+			margin-bottom: 20px;
+		}
+
+		legend {
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		ul {
+			margin-left: 30px;
+			padding: 0;
+		}
+
+		li {
+			margin-bottom: 5px;
 		}
 	</style>
 </head>
 <body>
 	<input type="file" id="fileInput">
 	<button onclick="readFile()">Read File</button>
-	<table id="table">
+	<label for="weekInput">Select week:</label>
+	<input type="number" id="weekInput" min="1" max="52" value="1">
+	<button id="botaoHorario">Mostrar horario</button>
+	<table id="tableSemanal">
         <caption>Your Schedule</caption>
         
 		<thead>
@@ -269,20 +311,47 @@
 	</table>
     
 	<script>
+
+		const button = document.getElementById('botaoHorario');
+		const div = document.getElementById('tableSemanal');
+
+		button.addEventListener('click', () => {
+		  if (div.style.display === 'none') {
+		    div.style.display = 'block';
+		  } else {
+		    div.style.display = 'none';
+		  }
+		});	
+
+
 		function getWeekNumber(date) {
 		  // Copy date so don't modify original
- 		 const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+		  const dateParts = date.split("/");
+
+			const day = dateParts[0];
+			const month = dateParts[1];
+			const year = dateParts[2];	
+
+ 		 const d = new Date(Date.UTC(year, month, day));
 		  // Set to nearest Thursday: current date + 4 - current day number
 		  // Make Sunday's day number 7
 		  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
 		  // Get first day of year
 		  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
 	 	 // Calculate full weeks to nearest Thursday
-	  	const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7));
+	  	const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
 	  	// Return week number and year
-		  return [weekNo, d.getUTCFullYear()];
+		  console.log("numero da semana_ "+weekNo);
+		  return [weekNo];
 		}
+		function clearSchedule() {
+   		   const cells = document.querySelectorAll('[id^="time"]');
+     		 for (let cell of cells) {
+       		 cell.textContent = '';
+    		  }
+   		 }
 		function readFile() {
+			clearSchedule();
 			const fileInput = document.getElementById('fileInput');
 			const file = fileInput.files[0];
 			const reader = new FileReader();
@@ -294,8 +363,17 @@
 					const day = row[5];
 					const startTime = row[6];
 					const endTime = row[7];
+					const date = row[8];
+					const week = getWeekNumber(date);
 					const room = row[9];
 					const capacity = row[10];
+					const selectedWeek = parseInt(document.getElementById('weekInput').value);
+					console.log("numero da semana escolhida "+selectedWeek);
+					console.log("week da row "+week);
+					if (week != selectedWeek) {
+                    continue; // skip classes not in the selected week
+                	}
+
 
 					const startHour = parseInt(startTime.split(':')[0]);
 					const startMinute = parseInt(startTime.split(':')[1]);
@@ -347,5 +425,6 @@
 			reader.readAsText(file);
 		}
 	</script>
+	
 </body>
 </html>
