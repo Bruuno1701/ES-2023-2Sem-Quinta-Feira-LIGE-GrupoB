@@ -168,7 +168,7 @@ public class Lesson
     }
     
     public boolean isOverlaid(Lesson l) {
-	return !this.equals(l) && this.getData().equals(l.getData()) && this.getHoraInicio().equals(l.getHoraInicio());
+	return this.time.overlaps(l.time);
     }
 
     
