@@ -59,7 +59,7 @@
 </head>
 <body>
 	<h1>Horário</h1>
-	<div > 
+	<div style = "display:none"> 
 	<table>
 			<tr>
 				<th>Unidade Curricular</th>
@@ -95,16 +95,52 @@
 		<li>AI: Inteligência Artificial</li>
 	</ul>
 	</div>
+	
+	<div id ="funcionalidades">
   		<input type="file" id="timetableInput" name="filename" accept=".json,.csv"/>
+  		<p>ou URL do ficheiro:
+  		<input type="url" id="fileURL" placeholder="https://repositorioexterno.pt" pattern="https://*.*"> </p>
   		<br><br>
-  		<label>ou URL do ficheiro:</label>
-  		<input type="url" id="fileURL" placeholder="https://example.com" pattern="https://*.*">
   		<button id="criarHorario" disabled>Criar Horário</button>
   		<br><br><br>
   		<p>Gravar horário:</p>
- 
   		<button id="csvconv" onclick="downloadCSVFile()" disabled>CSV</button>
   		<button id="jsonconv" onclick="downloadJSONFile()" disabled>JSON</button>
+				<button onclick="downloadFile()">Download File</button>
+				
+				<script>
+				function downloadFile() {
+				  const downloadLink = document.getElementById("timetableInput");
+				  downloadLink.download = downloadlink;
+				  downloadLink.click();
+				}
+				</script>
+				
+		<button onclick="saveFile()">Save File</button>
+
+<script>
+async function saveFile() {
+  // Call function that returns a file
+  const file = document.getElementById("timetableInput");
+  
+  // Prompt user to select destination folder
+  const options = {
+    suggestedName: file.name,
+    types: [{
+      description: 'Files',
+      accept: {'*': ['.txt', '.pdf', '.jpg', '.png']}
+    }]
+  };
+  const handle = await window.showSaveFilePicker(options);
+  const writable = await handle.createWritable();
+  
+  // Write file to selected location
+  await writable.write(file);
+  await writable.close();
+}
+</script>
+		
+
   		<script>
  			const timetableInput = document.getElementById("timetableInput");
  			const criarHorario = document.getElementById("criarHorario");
@@ -127,14 +163,6 @@
 			    }
 			});
 
-
-        function downloadCSVFile() {
-            // Call the Java function
-            document.Timetable.saveAsCSV();
-        }
-  
-
-  
   			timetableInput.addEventListener("change", function() {
     			// Check if a file has been selected
     			if (timetableInput.files.length > 0 && timetableInput.files[0].name.endsWith(".json")) {
@@ -157,26 +185,40 @@
       			}
   			});
 		</script>
+		
 		<script>
-			function downloadFile() {
-    			window.location.href = "/path/to/FileDownloadServlet";
-			}
-		</script>
-		  	    <script>
-        // Create a new instance of the Timetable class
-        var timetable = new Packages.Timetable("My Timetable");
-
-        function downloadCSVFile() {
-            // Call the non-static method of the Timetable object
-            print("hi");
-            timetable.saveAsCSV();
-        }
-   		</script>
-		 <script>
-        // Define the Java class
-        var Timetable = Java.type('Timetable');
-        // Add the Java class to the document object
-        document.Timetable = Timetable;
+	        const urlInput = document.getElementById("fileURL");
+	        const timetableInput = document.getElementById("timetableInput");
+	
+	        function downloadCSVFile() {
+	        	if(timetableInput.files.length > 0 && timetableInput.files[0].name.endsWith(".csv")) {
+	            	var timetable = new Timetable(timetableInput.files[0].name);
+	            }
+	            const urlValue = urlInput.value;
+	            if(urlValue !== null) {
+	            	var timetable = new Timetable(urlValue);
+	            }
+	            timetable.saveAsCSV();
+	        }
+	        
+	        function downloadJSONFile() {
+	        	if(timetableInput.files.length > 0 && timetableInput.files[0].name.endsWith(".csv")) {
+	            	var timetable = new Timetable(timetableInput.files[0].name);
+	            }
+	            const urlValue = urlInput.value;
+	            if(urlValue !== null) {
+	            	var timetable = new Timetable(urlValue);
+	            }
+	            timetable.saveAsJSON();
+	        }
+	        
+	   		</script>
+			 <script>
+	        // Define the Java class
+	        var Timetable = Java.type('Timetable');
+	        // Add the Java class to the document object
+	        document.Timetable = Timetable;
     </script>
+    </div>
 </body>
 </html>
