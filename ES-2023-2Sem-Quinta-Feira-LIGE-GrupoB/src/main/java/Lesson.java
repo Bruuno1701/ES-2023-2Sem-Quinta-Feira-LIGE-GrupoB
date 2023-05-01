@@ -97,6 +97,10 @@ public class Lesson
     {
 	return lotacao;
     }
+    
+    public LessonTime getTime() {
+	return time;
+    }
 
     public boolean isOverbooked()
     {
