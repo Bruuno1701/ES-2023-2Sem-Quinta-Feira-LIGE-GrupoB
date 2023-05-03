@@ -41,6 +41,19 @@ public class LessonTime
 		|| (other.horaInicio.compareTo(this.horaFim) < 0 && other.horaFim.compareTo(this.horaInicio) > 0)));
     }
 
+    public LessonTime getOverlay(LessonTime other)
+    {
+	if (!this.overlaps(other))
+	{
+	    return null;
+	}
+
+	String horaInicio = this.horaInicio.compareTo(other.horaInicio) > 0 ? this.horaInicio : other.horaInicio;
+	String horaFim = this.horaFim.compareTo(other.horaFim) < 0 ? this.horaFim : other.horaFim;
+
+	return new LessonTime(this.diaDaSemana, horaInicio, horaFim, this.data);
+    }
+
     @Override
     public boolean equals(Object obj)
     {
@@ -80,4 +93,10 @@ public class LessonTime
 	return true;
     }
 
+    @Override
+    public String toString()
+    {
+
+	return horaInicio + "-" + horaFim + " " + data;
+    }
 }

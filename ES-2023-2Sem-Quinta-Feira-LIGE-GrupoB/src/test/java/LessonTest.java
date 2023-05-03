@@ -38,9 +38,24 @@ public class LessonTest
 	    	+ "   \"Hora fim da aula\": \"14:00:00\",\n"
 	    	+ "   \"Lotação da sala\": \"34\"\n"
 	    	+ " }";
+    private static final String JSON_TEXT4 = " {\n"
+	    	+ "   \"Curso\": \"ME\",\n"
+	    	+ "   \"Unidade Curricular\": \"Teoria dos Jogos e dos Contratos\",\n"
+	    	+ "   \"Turno\": \"01789TP01\",\n"
+	    	+ "   \"Turma\": \"MEA1\",\n"
+	    	+ "   \"Inscritos no turno\": \"30\",\n"
+	    	+ "   \"Dia da semana\": \"Sex\",\n"
+	    	+ "   \"Hora início da aula\": \"13:00:00\",\n"
+	    	+ "   \"Hora fim da aula\": \"14:00:00\",\n"
+	    	+ "   \"Data da aula\": \"02/12/2022\",\n"
+	    	+ "   \"Sala atribuída à aula\": \"AA2.24\",\n"
+	    	+ "   \"Lotação da sala\": \"34\"\n"
+	    	+ " }";
+    
     public static final JSONObject JSON_OBJECT = new JSONObject(JSON_TEXT);
     public static final JSONObject JSON_OBJECT2 = new JSONObject(JSON_TEXT2);
     public static final JSONObject JSON_OBJECT3 = new JSONObject(JSON_TEXT3);
+    public static final JSONObject JSON_OBJECT4 = new JSONObject(JSON_TEXT4);
     
     @Test
     public void testLesson()
@@ -151,6 +166,7 @@ public class LessonTest
     @Test
     public void testIsOverlaid() {
 	assertTrue(new Lesson(JSON_OBJECT).isOverlaid(new Lesson(JSON_OBJECT2)));
+	assertFalse(new Lesson(JSON_OBJECT2).isOverlaid(new Lesson(JSON_OBJECT4)));
     }
     
     @Test

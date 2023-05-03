@@ -172,7 +172,7 @@ public class Lesson
     }
     
     public boolean isOverlaid(Lesson l) {
-	return this.time.overlaps(l.time);
+	return !this.equals(l) && this.time.overlaps(l.time)&& this.sala.equals(l.sala);
     }
 
     

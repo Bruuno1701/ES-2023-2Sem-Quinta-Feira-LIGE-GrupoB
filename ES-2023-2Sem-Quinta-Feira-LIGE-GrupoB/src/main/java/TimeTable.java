@@ -4,13 +4,20 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.collections4.MultiValuedMap;
+import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 import org.json.JSONArray;
 
 import java.io.FileInputStream;
@@ -311,28 +318,69 @@ public class TimeTable
     public List<Lesson> getOverbookedLessons()
     {
 	List<Lesson> overbookedlessons = new LinkedList<>();
-
-	for (Lesson lesson : lessonsList)
+	List<Lesson> list = getLessonsList();
+	for (Lesson lesson : list)
 	    if (lesson.isOverbooked())
 		overbookedlessons.add(lesson);
-	{
-
-	}
-
+	
 	return overbookedlessons;
     }
-
-    public List<Lesson> getOverlaidLessons()
-    {
-	List<Lesson> overlaidLessons = new LinkedList<>();
-
-	for (Lesson lesson : lessonsList)
+    
+    public String showOverbookedLessons() {
+	String s = new String();
+	List<Lesson> overbookedlessons = getOverbookedLessons();
+	for (Lesson lesson : overbookedlessons)
 	{
-	    if (lessonsList.stream().anyMatch(l -> l.isOverlaid(lesson)))
-		overlaidLessons.add(lesson);
+	    s+=lesson.getUnidadeCurricular() +" em "+ lesson.getTime() + " com "+ lesson.getInscritosNoTurno() + " inscritos  e " + lesson.getLotacao() + " lugares \n";
+	}
+	System.out.println(s);
+	return s;
+    }
+
+    public MultiValuedMap<LessonTime, Lesson> getOverlaidLessons()
+    {
+	List<Lesson> list = getLessonsList();
+	MultiValuedMap<LessonTime, Lesson> overlaidLessons = new ArrayListValuedHashMap<LessonTime, Lesson>();
+	for (int i = 0; i < list.size(); i++)
+	{
+	    Lesson lesson1 = list.get(i);
+	    for (int j = i + 1; j < list.size(); j++)
+	    {
+		Lesson lesson2 = list.get(j);
+		if (lesson1.isOverlaid(lesson2))
+		{
+		    LessonTime overlaidTime = lesson1.getTime().getOverlay(lesson2.getTime());
+		    overlaidLessons.put(overlaidTime, lesson1);
+		    overlaidLessons.put(overlaidTime, lesson2);
+		}
+	    }
 	}
 
 	return overlaidLessons;
+    }
+
+    public String showOverlaidLessons()
+    {
+	Map<LessonTime, Collection<Lesson>> overlaidLessons = getOverlaidLessons().asMap();
+	String s = new String();
+
+	for (Entry<LessonTime, Collection<Lesson>> entry : overlaidLessons.entrySet())
+	{
+	    s += "Hora: " + entry.getKey() + "\t";
+	    List<Lesson> list = (List<Lesson>) entry.getValue();
+	    for (int i = 0; i < list.size(); i++)
+	    {
+		Lesson lesson = list.get(i);
+		if (i == 0)
+		    s += "Sala: " + lesson.getSala() + "\tAulas:";
+		s += " " + lesson.getUnidadeCurricular();
+		if (i != list.size() - 1)
+		    s += ",";
+	    }
+	    s += "\n";
+	}
+	System.out.println(s);
+	return s;
     }
 
 }
