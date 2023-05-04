@@ -35,7 +35,9 @@ public class TimeTableTest
     private static final String HORARIO_CSV_CONVERTIDO_JSON = "src/test/resources/horario_exemplo_convertido.json";
     private static final String HORARIO_JSON_CONVERTIDO_CSV = "src/test/resources/horario_exemplo_convertido.csv";
     private static final String HORARIO_FILTRADO_CSV = "src/test/resources/horario_ucs_filtradas.csv";
-
+    private static final String HORARIO_SOBREPOSICOES_JSON = "src/test/resources/horario_sobreposicoes.json";
+    private static final String HORARIO_GRANDE_CSV = "src/test/resources/horario_exemplo_grande.csv";
+    
     /**
      * Test method for {@link TimeTable#saveAsCSV(java.lang.String)}.
      * 
@@ -208,9 +210,28 @@ public class TimeTableTest
 	TimeTable tt1 = new TimeTable(HORARIO_CSV);
 	TimeTable tt2 = new TimeTable(HORARIO_FILTRADO_CSV);
 	TimeTable tt3 = tt1.filterUCs(ucs, "src/test/resources/horario_filtrado.json");
-	System.out.println(tt2.getLessonsList()); 
+	System.out.println(tt2.getLessonsList());
 	System.out.println(tt3.getLessonsList().containsAll(tt2.getLessonsList()));
 	assertTrue(tt2.equals(tt3));
     }
 
+    @Test
+    public void testGetOverlaidLessons()
+    {
+	TimeTable tt = new TimeTable(HORARIO_SOBREPOSICOES_JSON);
+	tt.showOverlaidLessons();
+	assert (!tt.getOverlaidLessons().isEmpty());
+
+    }
+
+    @Test
+    public void testGetOverbookedLessons()
+    {
+	TimeTable tt = new TimeTable(HORARIO_GRANDE_CSV);
+	tt.showOverbookedLessons();
+	assert (!tt.getOverbookedLessons().isEmpty());
+	tt = new TimeTable(HORARIO_CSV);
+	assert(tt.getOverbookedLessons().isEmpty());
+
+    }
 }
