@@ -104,7 +104,7 @@ public class Lesson
 
     public boolean isOverbooked()
     {
-	return lotacao < inscritosNoTurno;
+	return lotacao!=-1 && lotacao < inscritosNoTurno;
 
     }
 
@@ -172,7 +172,7 @@ public class Lesson
     }
     
     public boolean isOverlaid(Lesson l) {
-	return !this.equals(l) && this.time.overlaps(l.time)&& this.sala.equals(l.sala);
+	return !this.equals(l) && this.time.overlaps(l.time)&& this.sala.equals(l.sala)  && !"".equals(this.sala);
     }
 
     

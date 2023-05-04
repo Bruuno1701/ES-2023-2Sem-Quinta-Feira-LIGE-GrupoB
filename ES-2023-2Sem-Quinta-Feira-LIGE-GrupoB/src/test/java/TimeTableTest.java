@@ -36,7 +36,8 @@ public class TimeTableTest
     private static final String HORARIO_JSON_CONVERTIDO_CSV = "src/test/resources/horario_exemplo_convertido.csv";
     private static final String HORARIO_FILTRADO_CSV = "src/test/resources/horario_ucs_filtradas.csv";
     private static final String HORARIO_SOBREPOSICOES_JSON = "src/test/resources/horario_sobreposicoes.json";
-
+    private static final String HORARIO_GRANDE_CSV = "src/test/resources/horario_exemplo_grande.csv";
+    
     /**
      * Test method for {@link TimeTable#saveAsCSV(java.lang.String)}.
      * 
@@ -226,9 +227,11 @@ public class TimeTableTest
     @Test
     public void testGetOverbookedLessons()
     {
-	TimeTable tt = new TimeTable(HORARIO_JSON);
+	TimeTable tt = new TimeTable(HORARIO_GRANDE_CSV);
 	tt.showOverbookedLessons();
 	assert (!tt.getOverbookedLessons().isEmpty());
+	tt = new TimeTable(HORARIO_CSV);
+	assert(tt.getOverbookedLessons().isEmpty());
 
     }
 }
