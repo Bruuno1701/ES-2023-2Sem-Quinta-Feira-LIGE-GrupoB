@@ -2,6 +2,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import table.LessonTime;
+
 public class LessonTimeTest {
 
     @Test

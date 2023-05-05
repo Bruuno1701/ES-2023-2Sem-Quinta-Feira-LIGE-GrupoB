@@ -1,3 +1,4 @@
+package table;
 
 public class LessonTime
 {

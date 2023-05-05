@@ -3,6 +3,8 @@ import static org.junit.Assert.*;
 import org.json.JSONObject;
 import org.junit.Test;
 
+import table.Lesson;
+
 public class LessonTest
 {
     private static final String JSON_TEXT = " {\n"
