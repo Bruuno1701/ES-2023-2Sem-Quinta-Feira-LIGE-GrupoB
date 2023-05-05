@@ -210,9 +210,18 @@ public class TimeTableTest
 	TimeTable tt1 = new TimeTable(HORARIO_CSV);
 	TimeTable tt2 = new TimeTable(HORARIO_FILTRADO_CSV);
 	TimeTable tt3 = tt1.filterUCs(ucs, "src/test/resources/horario_filtrado.json");
-	System.out.println(tt2.getLessonsList());
-	System.out.println(tt3.getLessonsList().containsAll(tt2.getLessonsList()));
 	assertTrue(tt2.equals(tt3));
+	tt3 = tt1.filterUCs(ucs, "src/test/resources/horario_filtrado2.csv");
+	tt1 = new TimeTable(HORARIO_JSON);
+	tt3 = tt1.filterUCs(ucs, "src/test/resources/horario_filtrado.json");
+	assertTrue(tt2.equals(tt3));
+	ucs = new LinkedList<>();
+	tt3 = tt1.filterUCs(ucs, "src/test/resources/horario_filtrado.json");
+	assertTrue(tt1.equals(tt3));
+	ucs = null;
+	tt3 = tt1.filterUCs(ucs, "src/test/resources/horario_filtrado.json");
+	System.out.println(tt3.getLessonsList());
+	assertTrue(tt1.equals(tt3));
     }
 
     @Test

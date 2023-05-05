@@ -78,6 +78,23 @@ public class TimeTable
 
     private void createFile(String path)
     {
+	String csvPath = "";
+	if (!FilenameUtils.getExtension(path).equals("csv") && !FilenameUtils.getExtension(path).equals("json"))
+	    throw new IllegalArgumentException("O path passado e inváido");
+	if (FilenameUtils.getExtension(path).equals("csv"))
+	{
+	    csvPath = path;
+	    path = FilenameUtils.removeExtension("csv");
+	    path += ".json";
+	}
+
+	createJsonFile(path);
+	if (FilenameUtils.getExtension(path) == "csv")
+	    saveAsCSV(csvPath);
+    }
+
+    private void createJsonFile(String path)
+    {
 	String jsonText = "[\n";
 	for (Lesson lesson : lessonsList)
 	{
@@ -303,6 +320,8 @@ public class TimeTable
 
     public TimeTable filterUCs(List<String> ucs, String newTimeTablePath)
     {
+	if (ucs == null || ucs.isEmpty())
+	    return this;
 	List<Lesson> filteredList = new LinkedList<>(getLessonsList());
 	filteredList.removeIf(l -> !ucs.contains(l.getUnidadeCurricular()));
 	System.out.println(filteredList);
@@ -322,16 +341,18 @@ public class TimeTable
 	for (Lesson lesson : list)
 	    if (lesson.isOverbooked())
 		overbookedlessons.add(lesson);
-	
+
 	return overbookedlessons;
     }
-    
-    public String showOverbookedLessons() {
+
+    public String showOverbookedLessons()
+    {
 	String s = new String();
 	List<Lesson> overbookedlessons = getOverbookedLessons();
 	for (Lesson lesson : overbookedlessons)
 	{
-	    s+=lesson.getUnidadeCurricular() +" em "+ lesson.getTime() + " com "+ lesson.getInscritosNoTurno() + " inscritos  e " + lesson.getLotacao() + " lugares \n";
+	    s += lesson.getUnidadeCurricular() + " em " + lesson.getTime() + " com " + lesson.getInscritosNoTurno()
+		    + " inscritos  e " + lesson.getLotacao() + " lugares \n";
 	}
 	System.out.println(s);
 	return s;
