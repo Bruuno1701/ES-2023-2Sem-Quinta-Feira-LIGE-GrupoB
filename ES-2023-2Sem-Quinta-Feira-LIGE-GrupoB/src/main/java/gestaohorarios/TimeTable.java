@@ -14,6 +14,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.io.FileUtils;
@@ -35,7 +37,7 @@ import utilities.FileConverter;
  */
 public class TimeTable
 {
-
+    private static final Logger LOGGER = Logger.getLogger(TimeTable.class.getName());
     private File file;
     private List<Lesson> lessonsList = new LinkedList<>();
 
@@ -52,7 +54,7 @@ public class TimeTable
 	} catch (IOException e)
 	{
 	    e.printStackTrace();
-	    System.out.println("Erro ao criar a TimeTable");
+	    LOGGER.log(Level.SEVERE, "Erro ao criar a TimeTable");
 	}
     }
 
@@ -72,7 +74,7 @@ public class TimeTable
 	} catch (IOException e)
 	{
 	    e.printStackTrace();
-	    System.out.println("Erro ao criar a TimeTable");
+	    LOGGER.log(Level.SEVERE, "Erro ao criar a TimeTable");
 	}
     }
 
@@ -111,7 +113,7 @@ public class TimeTable
 	}
 
 	createJsonFile(path);
-	if (FilenameUtils.getExtension(path) == "csv")
+	if ("csv".equals(FilenameUtils.getExtension(path)))
 	    saveAsCSV(csvPath);
     }
 
@@ -129,18 +131,18 @@ public class TimeTable
 	}
 	jsonText += "]";
 
-	File file = new File(path);
+	File newFile = new File(path);
 
 	try
 	{
-	    FileWriter fw = new FileWriter(file);
+	    FileWriter fw = new FileWriter(newFile);
 	    fw.write(jsonText);
 	    fw.close();
 	} catch (IOException e)
 	{
 	    throw new IllegalArgumentException("O path passado e inváido");
 	}
-	this.file = file;
+	this.file = newFile;
     }
 
     /**
@@ -161,14 +163,14 @@ public class TimeTable
 	{
 	    if (localDirectory == null)
 	    {
-		System.out.println("erro path url e localdirectory null");
+		LOGGER.log(Level.WARNING, "erro path url e localdirectory null");
 		return file;
 	    }
 	    return downloadFile(path, localDirectory);
 	}
 	else
 	{
-//	    System.out.println("n�o url");
+//	    LOGGER.log("n�o url");
 	    file = new File(path);
 	}
 	return file;
@@ -209,7 +211,8 @@ public class TimeTable
      *
      * @param Path String que pode ser um URL ou um path onde se prentede guardar o
      *             ficheiro da classe.
-     * @throws IOException se a função copyFileToDirectory do FileUtils lançar execeção.
+     * @throws IOException se a função copyFileToDirectory do FileUtils lançar
+     *                     execeção.
      */
     public void saveFile(String Path) throws IOException
     {
@@ -242,7 +245,7 @@ public class TimeTable
 	    outputStream.flush();
 	    outputStream.close();
 	    int responseCode = connection.getResponseCode();
-	    System.out.println("Response Code : " + responseCode);
+	    LOGGER.log(Level.INFO, "Response Code : " + responseCode);
 	}
     }
 
@@ -268,7 +271,8 @@ public class TimeTable
      * @param directory Diretoria onde o ficheiro vai ser guardado.
      *
      * @return ficheiro guardado.
-     * @throws IOException se algo correr mal na criação do URL ou na leitura do ficheiro.
+     * @throws IOException se algo correr mal na criação do URL ou na leitura do
+     *                     ficheiro.
      */
     public File downloadFile(String url, String directory) throws IOException
     {
@@ -331,7 +335,6 @@ public class TimeTable
 	    }
 	} catch (IOException e)
 	{
-	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
 
@@ -358,13 +361,43 @@ public class TimeTable
     }
 
     /**
+     * Método que cria um mapa com as aulas sobrepostas associadas ao horário onde
+     * estão sobrepostas do objeto Timetable.
+     * 
+     * @return um MultiMap com a key sendo o tempo em que as aulas estão sobrepostas
+     *         e os values as aulas que estão sobrepostas.
+     */
+    public MultiValuedMap<LessonTime, Lesson> getOverlaidLessons()
+    {
+	List<Lesson> list = getLessonsList();
+	MultiValuedMap<LessonTime, Lesson> overlaidLessons = new ArrayListValuedHashMap<LessonTime, Lesson>();
+	for (int i = 0; i < list.size(); i++)
+	{
+	    Lesson lesson1 = list.get(i);
+	    for (int j = i + 1; j < list.size(); j++)
+	    {
+		Lesson lesson2 = list.get(j);
+		if (lesson1.isOverlaid(lesson2))
+		{
+		    LessonTime overlaidTime = lesson1.getTime().getOverlay(lesson2.getTime());
+		    overlaidLessons.put(overlaidTime, lesson1);
+		    overlaidLessons.put(overlaidTime, lesson2);
+		}
+	    }
+	}
+
+	return overlaidLessons;
+    }
+
+    /**
      * Método que cria uma nova Timetable a partir da atual, escolhendo apenas
      * algumas das UCs.
      * 
-     * @param ucs Lista de Strings com o nome das UCs selecionadas.
+     * @param ucs              Lista de Strings com o nome das UCs selecionadas.
      * @param newTimeTablePath Path onde vai ser guardado o ficheiro da nova
      *                         timetable.
-     * @return nova TimeTable com as UCs selecionada, ou a mesma se a lista ucs for vazia ou nula.
+     * @return nova TimeTable com as UCs selecionada, ou a mesma se a lista ucs for
+     *         vazia ou nula.
      */
     public TimeTable filterUCs(List<String> ucs, String newTimeTablePath)
     {
@@ -372,7 +405,6 @@ public class TimeTable
 	    return this;
 	List<Lesson> filteredList = new LinkedList<>(getLessonsList());
 	filteredList.removeIf(l -> !ucs.contains(l.getUnidadeCurricular()));
-	System.out.println(filteredList);
 	return new TimeTable(filteredList, newTimeTablePath);
     }
 
@@ -406,44 +438,14 @@ public class TimeTable
      */
     public String showOverbookedLessons()
     {
-	String s = new String();
+	String s = "";
 	List<Lesson> overbookedlessons = getOverbookedLessons();
 	for (Lesson lesson : overbookedlessons)
 	{
 	    s += lesson.getUnidadeCurricular() + " em " + lesson.getTime() + " com " + lesson.getInscritosNoTurno()
 		    + " inscritos  e " + lesson.getLotacao() + " lugares \n";
 	}
-	System.out.println(s);
 	return s;
-    }
-
-    /**
-     * Método que cria um mapa com as aulas sobrepostas associadas ao horário onde
-     * estão sobrepostas do objeto Timetable.
-     * 
-     * @return um MultiMap  com a key sendo o tempo em que as
-     *         aulas estão sobrepostas e os values as aulas que estão sobrepostas.
-     */
-    public MultiValuedMap<LessonTime, Lesson> getOverlaidLessons()
-    {
-	List<Lesson> list = getLessonsList();
-	MultiValuedMap<LessonTime, Lesson> overlaidLessons = new ArrayListValuedHashMap<LessonTime, Lesson>();
-	for (int i = 0; i < list.size(); i++)
-	{
-	    Lesson lesson1 = list.get(i);
-	    for (int j = i + 1; j < list.size(); j++)
-	    {
-		Lesson lesson2 = list.get(j);
-		if (lesson1.isOverlaid(lesson2))
-		{
-		    LessonTime overlaidTime = lesson1.getTime().getOverlay(lesson2.getTime());
-		    overlaidLessons.put(overlaidTime, lesson1);
-		    overlaidLessons.put(overlaidTime, lesson2);
-		}
-	    }
-	}
-
-	return overlaidLessons;
     }
 
     /**
@@ -455,7 +457,7 @@ public class TimeTable
     public String showOverlaidLessons()
     {
 	Map<LessonTime, Collection<Lesson>> overlaidLessons = getOverlaidLessons().asMap();
-	String s = new String();
+	String s = "";
 
 	for (Entry<LessonTime, Collection<Lesson>> entry : overlaidLessons.entrySet())
 	{
@@ -472,7 +474,6 @@ public class TimeTable
 	    }
 	    s += "\n";
 	}
-	System.out.println(s);
 	return s;
     }
 

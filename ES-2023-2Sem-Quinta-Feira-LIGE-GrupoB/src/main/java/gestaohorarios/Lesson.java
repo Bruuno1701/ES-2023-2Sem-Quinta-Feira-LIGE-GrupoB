@@ -275,8 +275,8 @@ public class Lesson
 
     /**
      * Método que verifica se esta aula e outra aula se sobrepõem no tempo e na
-     * sala. Duas aulas são consideradas sobrepõem se tiverem horários que se sobrepõem
-     * e ocorrerem na mesma sala.
+     * sala. Duas aulas são consideradas sobrepõem se tiverem horários que se
+     * sobrepõem e ocorrerem na mesma sala.
      * 
      * @param l Aula a ser verificada para sobreposição.
      * @return true se as aulas se sobrepõem, false caso contrário.

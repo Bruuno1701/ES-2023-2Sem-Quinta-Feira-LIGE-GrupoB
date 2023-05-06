@@ -100,10 +100,10 @@ public class LessonTime
 	    return null;
 	}
 
-	String horaInicio = this.horaInicio.compareTo(other.horaInicio) > 0 ? this.horaInicio : other.horaInicio;
-	String horaFim = this.horaFim.compareTo(other.horaFim) < 0 ? this.horaFim : other.horaFim;
+	String newHoraInicio = this.horaInicio.compareTo(other.horaInicio) > 0 ? this.horaInicio : other.horaInicio;
+	String newHoraFim = this.horaFim.compareTo(other.horaFim) < 0 ? this.horaFim : other.horaFim;
 
-	return new LessonTime(this.diaDaSemana, horaInicio, horaFim, this.data);
+	return new LessonTime(this.diaDaSemana, newHoraInicio, newHoraFim, this.data);
     }
 
     /**
@@ -124,6 +124,7 @@ public class LessonTime
 
     /**
      * Método que devolve uma string que representa um tempo de aula.
+     * 
      * @return a string formatada que representa o tempo da aula.
      */
     @Override
