@@ -4,6 +4,40 @@
 	<meta charset="UTF-8">
 	<title>Schedule</title>
 	<style>
+
+.week-input-container {
+  display: flex;
+
+  margin-top: 10px;
+}
+
+#btn1, #btn2, #btn3 {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#btaux{
+	background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
 				body {
 			font-family: Arial, sans-serif;
 			background-color: #f7f7f7;
@@ -64,19 +98,211 @@
 </head>
 <body>
 	<input type="file" id="fileInput">
-	<button onclick="readFile()">Read File</button>
+	<br><br><br><br><br><br><br>
 	
-	<button id="btn1" onclick="showDiv('div1')">Mostrar Dia</button>
-	<button id="btn2" onclick="showDiv('div2')">Mostrar Horário</button>
-	<button id="btn3" onclick="showDiv('div3')">Mostrar Caléndário</button>
-	<div id="div1">This is the first div</div>
+	<button id="btn1" onclick="showDiv('div1')">Daily View</button>
+	<button id="btn2" onclick="showDiv('div2')">Weekly View</button>
+	<button id="btn3" onclick="showDiv('div3')">Monthly View</button>
 	
-	<div id="div3">This is the third div</div>	
+	<div id="div1">
+		<form>
+			<br>
+			<label for="date">Choose a date:</label>
+			<input type="date" id="date" name="date">
+			<button id ="btaux" type="button" onclick="showSchedule()">Show Schedule</button>
+			<br>
+		  </form>
+		<table id="tableSemanal">
+			
+			
+			<thead>
+				<tr>
+					<th>Time</th>
+					<th>Day</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>08:00 - 08:30</td>
+					<td id="time0800-dia"></td>
+				</tr>
+				<tr>
+					<td>08:30 - 09:00</td>
+					<td id="time0830-dia"></td>
+				</tr>
+				<tr>
+					<td>09:00 - 9:30</td>
+					<td id="time0900-dia"></td>
+
+				</tr>
+				<tr>
+					<td>09:30 - 10:00</td>
+					<td id="time0930-dia"></td>
+
+				</tr>
+				<tr>
+					<td>10:00 - 10:30</td>
+					<td id="time1000-dia"></td>
+
+				</tr>
+				<tr>
+					<td>10:30 - 11:00</td>
+					<td id="time1030-dia"></td>
+
+				</tr>
+				<tr>
+					<td>11:00 - 11:30</td>
+					<td id="time1100-dia"></td>
+	
+				</tr>
+				<tr>
+					<td>11:30 - 12:00</td>
+					<td id="time1130-dia"></td>
+	
+				</tr>
+				<tr>
+					<td>12:00 - 12:30</td>
+					<td id="time1200-dia"></td>
+
+				</tr>
+				<tr>
+					<td>12:30 - 13:00</td>
+					<td id="time1230-dia"></td>
+		
+				</tr>
+				<tr>
+					<td>13:00 - 13:30</td>
+					<td id="time1300-dia"></td>
+
+				</tr>
+				<tr>
+					<td>13:30 - 14:00</td>
+					<td id="time1330-dia"></td>
+
+				</tr>
+				<tr>
+					<td>14:00 - 14:30</td>
+					<td id="time1400-dia"></td>
+
+				</tr>
+				<tr>
+					<td>14:30 - 15:00</td>
+					<td id="time1430-dia"></td>
+
+				</tr>
+				<tr>
+					<td>15:00 - 15:30</td>
+					<td id="time1500-dia"></td>
+
+				</tr>
+				<tr>
+					<td>15:30 - 16:00</td>
+					<td id="time1530-dia"></td>
+
+				</tr>
+				<tr>
+					<td>16:00 - 16:30</td>
+					<td id="time1600-dia"></td>
+	
+				</tr>
+				<tr>
+					<td>16:30 - 17:00</td>
+					<td id="time1630-dia"></td>
+
+				</tr>
+				<tr>
+					<td>17:00 - 17:30</td>
+					<td id="time1700-dia"></td>
+
+				</tr>
+				<tr>
+					<td>17:30 - 18:00</td>
+					<td id="time1730-dia"></td>
+	
+				</tr>
+				<tr>
+					<td>18:00 - 18:30</td>
+					<td id="time1800-dia"></td>
+
+				</tr>
+				<tr>
+					<td>18:30 - 19:00</td>
+					<td id="time1830-dia"></td>
+	
+				</tr>
+				<tr>
+					<td>19:00 - 19:30</td>
+					<td id="time1900-dia"></td>
+
+				</tr>
+				<tr>
+					<td>19:30 - 20:00</td>
+					<td id="time1930-dia"></td>
+
+				</tr>
+				<tr>
+					<td>20:00 - 20:30</td>
+					<td id="time2000-dia"></td>
+
+				</tr>
+				<tr>
+					<td>20:30 - 21:00</td>
+					<td id="time2030-dia"></td>
+
+				</tr>
+				<tr>
+					<td>21:00 - 21:30</td>
+					<td id="time2100-dia"></td>
+
+				</tr>
+				<tr>
+					<td>21:30 - 22:00</td>
+					<td id="time2130-dia"></td>
+
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	
+	<div id="div3">
+		
+
+		<label for="month">Month:</label>
+		<select id="month">
+			<option value="01">January</option>
+			<option value="02">February</option>
+			<option value="03">March</option>
+			<option value="04">April</option>
+			<option value="05">May</option>
+			<option value="06">June</option>
+			<option value="07">July</option>
+			<option value="08">August</option>
+			<option value="09">September</option>
+			<option value="10">October</option>
+			<option value="11">November</option>
+			<option value="12">December</option>
+		</select>
+	
+		<label for="year">Year:</label>
+		<input type="number" id="year" value="2022">
+	
+		<button id="btaux" onclick="generateTable()">Generate Table</button>
+	
+		<div id="table-container"></div>
+
+
+	</div>	
+
 	<div id="div2">
-	<label for="weekInput">Select week:</label>
-	<input type="number" id="weekInput" min="1" max="52" value="1">
+		<br>
+		<div class="week-input-container">
+		  <input type="number" id="weekInput" min="1" max="52" value="1" oninput="displayWeekDates()">
+		  <div id="weekDates"></div>
+		  <button id="btaux" onclick="readFile()">Show Schedule</button>
+		</div>
+		<br>
 	<table id="tableSemanal">
-        <caption>Your Schedule</caption>
+        
         
 		<thead>
 			<tr>
@@ -317,6 +543,130 @@
 	</table>
 	</div>
 	<script>
+
+function generateTable() {
+			// Get month and year selected by the user
+			const month = document.getElementById("month").value;
+			const year = document.getElementById("year").value;
+
+			// Get number of days in the month
+			const daysInMonth = new Date(year, month, 0).getDate();
+
+			// Get the weekday of the first day of the month
+			const firstDay = new Date(year, month - 1, 1).getDay();
+
+			// Create the table element
+			const table = document.createElement("table");
+
+			// Create the table header row
+			const headerRow = document.createElement("tr");
+			const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+			for (let i = 0; i < 7; i++) {
+				const th = document.createElement("th");
+				const text = document.createTextNode(daysOfWeek[i]);
+				th.appendChild(text);
+				headerRow.appendChild(th);
+			}
+			table.appendChild(headerRow);
+
+			// Create the table rows for each day
+			let date = 1;
+			for (let i = 0; i < 6; i++) {
+				const row = document.createElement("tr");
+				for (let j = 0; j < 7; j++) {
+					const cell = document.createElement("td");
+					if (i === 0 && j < firstDay) {
+						// Create empty cells for days before the 1st of the month
+					} else if (date > daysInMonth) {
+						// Create empty cells for days after the end of the month
+					} else {
+						// Create a cell for the current day
+						const id = year + "-" + month + "-" + date.toString().padStart(2, '0');
+						console.log("id: "+id);
+						cell.setAttribute("id", id);
+						const text = document.createTextNode(date);
+						cell.appendChild(text);
+						date++;
+					}
+					row.appendChild(cell);
+				}
+				table.appendChild(row);
+			}
+
+			// Add the table to the page
+			const container = document.getElementById("table-container");
+			container.innerHTML = "";
+			container.appendChild(table);
+
+			
+			const fileInput = document.getElementById('fileInput');
+			const file = fileInput.files[0];
+			const reader = new FileReader();
+			reader.onload = () => {
+				const contents = reader.result;
+				const data = contents.trim().split('\n').map(row => row.split(';'));
+
+				for (let row of data) {
+
+					const datas = row[8];
+					var d1 = datas.split('/').reverse().join('-');	
+					var mes = d1.split('-')[1];
+					
+					var ano = d1.split('-')[0];
+					var vdia = d1.split('-')[2];
+
+					console.log("mes - "+mes);
+					console.log("month - "+month);
+					console.log("ano - "+ano);
+					console.log("year - "+year);
+					console.log((mes != month || ano != year ));
+					if (mes != month || ano != year ) {
+                    continue; // skip classes not in the selected week
+                	}
+					console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                       // console.log(document.getElementById(teste));
+						const td = document.getElementById(d1);
+						//console.log("depois disto");
+
+						td.textContent += ` - ${row[1]}`;
+						
+						//console.log(lastString);
+                        //console.log("acabou primeira iteração");
+                    
+					
+				}
+			};
+
+			reader.readAsText(file);
+		}
+
+		
+
+
+
+
+function displayWeekDates() {
+  const weekInput = document.getElementById("weekInput");
+  const selectedWeek = parseInt(weekInput.value);
+  const yearStart = new Date(new Date().getFullYear(), 0, 1); // first day of current year
+  const startDate = new Date(yearStart.getTime() + ((selectedWeek - 1) * 7 * 24 * 60 * 60 * 1000)); // start date of selected week
+  const endDate = new Date(startDate.getTime() + (6 * 24 * 60 * 60 * 1000)); // end date of selected week
+  const startDay = startDate.getDate();
+  const startMonth = startDate.toLocaleString('default', { month: 'long' });
+  const endDay = endDate.getDate();
+  const endMonth = endDate.toLocaleString('default', { month: 'long' });
+  const weekDates = document.getElementById("weekDates");
+  weekDates.textContent = `Week ${selectedWeek} (${startDay} ${startMonth} - ${endDay} ${endMonth})`;
+}
+displayWeekDates(); // display dates for default value
+
+
+
+
+
+
+
+
 function showDiv(divId) {
   // Hide all divs
   document.getElementById('div1').style.display = 'none';
@@ -341,7 +691,7 @@ function showDiv(divId) {
 		  // Make Sunday's day number 7
 		  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
 		  // Get first day of year
-		  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+		  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 4));
 	 	 // Calculate full weeks to nearest Thursday
 	  	const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
 	  	// Return week number and year
@@ -354,7 +704,77 @@ function showDiv(divId) {
        		 cell.textContent = '';
     		  }
    		 }
+
+		function showSchedule(){
+			clearSchedule();
+			const date = document.getElementById('date').value;
+			console.log(date);
+
+			const fileInput = document.getElementById('fileInput');
+			const file = fileInput.files[0];
+			const reader = new FileReader();
+			reader.onload = () => {
+				const contents = reader.result;
+				const data = contents.trim().split('\n').map(row => row.split(';'));
+
+				for (let row of data) {
+					const startTime = row[6];
+					const endTime = row[7];
+					const data = row[8];
+					var d1 = data.split('/').reverse().join('-');
+					const room = row[9];
+					const capacity = row[10];
+					console.log(date);
+					console.log(d1);
+					if (date != d1) {
+                    continue; // skip classes not in the selected week
+                	}
+
+
+					const startHour = parseInt(startTime.split(':')[0]);
+					const startMinute = parseInt(startTime.split(':')[1]);
+					const endHour = parseInt(endTime.split(':')[0]);
+					const endMinute = parseInt(endTime.split(':')[1]);
+
+					const startSlot = (startHour * 60 + startMinute - 480) / 60;
+					const endSlot = (endHour * 60 + endMinute - 480) / 60;
+
+					for (let slot = startSlot; slot < endSlot; slot+=0.5) {
+                        let realHour ;
+                        let realMinute;
+						let lastString;
+                        if(Number.isInteger(slot)){
+                            realHour=slot+8;
+                            realMinute=00;
+                        }else{
+                            realHour=slot-0.5+8;
+                            realMinute=30; 
+                        }
+                        //console.log(slot);
+                        var teste= "time" + (realHour).toString().padStart(2, '0')+realMinute.toString().padStart(2, '0')+"-"+"dia" ;
+
+                       console.log(document.getElementById(teste));
+						const td = document.getElementById(teste);
+						console.log("depois disto");
+
+						if(lastString === `${row[0]}\n${row[1]}\n${row[2]}\n${room}` ){
+						td.textContent = `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
+						}else{
+						td.textContent += `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
+						lastString = `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
+						}
+						//console.log(lastString);
+                        //console.log("acabou primeira iteração");
+                    }
+					
+				}
+			};
+
+			reader.readAsText(file);
+		}
+
 		function readFile() {
+			
 			clearSchedule();
 			const fileInput = document.getElementById('fileInput');
 			const file = fileInput.files[0];
@@ -372,8 +792,8 @@ function showDiv(divId) {
 					const room = row[9];
 					const capacity = row[10];
 					const selectedWeek = parseInt(document.getElementById('weekInput').value);
-					console.log("numero da semana escolhida "+selectedWeek);
-					console.log("week da row "+week);
+					//console.log("numero da semana escolhida "+selectedWeek);
+					//console.log("week da row "+week);
 					if (week != selectedWeek) {
                     continue; // skip classes not in the selected week
                 	}
@@ -387,18 +807,18 @@ function showDiv(divId) {
 					const startSlot = (startHour * 60 + startMinute - 480) / 60;
 					const endSlot = (endHour * 60 + endMinute - 480) / 60;
 
-                    console.log("hora="+startHour);
-                    console.log("minuto="+startMinute);
+                    //console.log("hora="+startHour);
+                    //console.log("minuto="+startMinute);
 
-                    console.log(startSlot);
-                    console.log(endSlot);
+                    //console.log(startSlot);
+                    //console.log(endSlot);
 
                     
 					for (let slot = startSlot; slot < endSlot; slot+=0.5) {
                         let realHour ;
                         let realMinute;
 						let lastString;
-                        console.log(Number.isInteger(slot));
+                        //console.log(Number.isInteger(slot));
                         if(Number.isInteger(slot)){
                             realHour=slot+8;
                             realMinute=00;
@@ -406,12 +826,12 @@ function showDiv(divId) {
                             realHour=slot-0.5+8;
                             realMinute=30; 
                         }
-                        console.log(slot);
+                        //console.log(slot);
                         var teste= "time" + (realHour).toString().padStart(2, '0')+realMinute.toString().padStart(2, '0')+"-"+day.toLowerCase() ;
 
-                        console.log(document.getElementById(teste));
+                       // console.log(document.getElementById(teste));
 						const td = document.getElementById(teste);
-						console.log("depois disto");
+						//console.log("depois disto");
 
 						if(lastString === `${row[0]}\n${row[1]}\n${row[2]}\n${room}` ){
 						td.textContent = `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
@@ -419,8 +839,8 @@ function showDiv(divId) {
 						td.textContent += `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
 						lastString = `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
 						}
-						console.log(lastString);
-                        console.log("acabou primeira iteração");
+						//console.log(lastString);
+                        //console.log("acabou primeira iteração");
                     }
 					
 				}
