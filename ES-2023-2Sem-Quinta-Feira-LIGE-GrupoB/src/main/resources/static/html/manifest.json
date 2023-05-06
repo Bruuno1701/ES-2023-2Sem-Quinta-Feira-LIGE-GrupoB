@@ -1,0 +1,11 @@
+{
+    "name": "Projeto ES",
+    "short_name": "ProjetoES",
+    "start_url": "/",
+    "display": "standalone",
+    "permissions": {
+      "fileSystemWrite": {},
+      "downloads": {}
+    }
+  }
+  
