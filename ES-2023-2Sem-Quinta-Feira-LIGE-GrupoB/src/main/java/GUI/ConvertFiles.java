@@ -17,12 +17,12 @@ public class ConvertFiles extends JFrame {
 	private String downloadToFolder; 
 
 	public ConvertFiles() {
-		setSize(300,150);
+		setSize(300,180);
 		setTitle("Fénix 2.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
-		JButton b1 = new JButton("Carregar ficheiro");
+		JButton b1 = new JButton("Carregar horário");
 		JLabel filepathFromPC = new JLabel();
 		b1.addActionListener(new ActionListener() {
 			@Override
@@ -35,6 +35,7 @@ public class ConvertFiles extends JFrame {
 				if (result == JFileChooser.APPROVE_OPTION) {
 					File selectedFile = fileChooser.getSelectedFile();
 					filepathFromPC.setText(selectedFile.getAbsolutePath());
+					System.out.println(selectedFile.toString());
 					System.out.println("2) Ficheiro ok, é csv ou json");
 				}
 			}
@@ -43,7 +44,7 @@ public class ConvertFiles extends JFrame {
 		JLabel l = new JLabel("Ou então através de um URL: ");
 		JTextField urlToFile = new JTextField(20);
 
-		JButton b2 = new JButton("Go");
+		JButton b2 = new JButton("Converter");
 		b2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -63,64 +64,47 @@ public class ConvertFiles extends JFrame {
 				}
 
 				/*Exemplo do file que vem diretamente do PC do user e é CSV */
-				TimeTable t = new TimeTable(filepathFromPC.getText());
-				System.out.println("Download do " + filepathFromPC.getText() + " para a diretoria " + downloadToFolder);
-				t.saveAsJSON(downloadToFolder);
 
 
-				// O seguinte código em comentário são as verificações se o file vem por um url ou pelo File Explorer, e se é json ou csv
-				// Para efeitos de teste das funcoes basicas de saveAsJson/Csv deixo-o em comentário para não confundir!
-
-				/*if (patternJSON.matcher(filepathFromURL).matches() || filepathFromPC.getText().endsWith(".json")) {
+				if (patternJSON.matcher(filepathFromURL).matches() || filepathFromPC.getText().endsWith(".json")) {
 					if("".equals(filepathFromPC.getText())) {
-
-						TimeTable t = new TimeTable(filepathFromURL, downloadToFolder);
-						t.saveAsCSV(downloadToFolder);
-						try {
-							t.saveFile(downloadToFolder);
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
+						TimeTable t2 = new TimeTable(filepathFromURL, "src/test/resources");
+						String filePath = filepathFromURL;
+						File file = new File(filePath);
+						String fileName = file.getName().split("\\.")[0];
+						System.out.println("aaaaaaaaaaaaaaaaaaaaa" + fileName);
+						t2.saveAsCSV(downloadToFolder + "\\" + fileName + ".csv");
 					}
 					else {
 						TimeTable t = new TimeTable(filepathFromPC.getText());
-						t.saveAsCSV(downloadToFolder);
-						try {
-							t.saveFile(downloadToFolder);
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
+						String filePath = filepathFromPC.getText();
+						File file = new File(filePath);
+						String fileName = file.getName().split("\\.")[0];
+						t.saveAsCSV(downloadToFolder + "\\" + fileName + ".csv");
 					}
 				} else if (patternCSV.matcher(filepathFromURL).matches() || filepathFromPC.getText().endsWith(".csv")) {
 					if("".equals(filepathFromPC.getText())) {
-						TimeTable t = new TimeTable(filepathFromURL);
-						t.saveAsJSON(downloadToFolder);
-						try {
-							t.saveFile(downloadToFolder);
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
+						TimeTable t2 = new TimeTable(filepathFromURL, "src/test/resources");
+						String filePath = filepathFromURL;
+						File file = new File(filePath);
+						String fileName = file.getName().split("\\.")[0];
+						System.out.println("aaaaaaaaaaaaaaaaaaaaa" + fileName);
+						t2.saveAsJSON(downloadToFolder + "\\" + fileName + ".json");
+
 					}
 					else {
-						System.out.println("5) File CSV to JSON " + filepathFromPC.getText());
 						TimeTable t = new TimeTable(filepathFromPC.getText());
-						t.saveAsJSON(downloadToFolder);
-						try {
-							t.saveFile(downloadToFolder);
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
+						String filePath = filepathFromPC.getText();
+						File file = new File(filePath);
+						String fileName = file.getName().split("\\.")[0];
+						t.saveAsJSON(downloadToFolder + "\\" + fileName + ".json");
 					}
 
 				}
 				else {
 					System.err.println("Formato do ficheiro inválido: deve ser .JSON ou .CSV");
 					urlToFile.setText("");
-				}*/
+				}
 			}
 		});
 
