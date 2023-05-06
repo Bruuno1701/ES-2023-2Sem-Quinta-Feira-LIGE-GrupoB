@@ -1,3 +1,4 @@
+package gestaohorarios;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -17,14 +18,9 @@ import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.junit.Test;
 
-/**
- * 
- */
+import gestaohorarios.TimeTable;
 
-/**
- * @author Asus
- *
- */
+
 public class TimeTableTest
 {
 
@@ -100,6 +96,7 @@ public class TimeTableTest
     private static final String GUARDAR1 = "C:\\Users\\Pedro Ferraz\\OneDrive - ISCTE-IUL\\Ambiente de Trabalho\\Iscte\\3º Ano\\2º Semestre\\ES\\Projeto\\outrosTestes";
     private static final String GUARDAR2 = "https://github.com/Bruuno1701/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/tree/FileConverter/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/src/test/resources";
 
+    
     @Test
     public void testTimeTable2()
     {

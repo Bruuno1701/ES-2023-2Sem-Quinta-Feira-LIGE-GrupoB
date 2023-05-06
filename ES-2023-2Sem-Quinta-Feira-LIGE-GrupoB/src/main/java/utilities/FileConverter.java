@@ -20,13 +20,11 @@ import org.json.JSONObject;
 public class FileConverter {
 
 	/**
-	 * @author filipa Devolve um ficheiro json resultante da conversão de um
-	 *         ficheiro csv.
-	 *
-	 * @param csvPath  caminho para o ficheiro csv a ser convertido
-	 * @param jsonPath caminho onde o ficheiro json resultante da conversão deve ser
-	 *                 guardado
-	 * @return o ficheiro json resultante da conversão
+	 * Função que devolve um ficheiro json resultante da conversão de um ficheiro csv.
+	 * 
+	 * @param csvPath  Caminho para o ficheiro csv a ser convertido.
+	 * @param jsonPath Caminho onde o ficheiro json resultante da conversão deve ser guardado.             
+	 * @return Ficheiro json resultante da conversão.
 	 * @throws IOException
 	 */
 	public static File csvTojson(String csvPath, String jsonPath) throws IOException {
@@ -72,6 +70,14 @@ public class FileConverter {
 		}
 	}
 
+	/**
+	 * Função que devolve um ficheiro csv resultante da conversão de um ficheiro json.
+	 * 
+	 * @param jsonPath  Caminho para o ficheiro json a ser convertido.
+	 * @param csvPath Caminho onde o ficheiro csv resultante da conversão deve ser guardado.             
+	 * @return Ficheiro csv resultante da conversão.
+	 * @throws IOException
+	 */
 	public static File jsonTocsv(String jsonPath, String csvPath) {
 		File f = new File(jsonPath);
 

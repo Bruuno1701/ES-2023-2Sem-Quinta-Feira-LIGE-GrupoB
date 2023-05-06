@@ -1,3 +1,4 @@
+package gestaohorarios;
 
 public class LessonTime
 {
@@ -6,6 +7,13 @@ public class LessonTime
     private String horaFim;
     private String data;
 
+    /**
+     * 
+     * @param diaDaSemana
+     * @param horaInicio
+     * @param horaFim
+     * @param data
+     */
     public LessonTime(String diaDaSemana, String horaInicio, String horaFim, String data)
     {
 	this.diaDaSemana = diaDaSemana;

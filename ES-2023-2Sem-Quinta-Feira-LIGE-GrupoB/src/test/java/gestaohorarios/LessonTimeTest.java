@@ -1,6 +1,9 @@
+package gestaohorarios;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import gestaohorarios.LessonTime;
 
 public class LessonTimeTest {
 
@@ -45,18 +48,21 @@ public class LessonTimeTest {
         LessonTime lesson1 = new LessonTime("Segunda-feira", "10:00", "12:00", "2023-05-02");
         LessonTime lesson2 = new LessonTime("Segunda-feira", "11:00", "13:00", "2023-05-02");
         LessonTime lesson3 = new LessonTime("Terça-feira", "14:00", "16:00", "2023-05-03");
-        
+        LessonTime lesson4 = new LessonTime(null, "14:00", "16:00", "2023-05-03");
         assertTrue(lesson1.overlaps(lesson2));
         assertTrue(lesson2.overlaps(lesson1));
         assertFalse(lesson1.overlaps(lesson3));
         assertFalse(lesson2.overlaps(lesson3));
+        assertTrue(lesson3.overlaps(lesson4));
+        assertTrue(lesson4.overlaps(lesson3));
+        
     }
     
     @Test
     public void testGetOverlay() {
         LessonTime aula1 = new LessonTime("Segunda", "08:00", "10:00", "2023-05-02");
         LessonTime aula2 = new LessonTime("Segunda", "09:00", "11:00", "2023-05-02");
-        LessonTime aula3 = new LessonTime("Segunda", "12:00", "14:00", "2023-05-02");
+        LessonTime aula3 = new LessonTime(null, "12:00", "14:00", "2023-05-02");
         LessonTime aula4 = new LessonTime("Terça", "08:00", "10:00", "2023-05-03");
         
         // Verifica a sobreposição entre aula1 e aula2

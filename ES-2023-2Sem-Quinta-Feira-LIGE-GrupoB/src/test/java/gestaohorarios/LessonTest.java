@@ -1,7 +1,10 @@
+package gestaohorarios;
 import static org.junit.Assert.*;
 
 import org.json.JSONObject;
 import org.junit.Test;
+
+import gestaohorarios.Lesson;
 
 public class LessonTest
 {
