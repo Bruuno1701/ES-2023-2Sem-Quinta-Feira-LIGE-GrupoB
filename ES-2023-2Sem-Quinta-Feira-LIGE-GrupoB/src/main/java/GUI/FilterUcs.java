@@ -76,10 +76,8 @@ public class FilterUcs extends JFrame {
 				List<String> ucs = new ArrayList<String>();
 
 				for (JCheckBox b : checkBoxes) {
-					if (b != null && b.isSelected())
+					if (b != null) 
 						ucs.add(b.getText());
-					else
-						System.out.println("null");
 				}
 
 				if (ucs.isEmpty())
