@@ -1,6 +1,6 @@
 package GUI;
 
-import table.TimeTable;
+import gestaohorarios.TimeTable;
 import javax.swing.JFrame;
 //import javax.swing.JLabel;
 import javax.swing.JPanel;

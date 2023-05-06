@@ -20,8 +20,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import table.Lesson;
-import table.TimeTable;
+import gestaohorarios.Lesson;
+import gestaohorarios.TimeTable;
 
 public class FilterUcs extends JFrame {
 	private List<Lesson> selectedUcs;
