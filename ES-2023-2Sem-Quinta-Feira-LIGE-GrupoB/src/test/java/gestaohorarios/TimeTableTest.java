@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -31,7 +33,8 @@ public class TimeTableTest
     private static final String HORARIO_FILTRADO_CSV = "src/test/resources/horario_ucs_filtradas.csv";
     private static final String HORARIO_SOBREPOSICOES_JSON = "src/test/resources/horario_sobreposicoes.json";
     private static final String HORARIO_GRANDE_CSV = "src/test/resources/horario_exemplo_grande.csv";
-
+    private static final Logger LOGGER = Logger.getLogger(TimeTable.class.getName());
+    
     /**
      * Test method for {@link TimeTable#saveAsCSV(java.lang.String)}.
      * 
@@ -155,7 +158,7 @@ public class TimeTableTest
 	} catch (IOException e)
 	{
 	    // TODO Auto-generated catch block
-	    e.printStackTrace();
+	    LOGGER.log(Level.WARNING, e.getMessage());
 	}
     }
 

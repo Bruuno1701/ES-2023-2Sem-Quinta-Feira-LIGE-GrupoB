@@ -49,7 +49,7 @@ public class TimeTable
 	    this.file = findFile(path, null);
 	} catch (IOException e)
 	{
-	    e.printStackTrace();
+	    LOGGER.log(Level.WARNING, e.getMessage());
 	    LOGGER.log(Level.SEVERE, "Erro ao criar a TimeTable");
 	}
     }
@@ -69,7 +69,7 @@ public class TimeTable
 	    this.file = findFile(path, localDirectory);
 	} catch (IOException e)
 	{
-	    e.printStackTrace();
+	    LOGGER.log(Level.WARNING, e.getMessage());
 	    LOGGER.log(Level.SEVERE, "Erro ao criar a TimeTable");
 	}
     }
@@ -186,7 +186,7 @@ public class TimeTable
 	    this.file = FileConverter.csvTojson(file.getAbsolutePath(), path);
 	} catch (IOException e)
 	{
-	    e.printStackTrace();
+	    LOGGER.log(Level.WARNING, e.getMessage());
 	}
     }
 

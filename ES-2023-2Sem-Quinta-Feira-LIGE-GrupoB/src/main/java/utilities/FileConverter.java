@@ -7,6 +7,8 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -17,6 +19,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import gestaohorarios.TimeTable;
+
 /**
  * 
  * A classe FileConverter é uma classe de funções estáticas que servem para
@@ -25,7 +29,9 @@ import org.json.JSONObject;
  */
 public class FileConverter
 {
-
+    
+    private static final Logger LOGGER = Logger.getLogger(TimeTable.class.getName());
+    
     /**
      * Função que devolve um ficheiro json resultante da conversão de um ficheiro
      * csv.
@@ -150,7 +156,7 @@ public class FileConverter
 	    FileUtils.writeStringToFile(file, StringUtils.join(estrutura, "\n"), "UTF-8");
 	} catch (Exception e)
 	{
-	    e.printStackTrace();
+	    LOGGER.log(Level.WARNING, e.getMessage());
 	}
 	return file;
 
