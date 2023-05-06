@@ -8,7 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
 import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
@@ -62,7 +61,17 @@ public class ConvertFiles extends JFrame {
 					downloadToFolder = fileChooser.getSelectedFile().getPath();
 					System.out.println("4) Diretoria para fazer download escolhida: " + downloadToFolder);
 				}
-				if (patternJSON.matcher(filepathFromURL).matches() || filepathFromPC.getText().endsWith(".json")) {
+
+				/*Exemplo do file que vem diretamente do PC do user e é CSV */
+				TimeTable t = new TimeTable(filepathFromPC.getText());
+				System.out.println("Download do " + filepathFromPC.getText() + " para a diretoria " + downloadToFolder);
+				t.saveAsJSON(downloadToFolder);
+
+
+				// O seguinte código em comentário são as verificações se o file vem por um url ou pelo File Explorer, e se é json ou csv
+				// Para efeitos de teste das funcoes basicas de saveAsJson/Csv deixo-o em comentário para não confundir!
+
+				/*if (patternJSON.matcher(filepathFromURL).matches() || filepathFromPC.getText().endsWith(".json")) {
 					if("".equals(filepathFromPC.getText())) {
 
 						TimeTable t = new TimeTable(filepathFromURL, downloadToFolder);
@@ -111,7 +120,7 @@ public class ConvertFiles extends JFrame {
 				else {
 					System.err.println("Formato do ficheiro inválido: deve ser .JSON ou .CSV");
 					urlToFile.setText("");
-				}
+				}*/
 			}
 		});
 
