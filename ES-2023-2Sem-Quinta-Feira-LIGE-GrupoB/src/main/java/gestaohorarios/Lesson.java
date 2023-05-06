@@ -1,10 +1,5 @@
 package gestaohorarios;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-
-import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 

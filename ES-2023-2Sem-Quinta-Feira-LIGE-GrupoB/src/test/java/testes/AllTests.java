@@ -10,7 +10,7 @@ import gestaohorarios.TimeTableTest;
 import utilities.FileConverterTest;
 
 @RunWith(Suite.class)
-@SuiteClasses({ LessonTest.class, LessonTimeTest.class, TimeTableTest.class, FileConverterTest.class})
+@SuiteClasses({ LessonTest.class, LessonTimeTest.class, TimeTableTest.class, FileConverterTest.class })
 public class AllTests
 {
 

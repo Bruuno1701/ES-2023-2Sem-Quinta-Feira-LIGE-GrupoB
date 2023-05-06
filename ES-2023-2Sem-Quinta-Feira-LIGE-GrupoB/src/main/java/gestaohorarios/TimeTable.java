@@ -1,15 +1,14 @@
 package gestaohorarios;
 
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -18,15 +17,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
+
 import org.apache.commons.collections4.MultiValuedMap;
 import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.json.JSONArray;
-
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.DataOutputStream;
 
 import utilities.FileConverter;
 
@@ -335,7 +331,7 @@ public class TimeTable
 	    }
 	} catch (IOException e)
 	{
-	    e.printStackTrace();
+	    LOGGER.log(Level.WARNING, e.getMessage());
 	}
 
     }
