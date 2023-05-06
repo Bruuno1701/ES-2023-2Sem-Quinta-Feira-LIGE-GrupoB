@@ -3,8 +3,8 @@ package gestaohorarios;
 import java.util.Objects;
 
 /**
- * Representa o tempo em que decorre uma aula, com o dia da semana, a hora de
- * início, a hora de fim e a data.
+ * A classe LessonTime o tempo em que decorre uma aula, com o dia da semana, a
+ * hora de início, a hora de fim e a data.
  * 
  */
 public class LessonTime
@@ -21,7 +21,7 @@ public class LessonTime
      * @param diaDaSemana Dia de semana do tempo da aula.
      * @param horaInicio  A hora de início do tempo da aula.
      * @param horaFim     O horário de fim do tempo da aula.
-     * @param date        A data do tempo da aula.
+     * @param data        A data do tempo da aula.
      */
     public LessonTime(String diaDaSemana, String horaInicio, String horaFim, String data)
     {
@@ -44,7 +44,7 @@ public class LessonTime
     /**
      * Método que devolve a hora de início do tempo da aula.
      *
-     * @return A hora de início do tempo da aula.
+     * @return a hora de início do tempo da aula.
      */
     public String getHoraInicio()
     {
@@ -54,7 +54,7 @@ public class LessonTime
     /**
      * Método que devolve a hora de fim do tempo da aula.
      *
-     * @return A hora de fim do tempo da aula.
+     * @return a hora de fim do tempo da aula.
      */
     public String getHoraFim()
     {
@@ -64,7 +64,7 @@ public class LessonTime
     /**
      * Método que devolve a data do tempo da aula.
      *
-     * @return A data do tempo da aula.
+     * @return a data do tempo da aula.
      */
     public String getData()
     {
@@ -90,7 +90,7 @@ public class LessonTime
      * aula.
      *
      * @param other O outro tempo de aula para descobrir a interseção.
-     * @return Um novo objeto LessonTime representando a interseção, ou null se não
+     * @return um novo objeto LessonTime representando a interseção, ou null se não
      *         há cruzamento.
      */
     public LessonTime getOverlay(LessonTime other)
@@ -124,6 +124,7 @@ public class LessonTime
 
     /**
      * Método que devolve uma string que representa um tempo de aula.
+     * @return a string formatada que representa o tempo da aula.
      */
     @Override
     public String toString()

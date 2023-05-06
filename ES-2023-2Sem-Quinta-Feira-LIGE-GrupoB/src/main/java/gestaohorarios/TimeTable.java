@@ -1,4 +1,5 @@
 package gestaohorarios;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -27,6 +28,11 @@ import java.io.DataOutputStream;
 
 import utilities.FileConverter;
 
+/**
+ * A classe TimeTable um horário que tem um ficheiro com as informações das
+ * aulas e uma lista com as informações desse ficheiro.
+ * 
+ */
 public class TimeTable
 {
 
@@ -203,7 +209,7 @@ public class TimeTable
      *
      * @param Path String que pode ser um URL ou um path onde se prentede guardar o
      *             ficheiro da classe.
-     * @throws IOException
+     * @throws IOException se a função copyFileToDirectory do FileUtils lançar execeção.
      */
     public void saveFile(String Path) throws IOException
     {
@@ -261,8 +267,8 @@ public class TimeTable
      * @param url       URL do ficheiro pretendido.
      * @param directory Diretoria onde o ficheiro vai ser guardado.
      *
-     * @return Ficheiro guardado.
-     * @throws IOException
+     * @return ficheiro guardado.
+     * @throws IOException se algo correr mal na criação do URL ou na leitura do ficheiro.
      */
     public File downloadFile(String url, String directory) throws IOException
     {
@@ -352,10 +358,13 @@ public class TimeTable
     }
 
     /**
-     * Método que cria uma nova Timetable a partir da atual, escolhendo apenas algumas das UCs.
-     * @param ucs
-     * @param newTimeTablePath Path onde vai ser guardado o ficheiro da nova timetable.
-     * @return
+     * Método que cria uma nova Timetable a partir da atual, escolhendo apenas
+     * algumas das UCs.
+     * 
+     * @param ucs Lista de Strings com o nome das UCs selecionadas.
+     * @param newTimeTablePath Path onde vai ser guardado o ficheiro da nova
+     *                         timetable.
+     * @return nova TimeTable com as UCs selecionada, ou a mesma se a lista ucs for vazia ou nula.
      */
     public TimeTable filterUCs(List<String> ucs, String newTimeTablePath)
     {
@@ -375,6 +384,7 @@ public class TimeTable
 
     /**
      * Método que cria uma lista com as aulas sobrelotadas do objeto Timetable.
+     * 
      * @return Lista com as aulas sobrelotadas.
      */
     public List<Lesson> getOverbookedLessons()
@@ -408,8 +418,11 @@ public class TimeTable
     }
 
     /**
-     * Método que cria um mapa com as aulas sobrepostas associadas ao horário onde estão sobrepostas do objeto Timetable.
-     * @return MultiValuedMap<LessonTime, Lesson> com a key sendo o tempo em que as aulas estão sobrepostas e os values as aulas que estão sobrepostas. 
+     * Método que cria um mapa com as aulas sobrepostas associadas ao horário onde
+     * estão sobrepostas do objeto Timetable.
+     * 
+     * @return um MultiMap  com a key sendo o tempo em que as
+     *         aulas estão sobrepostas e os values as aulas que estão sobrepostas.
      */
     public MultiValuedMap<LessonTime, Lesson> getOverlaidLessons()
     {
