@@ -7,6 +7,7 @@ import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 
+
 public class Lesson
 {
     private String curso;
@@ -146,31 +147,31 @@ public class Lesson
 	if (lotacao!=-1)
 	    jsonDoc += "   \"Lotação da sala\": \"" + lotacao + "\",\n";
 	
-//	System.out.println(jsonDoc);
+
 	jsonDoc = StringUtils.removeEnd(jsonDoc, ",\n");
 	jsonDoc += "\n }";
 
 	return jsonDoc;
     }
-
   
 
     @Override
-    public boolean equals(Object obj)
-    {
-	if (this == obj)
-	    return true;
-	if (obj == null)
-	    return false;
-	if (getClass() != obj.getClass())
-	    return false;
-	Lesson other = (Lesson) obj;
-	return Objects.equals(curso, other.curso) && Objects.equals(time.getData(), other.time.getData())
-		&& Objects.equals(time.getDiaDaSemana(), other.time.getDiaDaSemana()) && Objects.equals(time.getHoraFim(), other.time.getHoraFim())
-		&& Objects.equals(time.getHoraInicio(), other.time.getHoraInicio()) && inscritosNoTurno == other.inscritosNoTurno
-		&& lotacao == other.lotacao && Objects.equals(sala, other.sala) && Objects.equals(turma, other.turma)
-		&& Objects.equals(turno, other.turno) && Objects.equals(unidadeCurricular, other.unidadeCurricular);
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Lesson other = (Lesson) obj;
+        return curso.equals(other.curso)
+                && time.equals(other.time)
+                && inscritosNoTurno == other.inscritosNoTurno
+                && lotacao == other.lotacao
+                && sala.equals(other.sala)
+                && turma.equals(other.turma)
+                && turno.equals(other.turno)
+                && unidadeCurricular.equals(other.unidadeCurricular);
     }
+
     
     public boolean isOverlaid(Lesson l) {
 	return !this.equals(l) && this.time.overlaps(l.time)&& this.sala.equals(l.sala)  && !"".equals(this.sala);

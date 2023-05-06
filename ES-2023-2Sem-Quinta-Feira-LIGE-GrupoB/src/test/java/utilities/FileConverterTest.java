@@ -31,7 +31,7 @@ public class FileConverterTest {
 	public void testjsonTocsv() throws IOException {
 		Path convertedCsvPath = Paths.get(FileConverter.jsonTocsv("src/test/resources/horario_exemplo.json",
 				"src/test/resources/horario_exemplo_convertido.csv").getAbsolutePath());
-		Path csvPath = Paths.get("src/test/resources/horario_exemplo.csv");
+		Path csvPath = Paths.get("src/test/resources/horario_exemplo2.csv");
 
 		BufferedReader bf1 = new BufferedReader(new FileReader(convertedCsvPath.toFile()));
 		BufferedReader bf2 = new BufferedReader(new FileReader(csvPath.toFile()));
@@ -40,7 +40,7 @@ public class FileConverterTest {
 		
 		convertedCsvPath = Paths.get(FileConverter.jsonTocsv("src/test/resources/horario_exemplo.csv",
 				"src/test/resources/horario_exemplo_convertido.csv").getPath());
-		assertTrue(convertedCsvPath.equals(csvPath));
+		assertTrue(convertedCsvPath.equals(Paths.get("src/test/resources/horario_exemplo.csv")));
 		
 	}
 }

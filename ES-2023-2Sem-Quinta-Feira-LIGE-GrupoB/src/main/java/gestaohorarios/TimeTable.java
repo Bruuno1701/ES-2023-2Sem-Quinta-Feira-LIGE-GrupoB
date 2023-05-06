@@ -351,6 +351,12 @@ public class TimeTable
 	return "csv".equals(FilenameUtils.getExtension(file.getName()));
     }
 
+    /**
+     * Método que cria uma nova Timetable a partir da atual, escolhendo apenas algumas das UCs.
+     * @param ucs
+     * @param newTimeTablePath Path onde vai ser guardado o ficheiro da nova timetable.
+     * @return
+     */
     public TimeTable filterUCs(List<String> ucs, String newTimeTablePath)
     {
 	if (ucs == null || ucs.isEmpty())
