@@ -23,10 +23,9 @@
 			box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 			
 		}
-
-		#tableSemanal {
-   			 display: none;
-  		}
+		#div1, #div2, #div3 {
+ 		 display: none;
+		}
 
 		th, td {
 			padding: 12px 15px;
@@ -66,9 +65,16 @@
 <body>
 	<input type="file" id="fileInput">
 	<button onclick="readFile()">Read File</button>
+	
+	<button id="btn1" onclick="showDiv('div1')">Mostrar Dia</button>
+	<button id="btn2" onclick="showDiv('div2')">Mostrar Horário</button>
+	<button id="btn3" onclick="showDiv('div3')">Mostrar Caléndário</button>
+	<div id="div1">This is the first div</div>
+	
+	<div id="div3">This is the third div</div>	
+	<div id="div2">
 	<label for="weekInput">Select week:</label>
 	<input type="number" id="weekInput" min="1" max="52" value="1">
-	<button id="botaoHorario">Mostrar horario</button>
 	<table id="tableSemanal">
         <caption>Your Schedule</caption>
         
@@ -309,20 +315,18 @@
 			</tr>
 		</tbody>
 	</table>
-    
+	</div>
 	<script>
+function showDiv(divId) {
+  // Hide all divs
+  document.getElementById('div1').style.display = 'none';
+  document.getElementById('div2').style.display = 'none';
+  document.getElementById('div3').style.display = 'none';
 
-		const button = document.getElementById('botaoHorario');
+  // Show the selected div
+  document.getElementById(divId).style.display = 'block';
+}
 		const div = document.getElementById('tableSemanal');
-
-		button.addEventListener('click', () => {
-		  if (div.style.display === 'none') {
-		    div.style.display = 'block';
-		  } else {
-		    div.style.display = 'none';
-		  }
-		});	
-
 
 		function getWeekNumber(date) {
 		  // Copy date so don't modify original
