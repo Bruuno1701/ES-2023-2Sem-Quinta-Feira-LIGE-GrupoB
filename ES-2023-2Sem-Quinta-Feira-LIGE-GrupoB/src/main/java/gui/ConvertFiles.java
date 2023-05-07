@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -18,31 +19,32 @@ import java.awt.FlowLayout;
 public class ConvertFiles extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private String downloadToFolder; 
+	private static final String formatJSON = ".json";
+	private static final String formatCSV = ".csv";
 
 	public ConvertFiles() {
 		setSize(300,180);
 		setTitle("Fénix 2.0");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Ao clicar em Sair, faz apenas dispose da Frame
-		setLocationRelativeTo(null); // Para centrar a Frame no ecrã
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); 
+		setLocationRelativeTo(null); 
 
 		JButton buttonToUpload = new JButton("Carregar horário");
-		JLabel filepathFromPC = new JLabel(); // Label que mostra o path escolhido acima
+		JLabel filepathFromPC = new JLabel(); 
 		buttonToUpload.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fileChooser = new JFileChooser();
-				FileNameExtensionFilter filter = new FileNameExtensionFilter(".json, .csv", "json", "csv"); // File escolhido tem de ser .json ou .csv
+				FileNameExtensionFilter filter = new FileNameExtensionFilter(".json, .csv", "json", "csv");
 				fileChooser.setFileFilter(filter); 
-				int result = fileChooser.showOpenDialog(ConvertFiles.this); // Abre o file explorer
+				int result = fileChooser.showOpenDialog(ConvertFiles.this); 
 				if (result == JFileChooser.APPROVE_OPTION) {
 					File selectedFile = fileChooser.getSelectedFile();
 					filepathFromPC.setText(selectedFile.getAbsolutePath());
-					System.out.println("Escolhido o ficheiro " + selectedFile.toString());
 				}
 			}
 		});
 
-		// Fica à escuta que o user feche a frame, e em caso afirmativo retorna à HomePage
+
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -58,42 +60,39 @@ public class ConvertFiles extends JFrame {
 		buttonToDownload.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("3) Gogogogogo");
-				//Por url:
+
 				String filepathFromURL = urlToFile.getText();
 				Pattern patternJSON = Pattern.compile("^https?://.*\\.json$");
 				Pattern patternCSV = Pattern.compile("^https?://.*\\.csv$");
 
-				//Escolher diretoria para download:
 				JFileChooser fileChooser = new JFileChooser();
 				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 				int result = fileChooser.showSaveDialog(ConvertFiles.this);
 				if (result == JFileChooser.APPROVE_OPTION) {
 					downloadToFolder = fileChooser.getSelectedFile().getPath();
-					System.out.println("4) Diretoria para fazer download escolhida: " + downloadToFolder);
-
-					if (patternJSON.matcher(filepathFromURL).matches() || filepathFromPC.getText().endsWith(".json")) {
+					if (patternJSON.matcher(filepathFromURL).matches() || filepathFromPC.getText().endsWith(formatJSON)) {
 						if("".equals(filepathFromPC.getText())) {
 							TimeTable t2 = new TimeTable(filepathFromURL, "src/test/resources");
 							String filePath = filepathFromURL;
 							File file = new File(filePath);
 							String fileName = file.getName().split("\\.")[0];
-							t2.saveAsCSV(downloadToFolder + "\\" + fileName + ".csv");
+							t2.saveAsCSV(downloadToFolder + "\\" + fileName + formatCSV);
 						}
 						else {
 							TimeTable t = new TimeTable(filepathFromPC.getText());
 							String filePath = filepathFromPC.getText();
 							File file = new File(filePath);
 							String fileName = file.getName().split("\\.")[0];
-							t.saveAsCSV(downloadToFolder + "\\" + fileName + ".csv");
+							t.saveAsCSV(downloadToFolder + "\\" + fileName + formatCSV);
 						}
-					} else if (patternCSV.matcher(filepathFromURL).matches() || filepathFromPC.getText().endsWith(".csv")) {
+						JOptionPane.showMessageDialog(null, "Ficheiro convertido com sucesso!");
+					} else if (patternCSV.matcher(filepathFromURL).matches() || filepathFromPC.getText().endsWith(formatCSV)) {
 						if("".equals(filepathFromPC.getText())) {
 							TimeTable t2 = new TimeTable(filepathFromURL, "src/test/resources");
 							String filePath = filepathFromURL;
 							File file = new File(filePath);
 							String fileName = file.getName().split("\\.")[0];
-							t2.saveAsJSON(downloadToFolder + "\\" + fileName + ".json");
+							t2.saveAsJSON(downloadToFolder + "\\" + fileName + formatJSON);
 
 						}
 						else {
@@ -101,7 +100,7 @@ public class ConvertFiles extends JFrame {
 							String filePath = filepathFromPC.getText();
 							File file = new File(filePath);
 							String fileName = file.getName().split("\\.")[0];
-							t.saveAsJSON(downloadToFolder + "\\" + fileName + ".json");
+							t.saveAsJSON(downloadToFolder + "\\" + fileName + formatJSON);
 						}
 						JOptionPane.showMessageDialog(null, "Ficheiro convertido com sucesso!");
 					}

@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Desktop;
@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import gestaohorarios.Lesson;
+import gestaohorario.Lesson;
 import gestaohorarios.TimeTable;
 
 public class FilterUcs extends JFrame {
