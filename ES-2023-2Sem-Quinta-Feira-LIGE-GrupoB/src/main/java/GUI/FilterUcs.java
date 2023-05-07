@@ -45,11 +45,6 @@ public class FilterUcs extends JFrame {
 		JPanel mainPanel = new JPanel(new BorderLayout());
 		JPanel boxesPanel = new JPanel(new GridLayout(0, 1));
 
-//	Por alguma razão não funciona:
-		JScrollPane scroll = new JScrollPane(boxesPanel);
-		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		getContentPane().add(scroll, BorderLayout.CENTER);
-
 		selectedUcs = new ArrayList<Lesson>(); // lista de aulas
 		timetable = null; // que se vai buscar
 		try {
@@ -59,12 +54,8 @@ public class FilterUcs extends JFrame {
 			int result = fileChooser.showOpenDialog(null);
 			if (result == JFileChooser.APPROVE_OPTION) {
 				File file = fileChooser.getSelectedFile();
-//				file.FileConverter.csvToJson(file.getAbsolutePath(), file.getAbsolutePath());
 				path = file.getAbsolutePath();
 				timetable = new TimeTable(path);
-//				if (timetable.isCSV()) {
-//					timetable.saveAsJSON(file.getAbsolutePath());
-//				}
 			}
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
@@ -97,8 +88,6 @@ public class FilterUcs extends JFrame {
 					if (b != null && b.isSelected())
 						ucs.add(b.getText());
 				}
-				
-//				System.out.println(ucs);
 				
 				if (ucs.isEmpty())
 					JOptionPane.showMessageDialog(null, "Por favor, selecione pelo menos 1 UC");
@@ -139,34 +128,7 @@ public class FilterUcs extends JFrame {
 			openButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					DefaultTableModel model = new DefaultTableModel(
-							new Object[][] {},
-							new String[] {"Curso", "Unidade Curricular", "Turno", "Turma", "Inscritos no turno", "Dia da semana", "Hora início da aula", "Hora fim da aula", "Data da aula", "Sala atribuída à aula", "Lotação da sala"}
-							);
-					
-					java.lang.reflect.Field[] fields = TimeTable.class.getDeclaredFields();
-					
-					Object[] row = new Object[fields.length];
-					
-					for (int i = 0; i < fields.length; i++) {
-						try {
-							fields[i].setAccessible(true);
-							row[i] = fields[i].get(timetable);
-						}catch (Exception e3) {
-							e3.printStackTrace();
-						}
-					}
-					
-					model.addRow(row);
-					
-					JTable table = new JTable(model);
-					
-					JFrame frame = new JFrame();
-					
-					frame.add(new JScrollPane(table));
-					frame.pack();
-					frame.setVisible(true);
-				}
+					//display
 			});
 			add(openButton, BorderLayout.NORTH);
 			
@@ -175,7 +137,23 @@ public class FilterUcs extends JFrame {
 			saveButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					//fazer o display
+					JFileChooser fileChooser = new JFileChooser();
+					fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+					int result = fileChooser.showSaveDialog(DisplayTimeTable.this);
+					if (result == JFileChooser.APPROVE_OPTION) {
+						File file = fileChooser.getSelectedFile();
+						String filepath = file.getPath();
+						System.out.println(filepath + "\\horario_exemplo2.json");
+						try {
+							timetable.saveFile(filepath);
+							JOptionPane.showMessageDialog(null, "Horário guardado com sucesso!");
+						} catch (Exception e2) {
+							JOptionPane.showMessageDialog(null, "Erro ao guardar horário: " + e2.getMessage());
+						}
+
+					}
+
+				}
 			});
 			add(saveButton, BorderLayout.SOUTH);
 			add(panel, BorderLayout.CENTER);
