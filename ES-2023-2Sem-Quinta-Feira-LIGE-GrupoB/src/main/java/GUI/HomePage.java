@@ -1,5 +1,4 @@
 package GUI;
-//import table.TimeTable;
 import javax.swing.JFrame;
 //import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -12,30 +11,30 @@ public class HomePage extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public HomePage() {
-		setSize(600,700);
+		setSize(300,180);
 		setTitle("Fénix 2.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
-		JButton b1 = new JButton("Abrir um horário");
+		JButton b1 = new JButton("Criar um horário");
 		b1.setPreferredSize(new Dimension(400, 50));
 		b1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ShowOverBookedLessons sb = new ShowOverBookedLessons();
-				setVisible(false);
-				sb.setVisible(true);
+				CreateTimeTable ct = new CreateTimeTable();
+				ct.setVisible(true);
+				dispose();
 			}
 		});
 
-		JButton b2 = new JButton("Converter horários");
+		JButton b2 = new JButton("Converter horários JSON <-> CSV");
 		b2.setPreferredSize(new Dimension(400, 50));
 		b2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ConvertFiles cf = new ConvertFiles();
-				setVisible(false);
 				cf.setVisible(true);
+				dispose();
 			}
 		});
 
