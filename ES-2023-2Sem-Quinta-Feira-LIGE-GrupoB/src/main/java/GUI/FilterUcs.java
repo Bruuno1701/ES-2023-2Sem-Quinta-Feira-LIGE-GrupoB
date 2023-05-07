@@ -1,10 +1,11 @@
 package GUI;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -15,13 +16,15 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
-import gestaohorarios.Lesson;
-import gestaohorarios.TimeTable;
+import table.Lesson;
+import table.TimeTable;
 
 public class FilterUcs extends JFrame {
 	private List<Lesson> selectedUcs;
@@ -31,22 +34,37 @@ public class FilterUcs extends JFrame {
 	private TimeTable timetable;
 
 	public FilterUcs() {
-		setSize(500, 400);
-		setTitle("Criar Horário Por UCs");
+		setSize(300, 180);
+		setTitle("Fénix 2.0");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 
+		 addWindowListener(new WindowAdapter() {
+	            @Override
+	            public void windowClosing(WindowEvent e) {
+	                CreateTimeTable ct = new CreateTimeTable();
+	                ct.setVisible(true);
+	            }
+	        });
+		
 		JPanel mainPanel = new JPanel(new BorderLayout());
-		JPanel boxesPanel = new JPanel(new GridLayout(0, 2));
+		JPanel boxesPanel = new JPanel(new GridLayout(0, 1));
 
-		selectedUcs = new ArrayList<Lesson>(); // lista de aulas
-		timetable = null; // que se vai buscar
+		JScrollPane scroll = new JScrollPane(boxesPanel);
+		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		getContentPane().add(scroll, BorderLayout.CENTER);
+
+		selectedUcs = new ArrayList<Lesson>();
+		timetable = null; 
 		try {
 			JFileChooser fileChooser = new JFileChooser();
+			FileNameExtensionFilter filter = new FileNameExtensionFilter(".json, .csv", "json", "csv");																					// deixar JSON
+			fileChooser.setFileFilter(filter);
 			int result = fileChooser.showOpenDialog(null);
 			if (result == JFileChooser.APPROVE_OPTION) {
 				File file = fileChooser.getSelectedFile();
-				timetable = new TimeTable(file.getAbsolutePath());
+				path = file.getAbsolutePath();
+				timetable = new TimeTable(path);
 			}
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
@@ -62,7 +80,7 @@ public class FilterUcs extends JFrame {
 				if (checkBoxes[i] != null) {
 					boxesPanel.add(checkBoxes[i]);
 					addedUcs.add(ucName);
-				} 
+				}
 			}
 		}
 
@@ -76,28 +94,27 @@ public class FilterUcs extends JFrame {
 				List<String> ucs = new ArrayList<String>();
 
 				for (JCheckBox b : checkBoxes) {
-					if (b != null) 
+					if (b != null && b.isSelected())
 						ucs.add(b.getText());
 				}
-
+				
 				if (ucs.isEmpty())
 					JOptionPane.showMessageDialog(null, "Por favor, selecione pelo menos 1 UC");
 				else {
-					JFileChooser fileChooser = new JFileChooser();
-					int result = fileChooser.showSaveDialog(null);
-					if (result == JFileChooser.APPROVE_OPTION) {
-						File file = fileChooser.getSelectedFile();
-						path = file.getAbsolutePath();
-					}
 					TimeTable newTimetable = new TimeTable("Horário");
+
 					try {
 						newTimetable = timetable.filterUCs(ucs, path);
 					} catch (Exception e2) {
 						JOptionPane.showMessageDialog(null, "Erro: " + e2.getMessage());
 					}
 
-					DisplayTimeTable t = new DisplayTimeTable(newTimetable);
-					t.setVisible(true);
+					if (!newTimetable.getLessonsList().isEmpty()) {
+						DisplayTimeTable t = new DisplayTimeTable(newTimetable);
+						t.setVisible(true);				
+					} else {
+						JOptionPane.showMessageDialog(null, "Não foram encontradas aulas para as UCs selecionadas");
+					}
 				}
 			}
 		});
@@ -114,13 +131,68 @@ public class FilterUcs extends JFrame {
 			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			setLocationRelativeTo(null);
 
-			JPanel panel = new JPanel(new GridLayout(0, 1));
+			JPanel panel = new JPanel(new BorderLayout());
+			
+			JButton openButton = new JButton("Abrir horário filtrado");
+			openButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					DefaultTableModel model = new DefaultTableModel(
+							new Object[][] {},
+							new String[] {"Curso", "Unidade Curricular", "Turno", "Turma", "Inscritos no turno", "Dia da semana", "Hora início da aula", "Hora fim da aula", "Data da aula", "Sala atribuída à aula", "Lotação da sala"}
+							);
+					
+					for (Lesson lesson : timetable.getLessonsList()) {
+						Object[] row = new Object[11];
+						row[0] = lesson.getCurso();
+						row[1] = lesson.getUnidadeCurricular();
+						row[2] = lesson.getTurno();
+						row[3] = lesson.getTurma();
+						row[4] = lesson.getInscritosNoTurno();
+						row[5] = lesson.getDiaDaSemana();
+						row[6] = lesson.getHoraInicio();
+						row[7] = lesson.getHoraFim();
+						row[8] = lesson.getData();
+						row[9] = lesson.getSala();
+						row[10] = lesson.getLotacao();
+						model.addRow(row);
+					}
+					
+					JTable table = new JTable(model);
+					
+					JFrame frame = new JFrame();
+					
+					frame.add(new JScrollPane(table));
+					frame.pack();
+					frame.setVisible(true);
+				}
+			});
+			add(openButton, BorderLayout.NORTH);
+			
 
-			for (Lesson lesson : timetable.getLessonsList()) {
-				JLabel label = new JLabel(lesson.getUnidadeCurricular());
-				panel.add(label);
-			}
-			add(panel);
+			JButton saveButton = new JButton("Salvar horário");
+			saveButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					JFileChooser fileChooser = new JFileChooser();
+					fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+					int result = fileChooser.showSaveDialog(DisplayTimeTable.this);
+					if (result == JFileChooser.APPROVE_OPTION) {
+						File file = fileChooser.getSelectedFile();
+						String filepath = file.getPath();
+						try {
+							timetable.saveFile(filepath);
+							JOptionPane.showMessageDialog(null, "Horário guardado com sucesso!");
+						} catch (Exception e2) {
+							JOptionPane.showMessageDialog(null, "Erro ao guardar horário: " + e2.getMessage());
+						}
+
+					}
+
+				}
+			});
+			add(saveButton, BorderLayout.SOUTH);
+			add(panel, BorderLayout.CENTER);
 		}
 	}
 }
