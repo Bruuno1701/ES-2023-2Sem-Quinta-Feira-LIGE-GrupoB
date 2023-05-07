@@ -24,6 +24,23 @@
   cursor: pointer;
   border-radius: 5px;
 }
+#fileInput{
+
+	background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 13px;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+
+
 #btaux{
 	background-color: #4CAF50;
   border: none;
@@ -49,7 +66,7 @@
 			margin-bottom: 30px;
 		}
 
-		tableSemanal {
+		#tableSemanal {
 			border-collapse: collapse;
 			width: 80%;
 			margin: 0 auto;
@@ -97,8 +114,8 @@
 	</style>
 </head>
 <body>
-	<input type="file" id="fileInput">
-	<br><br><br><br><br><br><br>
+	<input type="file" id="fileInput"  accept=".csv">
+	<br><br>
 	
 	<button id="btn1" onclick="showDiv('div1')">Daily View</button>
 	<button id="btn2" onclick="showDiv('div2')">Weekly View</button>
@@ -112,8 +129,7 @@
 			<button id ="btaux" type="button" onclick="showSchedule()">Show Schedule</button>
 			<br>
 		  </form>
-		<table id="tableSemanal">
-			
+		<table summary="daily schedule" id="tableSemanal">
 			
 			<thead>
 				<tr>
@@ -301,7 +317,7 @@
 		  <button id="btaux" onclick="readFile()">Show Schedule</button>
 		</div>
 		<br>
-	<table id="tableSemanal">
+	<table summary="weekly schedule" id="tableSemanal">
         
         
 		<thead>
