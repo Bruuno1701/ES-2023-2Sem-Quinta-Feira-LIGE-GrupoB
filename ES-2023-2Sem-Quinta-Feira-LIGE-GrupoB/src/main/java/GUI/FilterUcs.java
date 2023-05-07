@@ -23,8 +23,8 @@ import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
-import table.Lesson;
-import table.TimeTable;
+import gestaohorarios.Lesson;
+import gestaohorarios.TimeTable;
 
 public class FilterUcs extends JFrame {
 	private List<Lesson> selectedUcs;
