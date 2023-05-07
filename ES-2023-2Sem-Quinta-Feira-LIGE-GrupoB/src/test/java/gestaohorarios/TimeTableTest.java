@@ -160,6 +160,9 @@ public class TimeTableTest
 	    // TODO Auto-generated catch block
 	    LOGGER.log(Level.WARNING, e.getMessage());
 	}
+	
+	t = new TimeTable("src/test/resources/NovoDocumento.csv");
+	t.getLessonsList();
     }
 
     @Test

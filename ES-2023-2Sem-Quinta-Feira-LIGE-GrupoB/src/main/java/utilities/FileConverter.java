@@ -61,20 +61,24 @@ public class FileConverter
 	    CSVRecord record = records.get(i);
 	    writer.println(" {");
 	    List<String> list = record.toList();
-	    list.removeAll(Arrays.asList("", null));
+//	    list.removeAll(Arrays.asList("", null));
+	    boolean start =false;
 	    for (int j = 0; j < list.size(); j++)
 	    {
+		
 		String value = list.get(j);
 		String header = headers.get(j);
-		if (j != list.size() - 1)
+		if (value != null && !value.equals(""))
 		{
-		    writer.println("   \"" + header + "\": \"" + value + "\",");
-		}
-		else
-		{
-		    writer.println("   \"" + header + "\": \"" + value + "\"");
+		    if (j != 0 && start)
+		    {
+			writer.println(",");
+		    }
+		    writer.print("   \"" + header + "\": \"" + value + "\"");
+		    start = true;
 		}
 	    }
+	    writer.println();
 	    if (i != records.size() - 1)
 	    {
 		writer.println(" },");
