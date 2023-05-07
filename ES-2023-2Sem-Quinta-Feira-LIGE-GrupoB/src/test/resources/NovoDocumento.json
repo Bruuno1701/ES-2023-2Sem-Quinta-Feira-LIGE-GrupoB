@@ -14,18 +14,18 @@
    "Data da aula": "2023-04-13"
  },
  {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2023-03-07"
- },
- {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
    "Turno": "03738T02",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
    "Data da aula": "2022-11-07"
+ },
+ {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-09-27"
  },
  {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
@@ -60,14 +60,21 @@
    "Turno": "03737TP06",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
-   "Data da aula": "2022-10-18"
+   "Data da aula": "2022-09-20"
  },
  {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708TP22",
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2023-03-14"
+ },
+ {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
-   "Data da aula": "2022-11-22"
+   "Data da aula": "2022-11-23"
  },
  {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
@@ -84,18 +91,18 @@
    "Data da aula": "2023-05-04"
  },
  {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-10-14"
+ },
+ {
    "Unidade Curricular": "Inteligência Artificial",
    "Turno": "L0731T01",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
    "Data da aula": "2023-03-21"
- },
- {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-10-07"
  },
  {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
@@ -120,17 +127,24 @@
  },
  {
    "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708TP22",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-10-25"
- },
- {
-   "Unidade Curricular": "Arquitetura de Redes",
    "Turno": "03708T04",
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
    "Data da aula": "2022-12-05"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2023-03-24"
+ },
+ {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708TP22",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-11-08"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -138,13 +152,6 @@
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2023-03-29"
- },
- {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-09-16"
  },
  {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
@@ -161,11 +168,32 @@
    "Data da aula": "2023-03-01"
  },
  {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-09-14"
+ },
+ {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-09-28"
+ },
+ {
    "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708PL27",
+   "Turno": "03708TP22",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
-   "Data da aula": "2022-11-02"
+   "Data da aula": "2022-09-14"
+ },
+ {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708TP22",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-09-13"
  },
  {
    "Unidade Curricular": "Engenharia de Software",
@@ -189,6 +217,13 @@
    "Data da aula": "2023-05-11"
  },
  {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708TP22",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-10-11"
+ },
+ {
    "Unidade Curricular": "Inteligência Artificial",
    "Turno": "L0731T01",
    "Hora início da aula": "16:00",
@@ -201,6 +236,20 @@
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
    "Data da aula": "2022-09-26"
+ },
+ {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-10-18"
+ },
+ {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-11-17"
  },
  {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
@@ -219,23 +268,9 @@
  {
    "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
    "Turno": "03737TP06",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-09-13"
- },
- {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "11:00",
-   "Hora fim da aula": "12:30",
-   "Data da aula": "2023-05-09"
- },
- {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-10-19"
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2022-12-14"
  },
  {
    "Unidade Curricular": "Arquitetura de Redes",
@@ -266,32 +301,11 @@
    "Data da aula": "2023-03-06"
  },
  {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2023-05-02"
- },
- {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708PL27",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-10-12"
- },
- {
    "Unidade Curricular": "Engenharia de Software",
    "Turno": "EngST03",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
    "Data da aula": "2023-04-17"
- },
- {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2022-12-14"
  },
  {
    "Unidade Curricular": "Arquitetura de Redes",
@@ -308,13 +322,6 @@
    "Data da aula": "2022-10-03"
  },
  {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2023-02-17"
- },
- {
    "Unidade Curricular": "Engenharia de Software",
    "Turno": "EngST03",
    "Hora início da aula": "14:30",
@@ -327,13 +334,6 @@
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
    "Data da aula": "2022-10-24"
- },
- {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-11-08"
  },
  {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
@@ -361,7 +361,14 @@
    "Turno": "03708PL27",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
-   "Data da aula": "2022-10-26"
+   "Data da aula": "2022-11-09"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2023-04-11"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -385,6 +392,13 @@
    "Data da aula": "2022-10-03"
  },
  {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-09-14"
+ },
+ {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
    "Turno": "03738T02",
    "Hora início da aula": "14:30",
@@ -397,13 +411,6 @@
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
    "Data da aula": "2022-09-12"
- },
- {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2023-02-28"
  },
  {
    "Unidade Curricular": "Engenharia de Software",
@@ -438,7 +445,7 @@
    "Turno": "L0607TP08",
    "Hora início da aula": "11:00",
    "Hora fim da aula": "12:30",
-   "Data da aula": "2023-05-02"
+   "Data da aula": "2023-03-28"
  },
  {
    "Unidade Curricular": "Engenharia de Software",
@@ -448,18 +455,18 @@
    "Data da aula": "2023-04-20"
  },
  {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708TP22",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-09-13"
- },
- {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
    "Turno": "03738TP03",
    "Hora início da aula": "11:00",
    "Hora fim da aula": "12:30",
    "Data da aula": "2022-12-09"
+ },
+ {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-10-26"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -490,6 +497,13 @@
    "Data da aula": "2022-11-24"
  },
  {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-09-30"
+ },
+ {
    "Unidade Curricular": "Inteligência Artificial",
    "Turno": "L0731PL13",
    "Hora início da aula": "14:30",
@@ -518,11 +532,11 @@
    "Data da aula": "2023-03-23"
  },
  {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
-   "Data da aula": "2023-04-11"
+   "Data da aula": "2022-09-21"
  },
  {
    "Unidade Curricular": "Arquitetura de Redes",
@@ -560,13 +574,6 @@
    "Data da aula": "2023-03-22"
  },
  {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2022-10-19"
- },
- {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
    "Turno": "03738TP03",
    "Hora início da aula": "13:00",
@@ -588,13 +595,6 @@
    "Data da aula": "2023-04-27"
  },
  {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2023-03-28"
- },
- {
    "Unidade Curricular": "Inteligência Artificial",
    "Turno": "L0731T01",
    "Hora início da aula": "09:30",
@@ -602,11 +602,11 @@
    "Data da aula": "2023-04-24"
  },
  {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708TP22",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
-   "Data da aula": "2022-10-25"
+   "Data da aula": "2022-09-21"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -625,16 +625,9 @@
  {
    "Unidade Curricular": "Arquitetura de Redes",
    "Turno": "03708TP22",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-09-21"
- },
- {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
-   "Data da aula": "2022-09-14"
+   "Data da aula": "2022-10-25"
  },
  {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
@@ -658,11 +651,11 @@
    "Data da aula": "2023-03-24"
  },
  {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
-   "Data da aula": "2022-10-26"
+   "Data da aula": "2022-10-12"
  },
  {
    "Unidade Curricular": "Engenharia de Software",
@@ -686,13 +679,6 @@
    "Data da aula": "2022-10-11"
  },
  {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-09-14"
- },
- {
    "Unidade Curricular": "Inteligência Artificial",
    "Turno": "L0731T01",
    "Hora início da aula": "14:30",
@@ -707,6 +693,13 @@
    "Data da aula": "2022-10-25"
  },
  {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2023-03-21"
+ },
+ {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
    "Turno": "PISIDPL11",
    "Hora início da aula": "13:00",
@@ -719,6 +712,13 @@
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2022-11-28"
+ },
+ {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-10-21"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -749,13 +749,6 @@
    "Data da aula": "2023-03-13"
  },
  {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-10-12"
- },
- {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
    "Turno": "SSIT01",
    "Hora início da aula": "13:00",
@@ -770,6 +763,13 @@
    "Data da aula": "2023-03-20"
  },
  {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2022-11-02"
+ },
+ {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
    "Turno": "PISIDT05",
    "Hora início da aula": "13:00",
@@ -777,11 +777,11 @@
    "Data da aula": "2023-04-12"
  },
  {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2023-04-18"
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-11-16"
  },
  {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
@@ -812,18 +812,18 @@
    "Data da aula": "2022-10-27"
  },
  {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708PL27",
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
-   "Data da aula": "2022-09-28"
+   "Data da aula": "2022-11-29"
  },
  {
    "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
    "Turno": "03737TP06",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2022-11-02"
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-10-25"
  },
  {
    "Unidade Curricular": "Marketing para as Tecnologias",
@@ -840,6 +840,13 @@
    "Data da aula": "2023-05-11"
  },
  {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2022-12-06"
+ },
+ {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
    "Turno": "PISIDPL11",
    "Hora início da aula": "13:00",
@@ -854,18 +861,25 @@
    "Data da aula": "2022-11-25"
  },
  {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-10-04"
+ },
+ {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2022-10-19"
+ },
+ {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
    "Turno": "03738T02",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
    "Data da aula": "2022-10-31"
- },
- {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-11-24"
  },
  {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
@@ -882,18 +896,18 @@
    "Data da aula": "2022-11-18"
  },
  {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "11:00",
+   "Hora fim da aula": "12:30",
+   "Data da aula": "2023-05-16"
+ },
+ {
    "Unidade Curricular": "Engenharia de Software",
    "Turno": "EngSTP05",
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
    "Data da aula": "2023-03-02"
- },
- {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-11-04"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -928,14 +942,14 @@
    "Turno": "03708PL27",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
-   "Data da aula": "2022-11-09"
+   "Data da aula": "2022-11-02"
  },
  {
    "Unidade Curricular": "Controlo de Gestão",
    "Turno": "L0607TP08",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
-   "Data da aula": "2023-02-07"
+   "Data da aula": "2023-05-16"
  },
  {
    "Unidade Curricular": "Marketing para as Tecnologias",
@@ -952,11 +966,11 @@
    "Data da aula": "2023-02-10"
  },
  {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
-   "Data da aula": "2022-11-30"
+   "Data da aula": "2022-11-24"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -971,20 +985,6 @@
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2022-12-13"
- },
- {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708TP22",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-09-27"
- },
- {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2022-11-30"
  },
  {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
@@ -1008,32 +1008,18 @@
    "Data da aula": "2022-11-15"
  },
  {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-11-16"
- },
- {
    "Unidade Curricular": "Controlo de Gestão",
    "Turno": "L0607TP08",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2023-03-10"
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2023-03-07"
  },
  {
    "Unidade Curricular": "Marketing para as Tecnologias",
    "Turno": "01769PL05",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
-   "Data da aula": "2022-12-06"
- },
- {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708TP22",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-10-18"
+   "Data da aula": "2022-09-20"
  },
  {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
@@ -1078,6 +1064,13 @@
    "Data da aula": "2023-03-10"
  },
  {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-11-04"
+ },
+ {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
    "Turno": "SSIT01",
    "Hora início da aula": "13:00",
@@ -1099,11 +1092,11 @@
    "Data da aula": "2023-03-01"
  },
  {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2023-02-14"
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708PL27",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-10-19"
  },
  {
    "Unidade Curricular": "Engenharia de Software",
@@ -1113,11 +1106,32 @@
    "Data da aula": "2023-03-13"
  },
  {
+   "Unidade Curricular": "Programação Concorrente e Distribuída",
+   "Turno": "L5096TP07",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-11-10"
+ },
+ {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708TP22",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-09-20"
+ },
+ {
    "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
    "Turno": "03737TP06",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
-   "Data da aula": "2022-09-21"
+   "Data da aula": "2022-09-28"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2023-02-14"
  },
  {
    "Unidade Curricular": "Arquitetura de Redes",
@@ -1128,52 +1142,17 @@
  },
  {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
-   "Turno": "L5096TP07",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-11-10"
- },
- {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-12-02"
- },
- {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2023-02-24"
- },
- {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708PL27",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-12-14"
- },
- {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708TP22",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-09-20"
+   "Turno": "L5096T01",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2022-11-07"
  },
  {
    "Unidade Curricular": "Controlo de Gestão",
    "Turno": "L0607TP08",
    "Hora início da aula": "11:00",
    "Hora fim da aula": "12:30",
-   "Data da aula": "2023-04-18"
- },
- {
-   "Unidade Curricular": "Programação Concorrente e Distribuída",
-   "Turno": "L5096T01",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2022-11-07"
+   "Data da aula": "2023-04-11"
  },
  {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
@@ -1190,18 +1169,18 @@
    "Data da aula": "2022-10-28"
  },
  {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2022-11-16"
- },
- {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
    "Turno": "PISIDPL11",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2023-03-03"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2023-03-28"
  },
  {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
@@ -1211,13 +1190,6 @@
    "Data da aula": "2022-11-29"
  },
  {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-11-23"
- },
- {
    "Unidade Curricular": "Engenharia de Software",
    "Turno": "EngSTP05",
    "Hora início da aula": "13:00",
@@ -1225,25 +1197,25 @@
    "Data da aula": "2023-03-16"
  },
  {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-11-17"
- },
- {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708TP22",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-11-15"
- },
- {
    "Unidade Curricular": "Engenharia de Software",
    "Turno": "EngSTP05",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2023-04-20"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2023-03-10"
+ },
+ {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-10-11"
  },
  {
    "Unidade Curricular": "Inteligência Artificial",
@@ -1260,11 +1232,18 @@
    "Data da aula": "2022-11-11"
  },
  {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708PL27",
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
-   "Data da aula": "2022-10-19"
+   "Data da aula": "2022-09-13"
+ },
+ {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708TP22",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-12-14"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -1274,11 +1253,11 @@
    "Data da aula": "2023-02-17"
  },
  {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-10-04"
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708TP22",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-10-18"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -1286,6 +1265,13 @@
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2023-05-05"
+ },
+ {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-12-02"
  },
  {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
@@ -1302,18 +1288,18 @@
    "Data da aula": "2023-03-14"
  },
  {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-11-25"
+ },
+ {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
    "Turno": "L5096T01",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2022-11-21"
- },
- {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-10-06"
  },
  {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
@@ -1323,11 +1309,11 @@
    "Data da aula": "2023-03-14"
  },
  {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708PL27",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
-   "Data da aula": "2022-11-29"
+   "Data da aula": "2022-11-23"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -1346,9 +1332,9 @@
  {
    "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
    "Turno": "03737TP06",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-09-20"
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2022-11-16"
  },
  {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
@@ -1356,6 +1342,20 @@
    "Hora início da aula": "11:00",
    "Hora fim da aula": "12:30",
    "Data da aula": "2022-10-07"
+ },
+ {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "17:00",
+   "Data da aula": "2022-12-09"
+ },
+ {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-11-08"
  },
  {
    "Unidade Curricular": "Engenharia de Software",
@@ -1407,25 +1407,11 @@
    "Data da aula": "2023-03-22"
  },
  {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2023-02-10"
- },
- {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
    "Turno": "L5096TP07",
    "Hora início da aula": "11:00",
    "Hora fim da aula": "12:30",
    "Data da aula": "2022-11-29"
- },
- {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2023-03-03"
  },
  {
    "Unidade Curricular": "Inteligência Artificial",
@@ -1435,25 +1421,18 @@
    "Data da aula": "2023-03-10"
  },
  {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2023-05-02"
+ },
+ {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
    "Turno": "03738TP03",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2022-10-14"
- },
- {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-11-25"
- },
- {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "11:00",
-   "Hora fim da aula": "12:30",
-   "Data da aula": "2023-04-11"
  },
  {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
@@ -1463,18 +1442,18 @@
    "Data da aula": "2022-11-04"
  },
  {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-11-30"
+ },
+ {
    "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
    "Turno": "03737TP06",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2022-11-23"
- },
- {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2023-03-14"
  },
  {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
@@ -1498,13 +1477,6 @@
    "Data da aula": "2023-03-10"
  },
  {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2022-09-28"
- },
- {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
    "Turno": "SSIT01",
    "Hora início da aula": "13:00",
@@ -1517,6 +1489,13 @@
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
    "Data da aula": "2022-10-20"
+ },
+ {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-11-18"
  },
  {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
@@ -1533,20 +1512,6 @@
    "Data da aula": "2023-03-24"
  },
  {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2022-09-20"
- },
- {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-10-11"
- },
- {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
    "Turno": "L5096TP07",
    "Hora início da aula": "14:30",
@@ -1561,11 +1526,25 @@
    "Data da aula": "2023-03-27"
  },
  {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-10-12"
+ },
+ {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
    "Turno": "03738T02",
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
    "Data da aula": "2022-10-17"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2023-04-18"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -1589,6 +1568,13 @@
    "Data da aula": "2023-02-14"
  },
  {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708PL27",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-11-30"
+ },
+ {
    "Unidade Curricular": "Engenharia de Software",
    "Turno": "EngST03",
    "Hora início da aula": "14:30",
@@ -1601,20 +1587,6 @@
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2022-11-14"
- },
- {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "11:00",
-   "Hora fim da aula": "12:30",
-   "Data da aula": "2023-05-16"
- },
- {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2023-03-24"
  },
  {
    "Unidade Curricular": "Arquitetura de Redes",
@@ -1638,20 +1610,6 @@
    "Data da aula": "2022-10-24"
  },
  {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-09-30"
- },
- {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-09-27"
- },
- {
    "Unidade Curricular": "Inteligência Artificial",
    "Turno": "L0731T01",
    "Hora início da aula": "16:00",
@@ -1664,6 +1622,20 @@
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
    "Data da aula": "2022-10-10"
+ },
+ {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-09-16"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2023-03-03"
  },
  {
    "Unidade Curricular": "Inteligência Artificial",
@@ -1699,13 +1671,6 @@
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
    "Data da aula": "2023-03-30"
- },
- {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708TP22",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-10-11"
  },
  {
    "Unidade Curricular": "Arquitetura de Redes",
@@ -1750,13 +1715,6 @@
    "Data da aula": "2022-11-18"
  },
  {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2023-03-21"
- },
- {
    "Unidade Curricular": "Inteligência Artificial",
    "Turno": "L0731PL13",
    "Hora início da aula": "14:30",
@@ -1769,13 +1727,6 @@
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
    "Data da aula": "2023-03-31"
- },
- {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708TP22",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-11-08"
  },
  {
    "Unidade Curricular": "Inteligência Artificial",
@@ -1793,24 +1744,10 @@
  },
  {
    "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-10-14"
- },
- {
-   "Unidade Curricular": "Marketing para as Tecnologias",
    "Turno": "01769T01",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2022-09-27"
- },
- {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-10-21"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -1834,6 +1771,13 @@
    "Data da aula": "2022-12-02"
  },
  {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708PL27",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-11-16"
+ },
+ {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
    "Turno": "SSIPL05",
    "Hora início da aula": "11:00",
@@ -1841,25 +1785,18 @@
    "Data da aula": "2023-03-13"
  },
  {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2023-05-16"
- },
- {
    "Unidade Curricular": "Marketing para as Tecnologias",
    "Turno": "01769PL05",
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
-   "Data da aula": "2022-11-02"
+   "Data da aula": "2022-10-19"
  },
  {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "17:00",
-   "Data da aula": "2022-12-09"
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-12-15"
  },
  {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
@@ -1883,18 +1820,18 @@
    "Data da aula": "2022-09-26"
  },
  {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-12-15"
- },
- {
    "Unidade Curricular": "Marketing para as Tecnologias",
    "Turno": "01769PL05",
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
-   "Data da aula": "2022-09-28"
+   "Data da aula": "2022-09-21"
+ },
+ {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-10-06"
  },
  {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
@@ -1911,13 +1848,6 @@
    "Data da aula": "2023-02-09"
  },
  {
-   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
-   "Turno": "03737TP06",
-   "Hora início da aula": "21:30",
-   "Hora fim da aula": "23:00",
-   "Data da aula": "2022-12-06"
- },
- {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
    "Turno": "SSIPL05",
    "Hora início da aula": "11:00",
@@ -1930,13 +1860,6 @@
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2023-03-23"
- },
- {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-11-18"
  },
  {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
@@ -1953,18 +1876,11 @@
    "Data da aula": "2022-12-16"
  },
  {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708PL27",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-11-16"
- },
- {
    "Unidade Curricular": "Controlo de Gestão",
    "Turno": "L0607TP08",
    "Hora início da aula": "11:00",
    "Hora fim da aula": "12:30",
-   "Data da aula": "2023-03-28"
+   "Data da aula": "2023-05-02"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -1993,6 +1909,34 @@
    "Hora início da aula": "14:30",
    "Hora fim da aula": "16:00",
    "Data da aula": "2022-11-17"
+ },
+ {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-11-02"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2023-05-09"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2023-02-10"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "11:00",
+   "Hora fim da aula": "12:30",
+   "Data da aula": "2023-04-18"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -2044,6 +1988,13 @@
    "Data da aula": "2022-09-19"
  },
  {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "21:30",
+   "Hora fim da aula": "23:00",
+   "Data da aula": "2022-12-06"
+ },
+ {
    "Unidade Curricular": "Inteligência Artificial",
    "Turno": "L0731T01",
    "Hora início da aula": "14:30",
@@ -2065,6 +2016,20 @@
    "Data da aula": "2022-09-15"
  },
  {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708PL27",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-10-26"
+ },
+ {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708TP22",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-09-27"
+ },
+ {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
    "Turno": "03738TP03",
    "Hora início da aula": "11:00",
@@ -2079,18 +2044,18 @@
    "Data da aula": "2022-10-14"
  },
  {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-09-21"
- },
- {
    "Unidade Curricular": "Segurança em Sistemas de Informação",
    "Turno": "SSIPL05",
    "Hora início da aula": "11:00",
    "Hora fim da aula": "12:30",
    "Data da aula": "2023-05-04"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2023-02-17"
  },
  {
    "Unidade Curricular": "Engenharia de Software",
@@ -2104,7 +2069,14 @@
    "Turno": "03708TP22",
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
-   "Data da aula": "2022-12-14"
+   "Data da aula": "2022-11-22"
+ },
+ {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708TP22",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-11-29"
  },
  {
    "Unidade Curricular": "Projeto de Integração de Sistemas de Informação Distribuídos",
@@ -2121,18 +2093,18 @@
    "Data da aula": "2022-11-28"
  },
  {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708PL27",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-11-23"
- },
- {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
    "Turno": "L5096TP07",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2022-10-13"
+ },
+ {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2022-11-09"
  },
  {
    "Unidade Curricular": "Engenharia de Software",
@@ -2156,6 +2128,13 @@
    "Data da aula": "2022-10-27"
  },
  {
+   "Unidade Curricular": "Gestão de Recursos Humanos e de Equipas",
+   "Turno": "03737TP06",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2022-11-30"
+ },
+ {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
    "Turno": "L5096TP07",
    "Hora início da aula": "14:30",
@@ -2163,18 +2142,25 @@
    "Data da aula": "2022-10-13"
  },
  {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708TP22",
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
-   "Data da aula": "2022-10-12"
+   "Data da aula": "2022-11-15"
  },
  {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708PL27",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-11-30"
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "16:00",
+   "Hora fim da aula": "17:30",
+   "Data da aula": "2023-02-24"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "11:00",
+   "Hora fim da aula": "12:30",
+   "Data da aula": "2023-05-09"
  },
  {
    "Unidade Curricular": "Inteligência Artificial",
@@ -2184,6 +2170,13 @@
    "Data da aula": "2023-03-29"
  },
  {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708PL27",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-10-12"
+ },
+ {
    "Unidade Curricular": "Engenharia de Software",
    "Turno": "EngSTP05",
    "Hora início da aula": "14:30",
@@ -2191,11 +2184,39 @@
    "Data da aula": "2023-02-09"
  },
  {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708PL27",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-12-14"
+ },
+ {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
    "Turno": "L5096TP07",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2022-09-22"
+ },
+ {
+   "Unidade Curricular": "Marketing para as Tecnologias",
+   "Turno": "01769PL05",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-10-07"
+ },
+ {
+   "Unidade Curricular": "Arquitetura de Redes",
+   "Turno": "03708PL27",
+   "Hora início da aula": "14:30",
+   "Hora fim da aula": "16:00",
+   "Data da aula": "2022-09-28"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2023-02-28"
  },
  {
    "Unidade Curricular": "Visualização e Interação Pessoa-Máquina",
@@ -2217,13 +2238,6 @@
    "Hora início da aula": "16:00",
    "Hora fim da aula": "17:30",
    "Data da aula": "2023-02-27"
- },
- {
-   "Unidade Curricular": "Controlo de Gestão",
-   "Turno": "L0607TP08",
-   "Hora início da aula": "13:00",
-   "Hora fim da aula": "14:30",
-   "Data da aula": "2023-05-09"
  },
  {
    "Unidade Curricular": "Inteligência Artificial",
@@ -2254,20 +2268,6 @@
    "Data da aula": "2023-02-08"
  },
  {
-   "Unidade Curricular": "Marketing para as Tecnologias",
-   "Turno": "01769PL05",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-11-09"
- },
- {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708TP22",
-   "Hora início da aula": "16:00",
-   "Hora fim da aula": "17:30",
-   "Data da aula": "2022-11-29"
- },
- {
    "Unidade Curricular": "Programação Concorrente e Distribuída",
    "Turno": "L5096T01",
    "Hora início da aula": "13:00",
@@ -2275,18 +2275,18 @@
    "Data da aula": "2022-09-26"
  },
  {
-   "Unidade Curricular": "Arquitetura de Redes",
-   "Turno": "03708TP22",
-   "Hora início da aula": "14:30",
-   "Hora fim da aula": "16:00",
-   "Data da aula": "2022-09-14"
- },
- {
    "Unidade Curricular": "Engenharia de Software",
    "Turno": "EngSTP05",
    "Hora início da aula": "13:00",
    "Hora fim da aula": "14:30",
    "Data da aula": "2023-04-27"
+ },
+ {
+   "Unidade Curricular": "Controlo de Gestão",
+   "Turno": "L0607TP08",
+   "Hora início da aula": "13:00",
+   "Hora fim da aula": "14:30",
+   "Data da aula": "2023-02-07"
  },
  {
    "Unidade Curricular": "Arquitetura de Redes",
