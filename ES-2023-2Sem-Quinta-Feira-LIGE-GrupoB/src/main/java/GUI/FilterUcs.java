@@ -51,10 +51,6 @@ public class FilterUcs extends JFrame {
 		JPanel mainPanel = new JPanel(new BorderLayout());
 		JPanel boxesPanel = new JPanel(new GridLayout(0,2));
 
-		JScrollPane scroll = new JScrollPane(boxesPanel);
-		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		getContentPane().add(scroll, BorderLayout.CENTER);
-
 		selectedUcs = new ArrayList<Lesson>();
 		timetable = null; 
 		try {
