@@ -1,6 +1,6 @@
-package GUI;
+package gui;
 import javax.swing.JFrame;
-//import javax.swing.JLabel;
+import javax.swing.WindowConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -13,7 +13,7 @@ public class HomePage extends JFrame {
 	public HomePage() {
 		setSize(300,180);
 		setTitle("Fénix 2.0");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
 		JButton b1 = new JButton("Criar um horário");
