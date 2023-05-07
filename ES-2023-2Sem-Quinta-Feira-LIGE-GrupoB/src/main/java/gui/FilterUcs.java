@@ -1,12 +1,14 @@
-package gui;
+package GUI;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.Desktop;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
-import java.text.DateFormat.Field;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -19,15 +21,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
 
 import gestaohorarios.Lesson;
 import gestaohorarios.TimeTable;
-import utilities.FileConverter;
 
 public class FilterUcs extends JFrame {
 	private List<Lesson> selectedUcs;
@@ -37,16 +34,24 @@ public class FilterUcs extends JFrame {
 	private TimeTable timetable;
 
 	public FilterUcs() {
-		setSize(700, 600);
-		setTitle("Criar Horário Por UCs");
+		setSize(500, 300);
+		setTitle("Fénix 2.0");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 
+		 addWindowListener(new WindowAdapter() {
+	            @Override
+	            public void windowClosing(WindowEvent e) {
+	                CreateTimeTable ct = new CreateTimeTable();
+	                ct.setVisible(true);
+	            }
+	        });
+		
 		JPanel mainPanel = new JPanel(new BorderLayout());
-		JPanel boxesPanel = new JPanel(new GridLayout(0, 1));
+		JPanel boxesPanel = new JPanel(new GridLayout(0,2));
 
-		selectedUcs = new ArrayList<Lesson>(); // lista de aulas
-		timetable = null; // que se vai buscar
+		selectedUcs = new ArrayList<Lesson>();
+		timetable = null; 
 		try {
 			JFileChooser fileChooser = new JFileChooser();
 			FileNameExtensionFilter filter = new FileNameExtensionFilter(".json, .csv", "json", "csv");																					// deixar JSON
@@ -117,21 +122,30 @@ public class FilterUcs extends JFrame {
 
 	private class DisplayTimeTable extends JFrame {
 		public DisplayTimeTable(TimeTable timetable) {
-			setSize(200, 150);
+			setSize(285, 150);
 			setTitle("Criar Horário Por UCs");
 			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			setLocationRelativeTo(null);
 
 			JPanel panel = new JPanel(new BorderLayout());
 			
-			JButton openButton = new JButton("Abrir horário filtrado");
+			JButton openButton = new JButton("Abrir horário");
 			openButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					//display
+					String htmlpath = "src/main/resources/scheduleTest.html";
+					File file = new File(htmlpath);
+			        try {
+			            Desktop.getDesktop().browse(file.toURI()); 
+			        } catch (IOException ex) {
+			            ex.printStackTrace();
+			        }
+				}
 			});
 			add(openButton, BorderLayout.NORTH);
 			
+			JLabel label = new JLabel("Por favor, escolha uma das seguintes opções");
+			panel.add(label);
 
 			JButton saveButton = new JButton("Salvar horário");
 			saveButton.addActionListener(new ActionListener() {
@@ -143,7 +157,6 @@ public class FilterUcs extends JFrame {
 					if (result == JFileChooser.APPROVE_OPTION) {
 						File file = fileChooser.getSelectedFile();
 						String filepath = file.getPath();
-						System.out.println(filepath + "\\horario_exemplo2.json");
 						try {
 							timetable.saveFile(filepath);
 							JOptionPane.showMessageDialog(null, "Horário guardado com sucesso!");
