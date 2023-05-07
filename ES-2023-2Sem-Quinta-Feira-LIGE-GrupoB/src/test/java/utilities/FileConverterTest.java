@@ -49,14 +49,6 @@ public class FileConverterTest
     }
 
 	
-	@Test
-	public void testIcsToCsv() throws IOException {
-		String pathIcs = "src/test/resources/NovoDocumento";
-		String pathCsv = "C:\\Users\\Pedro Ferraz\\OneDrive - ISCTE-IUL\\Ambiente de Trabalho\\Iscte\\3º Ano\\2º Semestre\\ES\\Projeto\\testes2\\pjpfz.csv";
-		String nome ="Nome";
-		
-		FileConverter.IcsToCsv(pathIcs,pathCsv);
-	}
 	
 	
 }
