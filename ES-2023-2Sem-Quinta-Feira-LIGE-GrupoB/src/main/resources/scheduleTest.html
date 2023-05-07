@@ -24,6 +24,23 @@
   cursor: pointer;
   border-radius: 5px;
 }
+#fileInput{
+
+	background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 13px;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+
+
 #btaux{
 	background-color: #4CAF50;
   border: none;
@@ -49,7 +66,7 @@
 			margin-bottom: 30px;
 		}
 
-		tableSemanal {
+		#tableSemanal {
 			border-collapse: collapse;
 			width: 80%;
 			margin: 0 auto;
@@ -97,8 +114,8 @@
 	</style>
 </head>
 <body>
-	<input type="file" id="fileInput">
-	<br><br><br><br><br><br><br>
+	<input type="file" id="fileInput"  accept=".csv">
+	<br><br>
 	
 	<button id="btn1" onclick="showDiv('div1')">Daily View</button>
 	<button id="btn2" onclick="showDiv('div2')">Weekly View</button>
@@ -112,8 +129,7 @@
 			<button id ="btaux" type="button" onclick="showSchedule()">Show Schedule</button>
 			<br>
 		  </form>
-		<table id="tableSemanal">
-			
+		<table summary="daily schedule" id="tableSemanal">
 			
 			<thead>
 				<tr>
@@ -301,7 +317,7 @@
 		  <button id="btaux" onclick="readFile()">Show Schedule</button>
 		</div>
 		<br>
-	<table id="tableSemanal">
+	<table summary="weekly schedule" id="tableSemanal">
         
         
 		<thead>
@@ -613,7 +629,7 @@ function generateTable() {
 					var mes = d1.split('-')[1];
 					
 					var ano = d1.split('-')[0];
-					var vdia = d1.split('-')[2];
+					
 
 					console.log("mes - "+mes);
 					console.log("month - "+month);
@@ -623,17 +639,10 @@ function generateTable() {
 					if (mes != month || ano != year ) {
                     continue; // skip classes not in the selected week
                 	}
-					console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-                       // console.log(document.getElementById(teste));
+
 						const td = document.getElementById(d1);
-						//console.log("depois disto");
 
 						td.textContent += ` - ${row[1]}`;
-						
-						//console.log(lastString);
-                        //console.log("acabou primeira iteração");
-                    
-					
 				}
 			};
 
@@ -723,7 +732,6 @@ function showDiv(divId) {
 					const data = row[8];
 					var d1 = data.split('/').reverse().join('-');
 					const room = row[9];
-					const capacity = row[10];
 					console.log(date);
 					console.log(d1);
 					if (date != d1) {
@@ -750,7 +758,7 @@ function showDiv(divId) {
                             realHour=slot-0.5+8;
                             realMinute=30; 
                         }
-                        //console.log(slot);
+                        
                         var teste= "time" + (realHour).toString().padStart(2, '0')+realMinute.toString().padStart(2, '0')+"-"+"dia" ;
 
                        console.log(document.getElementById(teste));
@@ -763,8 +771,6 @@ function showDiv(divId) {
 						td.textContent += `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
 						lastString = `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
 						}
-						//console.log(lastString);
-                        //console.log("acabou primeira iteração");
                     }
 					
 				}
@@ -790,10 +796,8 @@ function showDiv(divId) {
 					const date = row[8];
 					const week = getWeekNumber(date);
 					const room = row[9];
-					const capacity = row[10];
 					const selectedWeek = parseInt(document.getElementById('weekInput').value);
-					//console.log("numero da semana escolhida "+selectedWeek);
-					//console.log("week da row "+week);
+
 					if (week != selectedWeek) {
                     continue; // skip classes not in the selected week
                 	}
@@ -807,18 +811,12 @@ function showDiv(divId) {
 					const startSlot = (startHour * 60 + startMinute - 480) / 60;
 					const endSlot = (endHour * 60 + endMinute - 480) / 60;
 
-                    //console.log("hora="+startHour);
-                    //console.log("minuto="+startMinute);
-
-                    //console.log(startSlot);
-                    //console.log(endSlot);
-
                     
 					for (let slot = startSlot; slot < endSlot; slot+=0.5) {
                         let realHour ;
                         let realMinute;
 						let lastString;
-                        //console.log(Number.isInteger(slot));
+  
                         if(Number.isInteger(slot)){
                             realHour=slot+8;
                             realMinute=00;
@@ -826,12 +824,11 @@ function showDiv(divId) {
                             realHour=slot-0.5+8;
                             realMinute=30; 
                         }
-                        //console.log(slot);
+                        
                         var teste= "time" + (realHour).toString().padStart(2, '0')+realMinute.toString().padStart(2, '0')+"-"+day.toLowerCase() ;
 
-                       // console.log(document.getElementById(teste));
 						const td = document.getElementById(teste);
-						//console.log("depois disto");
+						
 
 						if(lastString === `${row[0]}\n${row[1]}\n${row[2]}\n${room}` ){
 						td.textContent = `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
@@ -839,8 +836,7 @@ function showDiv(divId) {
 						td.textContent += `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
 						lastString = `${row[0]}\n${row[1]}\n${row[2]}\n${room}`;
 						}
-						//console.log(lastString);
-                        //console.log("acabou primeira iteração");
+		
                     }
 					
 				}
