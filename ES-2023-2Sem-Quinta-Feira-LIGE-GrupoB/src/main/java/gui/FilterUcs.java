@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import gestaohorario.Lesson;
+import gestaohorarios.Lesson;
 import gestaohorarios.TimeTable;
 
 public class FilterUcs extends JFrame {
