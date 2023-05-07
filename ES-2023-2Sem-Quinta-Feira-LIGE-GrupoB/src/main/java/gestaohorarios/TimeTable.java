@@ -162,6 +162,13 @@ public class TimeTable
 		LOGGER.log(Level.WARNING, "erro path url e localdirectory null");
 		return file;
 	    }
+	    if(path.startsWith("webcal")) 
+	    {
+	    	path = WebcalToHttp(path);
+	    	file = downloadFile(path, localDirectory);
+	    	System.out.println(file.getAbsolutePath());
+	    	return FileConverter.IcsToCsv(file.getAbsolutePath(), file.getAbsolutePath());
+	    }
 	    return downloadFile(path, localDirectory);
 	}
 	else
@@ -254,7 +261,7 @@ public class TimeTable
      */
     public boolean isURL(String url)
     {
-	String regex = "^(https?|ftp|file)://.+";
+	String regex = "^(https?|ftp|file|webcal)://.+";
 	Pattern pattern = Pattern.compile(regex);
 	Matcher matcher = pattern.matcher(url);
 	return matcher.matches();
@@ -274,6 +281,10 @@ public class TimeTable
     {
 	URL fileUrl = new URL(url);
 	String fileName = fileUrl.getFile().substring(fileUrl.getFile().lastIndexOf('/') + 1);
+	if(fileName.length()>20) 
+	{
+		fileName="NovoDocumento.csv";
+	}
 	File destinationFile = new File(directory + "/" + fileName);
 	FileUtils.copyURLToFile(fileUrl, destinationFile);
 	String fileContent = FileUtils.readFileToString(destinationFile);
@@ -473,4 +484,16 @@ public class TimeTable
 	return s;
     }
 
+    
+    /**
+     * Método que troca a palavra 'webcal' por 'https' numa string recebida
+     *
+     * @param s String sobre a qual se quer fazer o replace
+
+     *
+     * @return String a string recebida com o replace feito
+     */
+    public String WebcalToHttp(String s) {
+    	return s.replace("webcal", "https");
+    }
 }

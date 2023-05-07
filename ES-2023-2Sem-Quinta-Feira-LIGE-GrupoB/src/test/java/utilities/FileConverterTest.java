@@ -36,6 +36,7 @@ public class FileConverterTest
 		"src/test/resources/horario_exemplo_convertido.csv").getAbsolutePath());
 	Path csvPath = Paths.get("src/test/resources/horario_exemplo2.csv");
 
+
 	BufferedReader bf1 = new BufferedReader(new FileReader(convertedCsvPath.toFile()));
 	BufferedReader bf2 = new BufferedReader(new FileReader(csvPath.toFile()));
 
@@ -46,4 +47,16 @@ public class FileConverterTest
 	assertTrue(convertedCsvPath.equals(Paths.get("src/test/resources/horario_exemplo.csv")));
 
     }
+
+	
+	@Test
+	public void testIcsToCsv() throws IOException {
+		String pathIcs = "src/test/resources/NovoDocumento";
+		String pathCsv = "C:\\Users\\Pedro Ferraz\\OneDrive - ISCTE-IUL\\Ambiente de Trabalho\\Iscte\\3º Ano\\2º Semestre\\ES\\Projeto\\testes2\\pjpfz.csv";
+		String nome ="Nome";
+		
+		FileConverter.IcsToCsv(pathIcs,pathCsv);
+	}
+	
+	
 }

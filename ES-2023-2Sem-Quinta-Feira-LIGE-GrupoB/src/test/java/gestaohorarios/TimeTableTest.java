@@ -223,6 +223,21 @@ public class TimeTableTest
 	System.out.println(tt3.getLessonsList());
 	assertTrue(tt1.equals(tt3));
     }
+    
+    
+    String url = "webcal://fenix.iscte-iul.pt/publico/publicPersonICalendar.do?method=iCalendar&username=bcbsf@iscte.pt&password=7TGd1Q0i0spmVYor9QrR1DNj9rxQgOdcGECQ5AsE6wQaVxvno8BsmwhInU93s5ZY3j92R8tlSsQzG4sP5mKyHj8nrD3HuJTElTgXtaDuQ5AganKSK7XG8hCVskDR0Gjy";
+    String path = "src/test/resources";
+    
+    @Test
+    public void testWcToHttp() 
+    {
+    	
+    	TimeTable t = new TimeTable(url, path);
+    	t.saveAsJSON("src/test/resources/NovoDocumento.json");
+    	t.getLessonsList().forEach(e-> System.out.println(e));
+    	
+    	
+    }
 
     @Test
     public void testGetOverlaidLessons()
