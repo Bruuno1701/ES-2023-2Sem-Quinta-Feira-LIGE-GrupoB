@@ -182,6 +182,10 @@ public class FileConverter
 	/**
      * @param icsPath o path do ficheiro ics
      * @param csvPath local onde vai ser guardado o ficheiro
+     * 
+     * @throws IOException
+     * 
+     * @return File retorna o ficheiro como csv
      */
 	public static File IcsToCsv(String icsPath, String csvPath) throws IOException {
 		FileInputStream fis = new FileInputStream(icsPath);

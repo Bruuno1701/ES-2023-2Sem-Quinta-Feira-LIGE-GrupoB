@@ -210,10 +210,11 @@ public class TimeTable
     /**
      * MÃ©todo que guarda o ficheiro local num local passado.
      *
-     * @param Path String que pode ser um URL ou um path onde se prentede guardar o
+     * @param path String que pode ser um URL ou um path onde se prentede guardar o
      *             ficheiro da classe.
-     * @throws IOException se o método copyFileToDirectory do FileUtils lanÃ§ar
-     *                     execeÃ§Ã£o.
+
+     * @throws IOException se o copyFileToDirectory do FileUtils lançar
+     *                     execeção.
      */
     public void saveFile(String path) throws IOException
     {
@@ -484,7 +485,7 @@ public class TimeTable
 
     
     /**
-     * Método que troca a palavra 'webcal' por 'https' numa string recebida
+     * Troca a palavra 'webcal' por 'https' numa string recebida
      *
      * @param s String sobre a qual se quer fazer o replace
 
