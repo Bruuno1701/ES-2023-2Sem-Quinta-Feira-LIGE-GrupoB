@@ -1,8 +1,7 @@
 package GUI;
 
-import gestaohorarios.TimeTable;
+import table.TimeTable;
 import javax.swing.JFrame;
-//import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -10,10 +9,12 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
-//import java.awt.FlowLayout;
+
 
 public class ShowOverLaidLessons extends JFrame {
 	private final TimeTable timeTable;
@@ -21,10 +22,18 @@ public class ShowOverLaidLessons extends JFrame {
 	public ShowOverLaidLessons() {
 		this.timeTable = null;
 
-		setSize(300, 150);
-		setTitle("Escolher horário para ver aulas sobrepostas");
+		setSize(300, 180);
+		setTitle("Fénix 2.0");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
+		
+		 addWindowListener(new WindowAdapter() {
+	            @Override
+	            public void windowClosing(WindowEvent e) {
+	                CreateTimeTable ct = new CreateTimeTable();
+	                ct.setVisible(true);
+	            }
+	        });
 
 		JPanel panel = new JPanel(new BorderLayout());
 
