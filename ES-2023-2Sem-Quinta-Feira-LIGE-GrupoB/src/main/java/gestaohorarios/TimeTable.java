@@ -27,8 +27,8 @@ import org.json.JSONArray;
 import utilities.FileConverter;
 
 /**
- * A classe TimeTable um horário que tem um ficheiro com as informações das
- * aulas e uma lista com as informações desse ficheiro.
+ * A classe TimeTable um horÃ¡rio que tem um ficheiro com as informaÃ§Ãµes das
+ * aulas e uma lista com as informaÃ§Ãµes desse ficheiro.
  * 
  */
 public class TimeTable
@@ -59,7 +59,7 @@ public class TimeTable
      * uma string para guardar o ficheiro.
      * 
      * @param path           Caminho para o ficheiro pretendido, pode ser um
-     *                       diretório ou URL.
+     *                       diretÃ³rio ou URL.
      * @param localDirectory Caminho onde vai ser guardado o ficheiro.
      */
     public TimeTable(String path, String localDirectory)
@@ -89,10 +89,10 @@ public class TimeTable
     }
 
     /**
-     * Método que é chamado para criar ficheiro a partir de um path. Serve para
-     * verificar se o path passado é de um ficheiro json ou csv antes de criar o
+     * MÃ©todo que Ã© chamado para criar ficheiro a partir de um path. Serve para
+     * verificar se o path passado Ã© de um ficheiro json ou csv antes de criar o
      * ficheiro em json, para saber se o ficheiro criado precisa de ser convertido
-     * ou não.
+     * ou nÃ£o.
      * 
      * @param path Caminho onde o ficheiro vai ser criado.
      */
@@ -100,7 +100,7 @@ public class TimeTable
     {
 	String csvPath = "";
 	if (!FilenameUtils.getExtension(path).equals("csv") && !FilenameUtils.getExtension(path).equals("json"))
-	    throw new IllegalArgumentException("O path passado e inváido");
+	    throw new IllegalArgumentException("O path passado e invÃ¡ido");
 	if (FilenameUtils.getExtension(path).equals("csv"))
 	{
 	    csvPath = path;
@@ -114,7 +114,7 @@ public class TimeTable
     }
 
     /**
-     * Método que cria um ficheiro Json a partir do atributo lessonsList.
+     * MÃ©todo que cria um ficheiro Json a partir do atributo lessonsList.
      * 
      * @param path Path onde vai guardar o ficheiro json criado.
      */
@@ -136,17 +136,17 @@ public class TimeTable
 	    fw.close();
 	} catch (IOException e)
 	{
-	    throw new IllegalArgumentException("O path passado e inváido");
+	    throw new IllegalArgumentException("O path passado e invÃ¡ido");
 	}
 	this.file = newFile;
     }
 
     /**
-     * Método que se o parâmetro path for um path vai carregar esse ficheiro para a
-     * variável local file, caso o path seja um URL vai carregar o ficheiro do URL e
+     * MÃ©todo que se o parÃ¢metro path for um path vai carregar esse ficheiro para a
+     * variÃ¡vel local file, caso o path seja um URL vai carregar o ficheiro do URL e
      * salva-o no path localDirectory
      *
-     * @param path           Caminho para o ficheiro pretendido, pode ser diretório
+     * @param path           Caminho para o ficheiro pretendido, pode ser diretÃ³rio
      *                       ou URL.
      * @param localDirectory Caminho onde vai ser guardado o ficheiro.
      *
@@ -178,11 +178,11 @@ public class TimeTable
     }
 
     /**
-     * Método que atualiza o ficheiro da classe para a conversão do mesmo no formato
+     * MÃ©todo que atualiza o ficheiro da classe para a conversÃ£o do mesmo no formato
      * JSON
      *
-     * @param path Diretório onde se pretende guardar o ficheiro que vai ser criado
-     *             ao invocar o método.
+     * @param path DiretÃ³rio onde se pretende guardar o ficheiro que vai ser criado
+     *             ao invocar o mÃ©todo.
      */
     public void saveAsJSON(String path)
     {
@@ -196,11 +196,11 @@ public class TimeTable
     }
 
     /**
-     * Método que atualiza o ficheiro da classe para a conversão do mesmo no formato
+     * MÃ©todo que atualiza o ficheiro da classe para a conversÃ£o do mesmo no formato
      * CSV
      *
-     * @param path Diretório onde se pretende guardar o ficheiro que vai ser criado
-     *             ao invocar o método.
+     * @param path DiretÃ³rio onde se pretende guardar o ficheiro que vai ser criado
+     *             ao invocar o mÃ©todo.
      */
     public void saveAsCSV(String path)
     {
@@ -208,10 +208,11 @@ public class TimeTable
     }
 
     /**
-     * Método que guarda o ficheiro local num local passado.
+     * MÃ©todo que guarda o ficheiro local num local passado.
      *
      * @param path String que pode ser um URL ou um path onde se prentede guardar o
      *             ficheiro da classe.
+
      * @throws IOException se o copyFileToDirectory do FileUtils lançar
      *                     execeção.
      */
@@ -222,7 +223,7 @@ public class TimeTable
 	    File directory = new File(path);
 	    if (!directory.exists())
 	    {
-	    	LOGGER.log(Level.INFO,"Diretoria n�o existe " + directory);
+	    	LOGGER.log(Level.INFO,"Diretoria nï¿½o existe " + directory);
 		return;
 	    }
 	    FileUtils.copyFileToDirectory(this.file, directory);
@@ -251,11 +252,11 @@ public class TimeTable
     }
 
     /**
-     * Método que verifica se a string é um URL.
+     * MÃ©todo que verifica se a string Ã© um URL.
      *
      * @param url URL do ficheiro pretendido.
      *
-     * @return True se o parametro for um URL e false caso contrário.
+     * @return True se o parametro for um URL e false caso contrÃ¡rio.
      */
     public boolean isURL(String url)
     {
@@ -266,13 +267,13 @@ public class TimeTable
     }
 
     /**
-     * Método que faz download de um ficheiro através de um url para uma diretoria.
+     * MÃ©todo que faz download de um ficheiro atravÃ©s de um url para uma diretoria.
      *
      * @param url       URL do ficheiro pretendido.
      * @param directory Diretoria onde o ficheiro vai ser guardado.
      *
      * @return ficheiro guardado.
-     * @throws IOException se algo correr mal na criação do URL ou na leitura do
+     * @throws IOException se algo correr mal na criaÃ§Ã£o do URL ou na leitura do
      *                     ficheiro.
      */
     public File downloadFile(String url, String directory) throws IOException
@@ -293,7 +294,7 @@ public class TimeTable
     }
 
     /**
-     * Método que devolve o ficheiro guardado na variável local file.
+     * MÃ©todo que devolve o ficheiro guardado na variÃ¡vel local file.
      *
      * @return Ficheiro this.file
      */
@@ -303,7 +304,7 @@ public class TimeTable
     }
 
     /**
-     * Método que devolve a lista de aulas da Timetable.
+     * MÃ©todo que devolve a lista de aulas da Timetable.
      *
      * @return Ficheiro this.lessonsList
      */
@@ -316,7 +317,7 @@ public class TimeTable
     }
 
     /**
-     * Método que cria uma lista de aulas a partir do ficheiro da classe.
+     * MÃ©todo que cria uma lista de aulas a partir do ficheiro da classe.
      */
     private void createLessonsList()
     {
@@ -346,9 +347,9 @@ public class TimeTable
     }
 
     /**
-     * Método que verifica se o ficheiro da classe é um ficheiro json.
+     * MÃ©todo que verifica se o ficheiro da classe Ã© um ficheiro json.
      * 
-     * @return True se o ficheiro for json, false se não for.
+     * @return True se o ficheiro for json, false se nÃ£o for.
      */
     public boolean isJSON()
     {
@@ -356,9 +357,9 @@ public class TimeTable
     }
 
     /**
-     * Método que verifica se o ficheiro da classe é um ficheiro csv.
+     * MÃ©todo que verifica se o ficheiro da classe Ã© um ficheiro csv.
      * 
-     * @return True se o ficheiro for csv, false se não for.
+     * @return True se o ficheiro for csv, false se nÃ£o for.
      */
     public boolean isCSV()
     {
@@ -366,11 +367,11 @@ public class TimeTable
     }
 
     /**
-     * Método que cria um mapa com as aulas sobrepostas associadas ao horário onde
-     * estão sobrepostas do objeto Timetable.
+     * MÃ©todo que cria um mapa com as aulas sobrepostas associadas ao horÃ¡rio onde
+     * estÃ£o sobrepostas do objeto Timetable.
      * 
-     * @return um MultiMap com a key sendo o tempo em que as aulas estão sobrepostas
-     *         e os values as aulas que estão sobrepostas.
+     * @return um MultiMap com a key sendo o tempo em que as aulas estÃ£o sobrepostas
+     *         e os values as aulas que estÃ£o sobrepostas.
      */
     public MultiValuedMap<LessonTime, Lesson> getOverlaidLessons()
     {
@@ -395,7 +396,7 @@ public class TimeTable
     }
 
     /**
-     * Método que cria uma nova Timetable a partir da atual, escolhendo apenas
+     * MÃ©todo que cria uma nova Timetable a partir da atual, escolhendo apenas
      * algumas das UCs.
      * 
      * @param ucs              Lista de Strings com o nome das UCs selecionadas.
@@ -420,7 +421,7 @@ public class TimeTable
     }
 
     /**
-     * Método que cria uma lista com as aulas sobrelotadas do objeto Timetable.
+     * MÃ©todo que cria uma lista com as aulas sobrelotadas do objeto Timetable.
      * 
      * @return Lista com as aulas sobrelotadas.
      */
@@ -436,7 +437,7 @@ public class TimeTable
     }
 
     /**
-     * Método que devolve uma string com a informação sobre a aulas sobrelotadas do
+     * MÃ©todo que devolve uma string com a informaÃ§Ã£o sobre a aulas sobrelotadas do
      * objeto Timetable.
      * 
      * @return String com as aulas sobrelotadas.
@@ -454,7 +455,7 @@ public class TimeTable
     }
 
     /**
-     * Método que devolve uma string com a informação sobre a aulas sobrepostas do
+     * MÃ©todo que devolve uma string com a informaÃ§Ã£o sobre a aulas sobrepostas do
      * objeto Timetable.
      * 
      * @return String com as aulas sobrepostas.
