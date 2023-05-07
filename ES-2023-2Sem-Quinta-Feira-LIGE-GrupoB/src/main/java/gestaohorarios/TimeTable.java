@@ -154,29 +154,27 @@ public class TimeTable
      */
     private File findFile(String path, String localDirectory) throws IOException
     {
-	File file = null;
+	File newfile = null;
 	if (isURL(path))
 	{
 	    if (localDirectory == null)
 	    {
 		LOGGER.log(Level.WARNING, "erro path url e localdirectory null");
-		return file;
+		return newfile;
 	    }
 	    if(path.startsWith("webcal")) 
 	    {
 	    	path = WebcalToHttp(path);
-	    	file = downloadFile(path, localDirectory);
-	    	System.out.println(file.getAbsolutePath());
-	    	return FileConverter.IcsToCsv(file.getAbsolutePath(), file.getAbsolutePath());
+	    	newfile = downloadFile(path, localDirectory);
+	    	return FileConverter.IcsToCsv(newfile.getAbsolutePath(), newfile.getAbsolutePath());
 	    }
 	    return downloadFile(path, localDirectory);
 	}
 	else
 	{
-//	    LOGGER.log("n�o url");
-	    file = new File(path);
+	    newfile = new File(path);
 	}
-	return file;
+	return newfile;
     }
 
     /**
@@ -212,26 +210,26 @@ public class TimeTable
     /**
      * Método que guarda o ficheiro local num local passado.
      *
-     * @param Path String que pode ser um URL ou um path onde se prentede guardar o
+     * @param path String que pode ser um URL ou um path onde se prentede guardar o
      *             ficheiro da classe.
-     * @throws IOException se a função copyFileToDirectory do FileUtils lançar
+     * @throws IOException se o copyFileToDirectory do FileUtils lançar
      *                     execeção.
      */
-    public void saveFile(String Path) throws IOException
+    public void saveFile(String path) throws IOException
     {
-	if (!isURL(Path))
+	if (!isURL(path))
 	{
-	    File directory = new File(Path);
+	    File directory = new File(path);
 	    if (!directory.exists())
 	    {
-		System.err.println("Diretoria n�o existe " + directory);
+	    	LOGGER.log(Level.INFO,"Diretoria n�o existe " + directory);
 		return;
 	    }
 	    FileUtils.copyFileToDirectory(this.file, directory);
 	}
 	else
 	{
-	    URL url = new URL(Path);
+	    URL url = new URL(path);
 	    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 	    connection.setDoOutput(true);
 	    connection.setRequestMethod("POST");
@@ -486,7 +484,7 @@ public class TimeTable
 
     
     /**
-     * M�todo que troca a palavra 'webcal' por 'https' numa string recebida
+     * Troca a palavra 'webcal' por 'https' numa string recebida
      *
      * @param s String sobre a qual se quer fazer o replace
 
