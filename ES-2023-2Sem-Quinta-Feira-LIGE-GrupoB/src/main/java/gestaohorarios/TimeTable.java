@@ -1,15 +1,14 @@
 package gestaohorarios;
 
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -18,15 +17,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
+
 import org.apache.commons.collections4.MultiValuedMap;
 import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.json.JSONArray;
-
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.DataOutputStream;
 
 import utilities.FileConverter;
 
@@ -53,7 +49,7 @@ public class TimeTable
 	    this.file = findFile(path, null);
 	} catch (IOException e)
 	{
-	    e.printStackTrace();
+	    LOGGER.log(Level.WARNING, e.getMessage());
 	    LOGGER.log(Level.SEVERE, "Erro ao criar a TimeTable");
 	}
     }
@@ -73,7 +69,7 @@ public class TimeTable
 	    this.file = findFile(path, localDirectory);
 	} catch (IOException e)
 	{
-	    e.printStackTrace();
+	    LOGGER.log(Level.WARNING, e.getMessage());
 	    LOGGER.log(Level.SEVERE, "Erro ao criar a TimeTable");
 	}
     }
@@ -166,6 +162,13 @@ public class TimeTable
 		LOGGER.log(Level.WARNING, "erro path url e localdirectory null");
 		return file;
 	    }
+	    if(path.startsWith("webcal")) 
+	    {
+	    	path = WebcalToHttp(path);
+	    	file = downloadFile(path, localDirectory);
+	    	System.out.println(file.getAbsolutePath());
+	    	return FileConverter.IcsToCsv(file.getAbsolutePath(), file.getAbsolutePath());
+	    }
 	    return downloadFile(path, localDirectory);
 	}
 	else
@@ -190,7 +193,7 @@ public class TimeTable
 	    this.file = FileConverter.csvTojson(file.getAbsolutePath(), path);
 	} catch (IOException e)
 	{
-	    e.printStackTrace();
+	    LOGGER.log(Level.WARNING, e.getMessage());
 	}
     }
 
@@ -258,7 +261,7 @@ public class TimeTable
      */
     public boolean isURL(String url)
     {
-	String regex = "^(https?|ftp|file)://.+";
+	String regex = "^(https?|ftp|file|webcal)://.+";
 	Pattern pattern = Pattern.compile(regex);
 	Matcher matcher = pattern.matcher(url);
 	return matcher.matches();
@@ -278,6 +281,10 @@ public class TimeTable
     {
 	URL fileUrl = new URL(url);
 	String fileName = fileUrl.getFile().substring(fileUrl.getFile().lastIndexOf('/') + 1);
+	if(fileName.length()>20) 
+	{
+		fileName="NovoDocumento.csv";
+	}
 	File destinationFile = new File(directory + "/" + fileName);
 	FileUtils.copyURLToFile(fileUrl, destinationFile);
 	String fileContent = FileUtils.readFileToString(destinationFile);
@@ -335,7 +342,7 @@ public class TimeTable
 	    }
 	} catch (IOException e)
 	{
-	    e.printStackTrace();
+	    LOGGER.log(Level.WARNING, e.getMessage());
 	}
 
     }
@@ -477,4 +484,16 @@ public class TimeTable
 	return s;
     }
 
+    
+    /**
+     * Método que troca a palavra 'webcal' por 'https' numa string recebida
+     *
+     * @param s String sobre a qual se quer fazer o replace
+
+     *
+     * @return String a string recebida com o replace feito
+     */
+    public String WebcalToHttp(String s) {
+    	return s.replace("webcal", "https");
+    }
 }

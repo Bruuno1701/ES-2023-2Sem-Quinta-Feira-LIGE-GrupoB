@@ -1,4 +1,5 @@
 package gestaohorarios;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -10,6 +11,8 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -17,9 +20,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.junit.Test;
-
-import gestaohorarios.TimeTable;
-
 
 public class TimeTableTest
 {
@@ -33,6 +33,7 @@ public class TimeTableTest
     private static final String HORARIO_FILTRADO_CSV = "src/test/resources/horario_ucs_filtradas.csv";
     private static final String HORARIO_SOBREPOSICOES_JSON = "src/test/resources/horario_sobreposicoes.json";
     private static final String HORARIO_GRANDE_CSV = "src/test/resources/horario_exemplo_grande.csv";
+    private static final Logger LOGGER = Logger.getLogger(TimeTable.class.getName());
     
     /**
      * Test method for {@link TimeTable#saveAsCSV(java.lang.String)}.
@@ -96,7 +97,6 @@ public class TimeTableTest
     private static final String GUARDAR1 = "C:\\Users\\Pedro Ferraz\\OneDrive - ISCTE-IUL\\Ambiente de Trabalho\\Iscte\\3º Ano\\2º Semestre\\ES\\Projeto\\outrosTestes";
     private static final String GUARDAR2 = "https://github.com/Bruuno1701/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/tree/FileConverter/ES-2023-2Sem-Quinta-Feira-LIGE-GrupoB/src/test/resources";
 
-    
     @Test
     public void testTimeTable2()
     {
@@ -158,8 +158,11 @@ public class TimeTableTest
 	} catch (IOException e)
 	{
 	    // TODO Auto-generated catch block
-	    e.printStackTrace();
+	    LOGGER.log(Level.WARNING, e.getMessage());
 	}
+	
+	t = new TimeTable("src/test/resources/NovoDocumento.csv");
+	t.getLessonsList();
     }
 
     @Test
@@ -220,6 +223,21 @@ public class TimeTableTest
 	System.out.println(tt3.getLessonsList());
 	assertTrue(tt1.equals(tt3));
     }
+    
+    
+    String url = "webcal://fenix.iscte-iul.pt/publico/publicPersonICalendar.do?method=iCalendar&username=bcbsf@iscte.pt&password=7TGd1Q0i0spmVYor9QrR1DNj9rxQgOdcGECQ5AsE6wQaVxvno8BsmwhInU93s5ZY3j92R8tlSsQzG4sP5mKyHj8nrD3HuJTElTgXtaDuQ5AganKSK7XG8hCVskDR0Gjy";
+    String path = "src/test/resources";
+    
+    @Test
+    public void testWcToHttp() 
+    {
+    	
+    	TimeTable t = new TimeTable(url, path);
+    	t.saveAsJSON("src/test/resources/NovoDocumento.json");
+    	t.getLessonsList().forEach(e-> System.out.println(e));
+    	
+    	
+    }
 
     @Test
     public void testGetOverlaidLessons()
@@ -237,7 +255,7 @@ public class TimeTableTest
 	tt.showOverbookedLessons();
 	assert (!tt.getOverbookedLessons().isEmpty());
 	tt = new TimeTable(HORARIO_CSV);
-	assert(tt.getOverbookedLessons().isEmpty());
+	assert (tt.getOverbookedLessons().isEmpty());
 
     }
 }
