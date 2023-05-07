@@ -1,17 +1,26 @@
 package GUI;
-//import table.TimeTable;
 import javax.swing.JFrame;
-//import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
 
 public class CreateTimeTable extends JFrame {
 	public CreateTimeTable() {
-		setSize(300,150);
-		setTitle("Horário");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(300,180);
+		setTitle("Fénix 2.0");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                HomePage home = new HomePage();
+                home.setVisible(true);
+            }
+        });
 		
 		JButton b1 = new JButton("Criar Horário Por UCs");
 		
