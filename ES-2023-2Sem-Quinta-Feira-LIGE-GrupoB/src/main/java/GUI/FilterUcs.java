@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -34,7 +35,7 @@ public class FilterUcs extends JFrame {
 	private TimeTable timetable;
 
 	public FilterUcs() {
-		setSize(300, 180);
+		setSize(500, 300);
 		setTitle("Fénix 2.0");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -48,7 +49,7 @@ public class FilterUcs extends JFrame {
 	        });
 		
 		JPanel mainPanel = new JPanel(new BorderLayout());
-		JPanel boxesPanel = new JPanel(new GridLayout(0, 1));
+		JPanel boxesPanel = new JPanel(new GridLayout(0,2));
 
 		JScrollPane scroll = new JScrollPane(boxesPanel);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -126,7 +127,7 @@ public class FilterUcs extends JFrame {
 
 	private class DisplayTimeTable extends JFrame {
 		public DisplayTimeTable(TimeTable timetable) {
-			setSize(200, 150);
+			setSize(285, 150);
 			setTitle("Criar Horário Por UCs");
 			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			setLocationRelativeTo(null);
@@ -169,6 +170,8 @@ public class FilterUcs extends JFrame {
 			});
 			add(openButton, BorderLayout.NORTH);
 			
+			JLabel label = new JLabel("Por favor, escolha uma das seguintes opções");
+			panel.add(label);
 
 			JButton saveButton = new JButton("Salvar horário");
 			saveButton.addActionListener(new ActionListener() {
