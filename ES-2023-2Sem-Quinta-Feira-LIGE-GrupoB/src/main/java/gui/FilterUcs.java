@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -25,8 +25,8 @@ import javax.swing.JTextArea;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
-import table.Lesson;
-import table.TimeTable;
+import gestaohorarios.Lesson;
+import gestaohorarios.TimeTable;
 import utilities.FileConverter;
 
 public class FilterUcs extends JFrame {
