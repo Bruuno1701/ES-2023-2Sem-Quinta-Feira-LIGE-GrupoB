@@ -1,12 +1,14 @@
 package GUI;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -19,13 +21,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
 
-import gestaohorarios.Lesson;
-import gestaohorarios.TimeTable;
+import table.Lesson;
+import table.TimeTable;
 
 public class FilterUcs extends JFrame {
 	private List<Lesson> selectedUcs;
@@ -130,38 +129,17 @@ public class FilterUcs extends JFrame {
 
 			JPanel panel = new JPanel(new BorderLayout());
 			
-			JButton openButton = new JButton("Abrir horário filtrado");
+			JButton openButton = new JButton("Abrir horário");
 			openButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					DefaultTableModel model = new DefaultTableModel(
-							new Object[][] {},
-							new String[] {"Curso", "Unidade Curricular", "Turno", "Turma", "Inscritos no turno", "Dia da semana", "Hora início da aula", "Hora fim da aula", "Data da aula", "Sala atribuída à aula", "Lotação da sala"}
-							);
-					
-					for (Lesson lesson : timetable.getLessonsList()) {
-						Object[] row = new Object[11];
-						row[0] = lesson.getCurso();
-						row[1] = lesson.getUnidadeCurricular();
-						row[2] = lesson.getTurno();
-						row[3] = lesson.getTurma();
-						row[4] = lesson.getInscritosNoTurno();
-						row[5] = lesson.getDiaDaSemana();
-						row[6] = lesson.getHoraInicio();
-						row[7] = lesson.getHoraFim();
-						row[8] = lesson.getData();
-						row[9] = lesson.getSala();
-						row[10] = lesson.getLotacao();
-						model.addRow(row);
-					}
-					
-					JTable table = new JTable(model);
-					
-					JFrame frame = new JFrame();
-					
-					frame.add(new JScrollPane(table));
-					frame.pack();
-					frame.setVisible(true);
+					String path = "src/main/resources/scheduleTest.html";
+					File file = new File(path);
+			        try {
+			            Desktop.getDesktop().browse(file.toURI()); 
+			        } catch (IOException ex) {
+			            ex.printStackTrace();
+			        }
 				}
 			});
 			add(openButton, BorderLayout.NORTH);
