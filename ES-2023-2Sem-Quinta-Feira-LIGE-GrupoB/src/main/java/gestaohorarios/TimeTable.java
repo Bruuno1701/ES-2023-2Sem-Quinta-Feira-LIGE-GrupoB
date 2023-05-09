@@ -121,9 +121,14 @@ public class TimeTable
     private void createJsonFile(String path)
     {
 	String jsonText = "[\n";
-	for (Lesson lesson : lessonsList)
+
+	for (int i = 0; i<lessonsList.size();i++)
 	{
-	    jsonText += lesson.toJSONDocument() + "\n";
+	    Lesson lesson = lessonsList.get(i);
+	    jsonText += lesson.toJSONDocument();
+	    if(i!=lessonsList.size()-1)
+		jsonText+=",";
+	    jsonText+="\n";
 	}
 	jsonText += "]";
 
