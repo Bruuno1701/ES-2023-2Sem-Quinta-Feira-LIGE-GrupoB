@@ -128,24 +128,6 @@ public class FilterUcs extends JFrame {
 			setLocationRelativeTo(null);
 
 			JPanel panel = new JPanel(new BorderLayout());
-			
-			JButton openButton = new JButton("Abrir horário");
-			openButton.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					String htmlpath = "src/main/resources/scheduleTest.html";
-					File file = new File(htmlpath);
-			        try {
-			            Desktop.getDesktop().browse(file.toURI()); 
-			        } catch (IOException ex) {
-			            ex.printStackTrace();
-			        }
-				}
-			});
-			add(openButton, BorderLayout.NORTH);
-			
-			JLabel label = new JLabel("Por favor, escolha uma das seguintes opções");
-			panel.add(label);
 
 			JButton saveButton = new JButton("Salvar horário");
 			saveButton.addActionListener(new ActionListener() {
